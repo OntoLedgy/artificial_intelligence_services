@@ -5,8 +5,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pytest
 
-from code.services.orchestrators.graph_rag_orchestrator import GraphRagOrchestrator
-from code.services.tokenisation.tokeniser import num_tokens_from_string
+from services.orchestrators.graph_rag_orchestrator import GraphRagOrchestrator
+from services.tokenisation.tokeniser import num_tokens_from_string
 
 class TestLangchainGraphRetriever:
 

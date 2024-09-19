@@ -1,9 +1,10 @@
 import openai
 import os
 
-from code.services.summarisation.pdf_summariser import PDFSummarizer
+from services.summarisation.pdf_summariser import PDFSummarizer
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
+
 
 class TestLangChainDocumentSummariser:
 

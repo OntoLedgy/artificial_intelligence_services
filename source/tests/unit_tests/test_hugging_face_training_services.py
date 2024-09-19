@@ -1,14 +1,14 @@
 import json
 import pytest
 
-from transformers import AutoTokenizer, pipeline, AutoModelForCausalLM
+from transformers import  AutoModelForCausalLM
 
-from code.common_utilities.pdf_services import extract_text_from_pdfs
-from code.services.data_preparation.prepare_data import prepare_data_for_training
-from code.services.fine_tuning.model_fine_tuner import train_model
-from code.services.llms.text_generators import generate_text_using_pipeline, generate_text_using_model
-from code.services.model_management.model_loader import load_model
-from code.services.tokenisation.tokeniser import Tokeniser
+from common_utilities.pdf_services import extract_text_from_pdfs
+from services.data_preparation.prepare_data import prepare_data_for_training
+from services.fine_tuning.model_fine_tuner import train_model
+from services.llms.text_generators import generate_text_using_pipeline, generate_text_using_model
+from services.model_management.model_loader import load_model
+from services.tokenisation.tokeniser import Tokeniser
 
 
 class TestHuggingFaceFineTunedModel:

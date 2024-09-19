@@ -1,7 +1,7 @@
 import asyncio
 import pytest
 
-from source.code.services.object_model.agents.GPTResearcherAgent import GPTResearcherAgent
+from services.object_model.agents.GPTResearcherAgent import GPTResearcherAgent
 
 @pytest.mark.asyncio
 class TestGPTResearcherServices:

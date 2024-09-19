@@ -1,6 +1,5 @@
-from source.code.common_utilities.configurations import Configurations
-from source.code.services.object_model.configurations.OpenAIConfigurations import OpenAIConfigurations
-
+from common_utilities.configurations import Configurations
+from services.object_model.configurations.OpenAIConfigurations import OpenAIConfigurations
 
 class TestConfigurationParsers:
     def test_parse_configuration(self

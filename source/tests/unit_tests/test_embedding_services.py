@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 from openai import OpenAI
 
-from code.common_utilities.pdf_services import load_pdfs
+from common_utilities.pdf_services import load_pdfs
 
 # Directory containing PDF articles
 PDF_DIR = r'D:\OneDrives\OneDrive - OntoLedgy\Ontology of Money\Literature Review\Accounting'
