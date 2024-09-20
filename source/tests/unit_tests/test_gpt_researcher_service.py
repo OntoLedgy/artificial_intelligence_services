@@ -1,7 +1,8 @@
 import asyncio
 import pytest
 
-from services.object_model.agents.GPTResearcherAgent import GPTResearcherAgent
+from services.object_model.agents.GPTResearcherAgent import get_research_response
+
 
 @pytest.mark.asyncio
 class TestGPTResearcherServices:
@@ -14,21 +15,9 @@ class TestGPTResearcherServices:
         await asyncio.sleep(1)
         self.resource = None
 
-    async def test_research_response(
-            self):
+    def test_research_response(self):
+        research_question_file_path = "../tests/data/inputs/research_question.prompt"
+        output_file_path = "../tests/data/outputs/test_report1.txt"
 
-        research_question_file = open("../data/inputs/research_question.prompt")
-
-        research_question = research_question_file.read()
-
-        researcher_service = GPTResearcherAgent(
-            research_question
-            )
-
-        response = await researcher_service.generate_report()
-
-        file = open("../data/outputs/test_report1.txt", "w")
-        file.write(response)
-        file.close()
-
+        asyncio.run(get_research_response(research_question_file_path, output_file_path))
 

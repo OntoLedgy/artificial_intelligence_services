@@ -39,3 +39,70 @@ To install the required dependencies, run:
 
 ```bash
 pip install -r requirements.txt
+```
+
+## Requirements
+
+- Python 3.8+
+- Dependencies:
+  - `langchain`
+  - `openai`
+  - `networkx` (for GraphRAG)
+  - `pandas`, `numpy` (for data handling)
+
+## Usage
+
+### GraphRAG Example
+
+```python
+from services.orchestrators.graph_rag_orchestrator import GraphRagOrchestrator
+import pandas as pd
+
+news = pd.read_csv(
+            "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv"
+        )
+
+graph_rag_orchestrator = GraphRagOrchestrator(news)
+
+graph_rag_orchestrator.orchestrate()
+
+```
+
+### LangChain Wrapper Example
+
+```python
+import os
+from services.summarisation.pdf_summariser import PDFSummarizer
+
+pdf_path = r"\Kuper and Vardi - 1993 - The logical data model.pdf"
+openai_api_key = os.getenv('OPENAI_API_KEY')
+
+summarizer = PDFSummarizer(
+    pdf_path,
+    openai_api_key)
+
+summarizer.load_and_split_pdf()
+summary = summarizer.summarize()
+
+print("Summary of the PDF:")
+print(summary)
+
+```
+### Agents Example
+
+```python
+import asyncio
+from services.object_model.agents.GPTResearcherAgent import get_research_response
+
+research_question_file_path = "../tests/data/inputs/research_question.prompt"
+output_file_path = "../tests/data/outputs/test_report1.txt"
+
+asyncio.run(get_research_response(research_question_file_path, output_file_path))
+```
+
+### Contributing
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue if you encounter any bugs or have suggestions for new features.
+
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
