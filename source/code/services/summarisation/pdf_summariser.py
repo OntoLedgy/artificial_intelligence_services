@@ -7,7 +7,7 @@ from langchain_openai import ChatOpenAI
 from pypdf.errors import PdfReadError
 
 # OpenAI API key setup
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 class PDFSummarizer:
@@ -20,7 +20,7 @@ class PDFSummarizer:
 
         self.llm = ChatOpenAI(
             api_key=openai_api_key,
-            model_name="gpt-4",
+            model_name="gpt-3.5-turbo",
             temperature=0.7,
             max_tokens=1000
         )
