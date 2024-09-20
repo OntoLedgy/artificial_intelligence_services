@@ -1,6 +1,6 @@
 import pytest
-from source.code.common_utilities.configurations import Configurations
-from source.code.services.object_model.configurations.OpenAIConfigurations import OpenAIConfigurations
+from configurations.configurations import Configurations
+from configurations.open_ai_configurations import OpenAIConfigurations
 
 
 @pytest.fixture(scope="session")

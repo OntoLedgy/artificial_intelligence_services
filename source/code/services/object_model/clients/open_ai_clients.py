@@ -2,12 +2,14 @@ from openai import OpenAI
 import openai
 
 
-class OpenAiClient:
+class OpenAiClients:
     def __init__(
             self,
-            api_key,
-            model="gpt-4o",
-            temperature=0.7):
+            api_key: str,
+            model: str = "gpt-4o",
+            temperature: float = 0.7,
+            organisation=None,
+            project=None):
 
         self.api_key = api_key
         self.model = model
@@ -16,8 +18,8 @@ class OpenAiClient:
 
         self.client = OpenAI(
             api_key=self.api_key,
-            organization="org-JVbfEJAWpvfoAZKVfrF4aLLp",
-            project="proj_8vpS67K6GLSjLkJQlvVCgRGt"
+            organization=organisation,
+            project=project
         )
 
     def get_response(
@@ -50,7 +52,7 @@ class OpenAiClient:
             self,
             temperature):
 
-        self.temperature=temperature
+        self.temperature = temperature
 
     def set_api_key(self, api_key: str):
         self.api_key = api_key

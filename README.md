@@ -92,7 +92,7 @@ print(summary)
 
 ```python
 import asyncio
-from services.object_model.agents.GPTResearcherAgent import get_research_response
+from services.object_model.agents.gpt_researcher_agents import get_research_response
 
 research_question_file_path = "../tests/data/inputs/research_question.prompt"
 output_file_path = "../tests/data/outputs/test_report1.txt"
