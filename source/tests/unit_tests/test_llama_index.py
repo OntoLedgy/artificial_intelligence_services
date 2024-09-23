@@ -41,7 +41,7 @@ class TestLlamaIndex:
 
     def test_llama_index(
             self):
-        persist_dir = "../data/outputs/vector_storage"
+        persist_dir = "./data/outputs/vector_storage"
         if not os.path.exists(persist_dir):
             # load the documents and create the index
             documents = SimpleDirectoryReader("../data").load_data()
