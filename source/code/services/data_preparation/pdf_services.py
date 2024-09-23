@@ -1,6 +1,7 @@
 import os
 import PyPDF2
 
+
 def extract_text_from_pdfs(pdf_folder):
     pdf_texts = []
     for pdf_file in os.listdir(pdf_folder):
@@ -14,7 +15,6 @@ def extract_text_from_pdfs(pdf_folder):
     return pdf_texts
 
 
-
 def extract_text_from_pdf(pdf_path):
     text = ""
     with open(pdf_path, 'rb') as file:
@@ -23,6 +23,7 @@ def extract_text_from_pdf(pdf_path):
             page = pdf_reader.pages[page_num]
             text += page.extract_text()
     return text
+
 
 # Read articles from PDFs into a list
 def load_pdfs(directory):

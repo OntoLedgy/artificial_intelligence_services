@@ -2,17 +2,10 @@ from gpt_researcher import GPTResearcher
 import asyncio
 
 
-async def get_research_response(research_question_file, output_file):
-    with open(research_question_file, 'r') as f:
-        research_question = f.read()
 
-    researcher_service = GPTResearcherAgent(research_question)
-    response = await researcher_service.generate_report()
 
-    with open(output_file, 'w') as f:
-        f.write(response)
 
-class GPTResearcherAgent:
+class GPTResearcherAgents:
     def __init__(
 
             self,

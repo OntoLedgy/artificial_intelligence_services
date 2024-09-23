@@ -6,6 +6,7 @@ def train_model(
         tokenized_dataset,
         tokenizer,
         model):
+
     # Define training arguments
     training_args = TrainingArguments(
         output_dir='./results',
