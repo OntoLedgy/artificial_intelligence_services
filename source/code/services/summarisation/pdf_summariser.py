@@ -3,7 +3,8 @@ import os
 import pdfplumber
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import load_summarize_chain
-from langchain_openai import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 from pypdf.errors import PdfReadError
 
 # OpenAI API key setup
