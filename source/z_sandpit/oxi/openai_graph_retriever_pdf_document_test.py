@@ -41,8 +41,6 @@ if __name__ == '__main__':
             text=pdf_full_text,
             llm_transformer=graph_rag_orchestrator.llm_transformer)
 
-    # graph_rag_orchestrator.orchestrate()
-
     graph_rag_orchestrator.graph_documents = \
         graph_documents
 

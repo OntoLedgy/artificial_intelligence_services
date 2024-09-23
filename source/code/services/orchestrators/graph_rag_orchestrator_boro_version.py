@@ -94,7 +94,9 @@ class BoroGraphRagOrchestrator:
             for node in nodes:
                 # Optionally relabel nodes to avoid collisions
                 # nx_graph.add_node(f"{node.id}_graph_{i}")
-                nx_graph.add_node(f"{node.id}")
+                nx_graph.add_node(
+                    node_for_adding=f"{node.id}",
+                    type=node.type)
 
 
             for edge in edges:
@@ -103,7 +105,10 @@ class BoroGraphRagOrchestrator:
                 # target = f"{edge.target.id}_graph_{i}"
                 source = f"{edge.source.id}"
                 target = f"{edge.target.id}"
-                nx_graph.add_edge(source, target)
+                nx_graph.add_edge(
+                    source,
+                    target,
+                    type=edge.type)
 
             combined_graph = compose(combined_graph, nx_graph)
 
