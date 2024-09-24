@@ -10,7 +10,7 @@ from networkx.readwrite.graphml import write_graphml
 from networkx.relabel import relabel_nodes
 from tqdm import tqdm
 from typing import List
-from source.code.configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+from source.b_code.configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 
 
 class BoroGraphRagOrchestrator:

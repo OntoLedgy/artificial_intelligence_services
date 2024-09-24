@@ -1,5 +1,5 @@
-from source.code.common_utilities.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
-from source.code.services.summarisation.pdf_summariser import PDFSummarizer
+from source.b_code.common_utilities.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+from source.b_code.services.summarisation.pdf_summariser import PDFSummarizer
 from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import override_nf_open_ai_configurations_oxi
 
 if __name__ == '__main__':

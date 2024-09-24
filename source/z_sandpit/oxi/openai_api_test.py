@@ -1,5 +1,5 @@
-from source.code.services.object_model.agents.GPTResearcherAgent import get_research_response
-from source.code.services.object_model.clients.OpenAiClient import OpenAiClient
+from source.b_code.services.object_model.agents.GPTResearcherAgent import get_research_response
+from source.b_code.services.object_model.clients.OpenAiClient import OpenAiClient
 
 if __name__ == '__main__':
     prompt = "Explain the theory of relativity in simple terms."

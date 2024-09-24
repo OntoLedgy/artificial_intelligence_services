@@ -6,7 +6,7 @@ class OpenAiClient:
     def __init__(
             self,
             api_key,
-            model="gpt-3.5-turbo",
+            model="gpt-4o",
             temperature=0.7):
 
         self.api_key = api_key
@@ -15,7 +15,7 @@ class OpenAiClient:
         openai.api_key = self.api_key
 
         self.client = OpenAI(
-            api_key='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',
+            api_key=self.api_key
             # organization="org-JVbfEJAWpvfoAZKVfrF4aLLp",
             # project="proj_8vpS67K6GLSjLkJQlvVCgRGt"
         )

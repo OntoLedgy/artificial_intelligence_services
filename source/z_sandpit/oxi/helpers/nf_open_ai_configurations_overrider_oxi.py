@@ -1,4 +1,4 @@
-from source.code.configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+from source.b_code.configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 
 
 def override_nf_open_ai_configurations_oxi() \

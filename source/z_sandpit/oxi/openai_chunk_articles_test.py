@@ -1,7 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from source.code.services.tokenisation.tokeniser import num_tokens_from_string
+from source.b_code.services.tokenisation.tokeniser import num_tokens_from_string
 
 if __name__ == '__main__':
     news = pd.read_csv("https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv")
