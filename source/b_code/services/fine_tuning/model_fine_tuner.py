@@ -2,6 +2,7 @@
 
 from transformers import Trainer, TrainingArguments
 
+
 def train_model(
         tokenized_dataset,
         tokenizer,
