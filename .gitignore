@@ -2,3 +2,4 @@
 /source/tests/configurations/
 /source/tests/data/outputs/
 /source/tests/data/inputs/pdf
+*.pyc
