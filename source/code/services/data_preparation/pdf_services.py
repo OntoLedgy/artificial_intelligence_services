@@ -1,7 +1,7 @@
 import os
 import PyPDF2
 
-
+# TODO: MKh - these first two methods appear the same? Merge?
 # TODO: MKh - should these be separate files? Helpers?
 # TODO: MKh - should these be clean coded?
 def extract_text_from_pdfs(pdf_folder):

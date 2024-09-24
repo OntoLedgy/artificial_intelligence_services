@@ -3,7 +3,7 @@ import numpy as np
 import faiss
 
 
-# TODO: MKh - should we type the parameters?
+# TODO: MKh - should we type the parameters? Is there a way of automating this?
 class Embeddings:
     def __init__(self,
                  model,
