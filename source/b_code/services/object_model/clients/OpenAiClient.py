@@ -12,12 +12,10 @@ class OpenAiClient:
         self.api_key = api_key
         self.model = model
         self.temperature = temperature
-        openai.api_key = self.api_key
+        #openai.api_key = self.api_key
 
         self.client = OpenAI(
-            api_key=self.api_key,
-            organization="org-JVbfEJAWpvfoAZKVfrF4aLLp",
-            project="proj_8vpS67K6GLSjLkJQlvVCgRGt"
+            api_key=self.api_key
         )
 
     def get_response(
