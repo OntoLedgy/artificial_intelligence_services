@@ -44,10 +44,11 @@ class TestLlamaIndex:
         persist_dir = "./data/outputs/vector_storage"
         if not os.path.exists(persist_dir):
             # load the documents and create the index
-            documents = SimpleDirectoryReader("../data").load_data()
+            documents = SimpleDirectoryReader("./data/inputs/txt").load_data()
             index = VectorStoreIndex.from_documents(documents)
             # store it for later
-            index.storage_context.persist(persist_dir=persist_dir)
+            index.storage_context.persist(
+                persist_dir=persist_dir)
         else:
             # load the existing index
             storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
