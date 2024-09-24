@@ -1,39 +1,27 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
-from langchain_community.chat_models import ChatOpenAI
-from langchain_community.graphs import Neo4jGraph
-from langchain_community.graphs.graph_document import GraphDocument
-from langchain_core.documents import Document
-from langchain_experimental.graph_transformers import LLMGraphTransformer
-from networkx.algorithms.operators.binary import compose
-from networkx.classes import Graph
-from networkx.readwrite.graphml import write_graphml
-from networkx.relabel import relabel_nodes
 from tqdm import tqdm
 from typing import List
-# from langchain_community.graphs.graph_document import GraphDocument
-# from langchain_core.documents import Document
-# from langchain_community.graphs import Neo4jGraph
-# from langchain_experimental.graph_transformers import LLMGraphTransformer
-# from langchain_openai import ChatOpenAI
+from langchain_community.graphs.graph_document import GraphDocument
+from langchain_core.documents import Document
+from langchain_community.graphs import Neo4jGraph
+from langchain_experimental.graph_transformers import LLMGraphTransformer
+from langchain_openai import ChatOpenAI
 
 
-# TODO: Need to revert to its original state from the development branch
 class GraphRagOrchestrator:
     def __init__(self,
                  data_set,
                  model_name="gpt-4o"):
-        # self.graph = Neo4jGraph()
+        self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(
-            api_key='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',
             temperature=0,
             model_name=model_name)
 
         self.llm_transformer = LLMGraphTransformer(
             llm=self.llm,
-            # node_properties=["description"],
-            # relationship_properties=["description"]
+            node_properties=["description"],
+            relationship_properties=["description"]
         )
         self.graph_documents = []
 
@@ -67,38 +55,8 @@ class GraphRagOrchestrator:
 
                 self.graph_documents.extend(graph_document)
 
-        # self.graph.add_graph_documents(
-        #     self.graph_documents,
-        #     baseEntityLabel=True,
-        #     include_source=True
-        # )
-
-    # OXi additions  #####################################
-
-    def get_combined_networkx_graph_from_graph_documents(
-            self) \
-            -> Graph:
-        combined_graph = \
-            Graph()
-
-        for i, graph_doc in enumerate(self.graph_documents):
-            nx_graph = Graph()
-
-            nodes = getattr(graph_doc, 'nodes', [])
-            edges = getattr(graph_doc, 'relationships', [])
-
-            # Add nodes and edges to the NetworkX graph
-            for node in nodes:
-                # Optionally relabel nodes to avoid collisions
-                nx_graph.add_node(f"{node.id}_graph_{i}")
-
-            for edge in edges:
-                # Add edges (relabel source and target nodes)
-                source = f"{edge.source.id}_graph_{i}"
-                target = f"{edge.target.id}_graph_{i}"
-                nx_graph.add_edge(source, target)
-
-            combined_graph = compose(combined_graph, nx_graph)
-
-        return \
-            combined_graph
+        self.graph.add_graph_documents(
+            self.graph_documents,
+            baseEntityLabel=True,
+            include_source=True
+        )

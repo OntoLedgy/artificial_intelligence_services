@@ -41,9 +41,21 @@ class Configurations:
         except AttributeError:
             print(f"Missing configuration section: {section_name}")
 
-    def get_config(self, section_name) -> str:
-        """Gets a configuration section."""
-        return getattr(self, section_name.lower(), None)
+    def get_config(
+            self,
+            section_name,
+            key=None):
+
+        """Gets a configuration section or a specific key from the section."""
+        section = getattr(self, section_name.lower(), None)
+        if section is None:
+            print(f"Configuration section {section_name} not found")
+            return None
+
+        if key:
+            return getattr(section, key.lower(), None)
+
+        return section
 
     def set_config(self, section_name, **kwargs):
         """Updates the configuration section dynamically."""
