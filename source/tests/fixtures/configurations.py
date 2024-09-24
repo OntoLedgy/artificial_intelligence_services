@@ -1,12 +1,12 @@
 import pytest
-from source.code.common_utilities.configurations import Configurations
-from source.code.services.object_model.configurations.OpenAIConfigurations import OpenAIConfigurations
+from configurations.ol_configurations.configurations import Configurations
+from configurations.ol_configurations.open_ai_configurations import OpenAIConfigurations
 
 
 @pytest.fixture(scope="session")
 def configuration_manager():
 
-    configuration_file = r"source\tests\configurations\configuration.json"
+    configuration_file = r"source\tests\configurations\open_ai_configuration.json"
 
     configuration_manager = Configurations(
         configuration_file)

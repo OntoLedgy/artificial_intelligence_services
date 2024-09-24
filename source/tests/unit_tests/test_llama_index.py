@@ -41,7 +41,7 @@ class TestLlamaIndex:
 
     def test_llama_index(
             self):
-        persist_dir = "../configurations/storage"
+        persist_dir = "./data/outputs/vector_storage"
         if not os.path.exists(persist_dir):
             # load the documents and create the index
             documents = SimpleDirectoryReader("../data").load_data()
@@ -58,13 +58,30 @@ class TestLlamaIndex:
         response = query_engine.query("What did the author do growing up?")
         print(response)
 
-        def test_llama_rag(self):
-            news = pd.read_csv(
-                "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv")
-            documents = [Document(text=f"{row['title']}: {row['text']}") for i, row in news.iterrows()]
+    def test_llama_rag(self):
+        news = pd.read_csv(
+            "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv")
+        documents = [Document(text=f"{row['title']}: {row['text']}") for i, row in news.iterrows()]
 
-            entities = Literal["PERSON", "LOCATION", "ORGANIZATION", "PRODUCT", "EVENT"]
-            relations = Literal[
+        entities = Literal["PERSON", "LOCATION", "ORGANIZATION", "PRODUCT", "EVENT"]
+        relations = Literal[
+            "SUPPLIER_OF",
+            "COMPETITOR",
+            "PARTNERSHIP",
+            "ACQUISITION",
+            "WORKS_AT",
+            "SUBSIDIARY",
+            "BOARD_MEMBER",
+            "CEO",
+            "PROVIDES",
+            "HAS_EVENT",
+            "IN_LOCATION",
+        ]
+
+        # define which entities can have which relations
+        validation_schema = {
+            "Person": ["WORKS_AT", "BOARD_MEMBER", "CEO", "HAS_EVENT"],
+            "Organization": [
                 "SUPPLIER_OF",
                 "COMPETITOR",
                 "PARTNERSHIP",
@@ -76,46 +93,29 @@ class TestLlamaIndex:
                 "PROVIDES",
                 "HAS_EVENT",
                 "IN_LOCATION",
-            ]
+            ],
+            "Product": ["PROVIDES"],
+            "Event": ["HAS_EVENT", "IN_LOCATION"],
+            "Location": ["HAPPENED_AT", "IN_LOCATION"],
+        }
 
-            # define which entities can have which relations
-            validation_schema = {
-                "Person": ["WORKS_AT", "BOARD_MEMBER", "CEO", "HAS_EVENT"],
-                "Organization": [
-                    "SUPPLIER_OF",
-                    "COMPETITOR",
-                    "PARTNERSHIP",
-                    "ACQUISITION",
-                    "WORKS_AT",
-                    "SUBSIDIARY",
-                    "BOARD_MEMBER",
-                    "CEO",
-                    "PROVIDES",
-                    "HAS_EVENT",
-                    "IN_LOCATION",
-                ],
-                "Product": ["PROVIDES"],
-                "Event": ["HAS_EVENT", "IN_LOCATION"],
-                "Location": ["HAPPENED_AT", "IN_LOCATION"],
-            }
+        kg_extractor = SchemaLLMPathExtractor(
+            llm=OpenAI(),
+            possible_entities=entities,
+            possible_relations=relations,
+            kg_validation_schema=validation_schema,
+            # if false, allows for values outside of the schema
+            # useful for using the schema as a suggestion
+            strict=True,
+        )
 
-            kg_extractor = SchemaLLMPathExtractor(
-                llm=OpenAI(),
-                possible_entities=entities,
-                possible_relations=relations,
-                kg_validation_schema=validation_schema,
-                # if false, allows for values outside of the schema
-                # useful for using the schema as a suggestion
-                strict=True,
-            )
+        NUMBER_OF_ARTICLES = 250
 
-            NUMBER_OF_ARTICLES = 250
-
-            index = PropertyGraphIndex.from_documents(
-                documents[:NUMBER_OF_ARTICLES],
-                kg_extractors=[kg_extractor],
-                llm=OpenAI(),
-                embed_model=embed_model,
-                property_graph_store=graph_store,
-                show_progress=True,
-            )
+        index = PropertyGraphIndex.from_documents(
+            documents[:NUMBER_OF_ARTICLES],
+            kg_extractors=[kg_extractor],
+            llm=OpenAI(),
+            embed_model=embed_model,
+            property_graph_store=graph_store,
+            show_progress=True,
+        )

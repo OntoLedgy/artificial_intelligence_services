@@ -3,7 +3,7 @@ import pytest
 
 from transformers import  AutoModelForCausalLM
 
-from common_utilities.pdf_services import extract_text_from_pdfs
+from services.data_preparation.pdf_services import extract_text_from_pdfs
 from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
 from services.llms.text_generators import generate_text_using_pipeline, generate_text_using_model
@@ -25,10 +25,13 @@ class TestHuggingFaceFineTunedModel:
         self.tokenizer = Tokeniser(model_name=self.model_type)
         self.model = AutoModelForCausalLM.from_pretrained(self.model_type)
         self.model.resize_token_embeddings(len(self.tokenizer.tokenizer))
-        self.prompt = "give a history of accounting methods"
+        self.prompt = "what is accounting"
 
     def test_data_preparation(self):
-        chunked_data = prepare_data_for_training(self.pdf_text, chunk_size=512)
+        chunked_data = prepare_data_for_training(
+            self.pdf_text,
+            chunk_size=512)
+
         print(chunked_data)
 
         # Save the dataset in JSONL format
@@ -42,7 +45,7 @@ class TestHuggingFaceFineTunedModel:
             self.chunked_data_file_path)
 
         self.tokenizer.print_tokenized_data(
-            num_samples=2)
+            num_samples=8)
 
         self.tokenizer.save_tokenized_data_to_file(
             output_file=self.tokenised_data_file_path)
@@ -56,14 +59,14 @@ class TestHuggingFaceFineTunedModel:
         print(tokenized_dataset[0])
 
         train_model(tokenized_dataset,
-                    self.tokenizer,
+                    self.tokenizer.tokenizer,
                     self.model)
 
         self.model.save_pretrained(
-            self.pretrained_model_name_or_path)
+            save_directory=self.pretrained_model_name_or_path)
 
         self.tokenizer.tokenizer.save_pretrained(
-            self.pretrained_tokenizer_name_or_path)
+            save_directory=self.pretrained_tokenizer_name_or_path)
 
     def test_text_generation(self):
 
