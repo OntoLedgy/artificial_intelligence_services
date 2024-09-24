@@ -1,5 +1,4 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.graphs import Neo4jGraph
 from langchain_community.graphs.graph_document import GraphDocument
@@ -11,15 +10,7 @@ from networkx.readwrite.graphml import write_graphml
 from networkx.relabel import relabel_nodes
 from tqdm import tqdm
 from typing import List
-
-from source.code.common_utilities.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
-
-
-# from langchain_community.graphs.graph_document import GraphDocument
-# from langchain_core.documents import Document
-# from langchain_community.graphs import Neo4jGraph
-# from langchain_experimental.graph_transformers import LLMGraphTransformer
-# from langchain_openai import ChatOpenAI
+from source.code.configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 
 
 class BoroGraphRagOrchestrator:
