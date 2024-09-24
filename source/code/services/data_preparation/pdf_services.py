@@ -2,6 +2,8 @@ import os
 import PyPDF2
 
 
+# TODO: MKh - should these be separate files? Helpers?
+# TODO: MKh - should these be clean coded?
 def extract_text_from_pdfs(pdf_folder):
     pdf_texts = []
     for pdf_file in os.listdir(pdf_folder):
@@ -15,6 +17,7 @@ def extract_text_from_pdfs(pdf_folder):
     return pdf_texts
 
 
+# TODO: MKh - should 'rb' be a common literal?
 def extract_text_from_pdf(pdf_path):
     text = ""
     with open(pdf_path, 'rb') as file:
@@ -25,6 +28,7 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 
+# TODO: MKh - should ".pdf" be a common literal?
 # Read articles from PDFs into a list
 def load_pdfs(directory):
     pdf_texts = []

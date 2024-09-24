@@ -1,7 +1,9 @@
 import numpy as np
+# TODO: MKh - should we import faiss?
 import faiss
 
 
+# TODO: MKh - should we type the parameters?
 class Embeddings:
     def __init__(self,
                  model,
