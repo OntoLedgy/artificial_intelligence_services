@@ -2,7 +2,6 @@ import pytest
 
 from b_code.services.object_model.clients.open_ai_client import OpenAiClient
 
-
 @pytest.fixture(autouse=True)
 def openai_service(configuration_manager):
     api_key = configuration_manager.get_config(
@@ -13,3 +12,5 @@ def openai_service(configuration_manager):
         api_key=api_key)
 
     return openai_service
+
+

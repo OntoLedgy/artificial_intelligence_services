@@ -6,3 +6,6 @@ PDF_FILE_EXTENSION = \
 
 UTF_8_ENCODING = \
     'utf-8'
+
+GRAPHML_FILE_EXTENSION = \
+    '.graphml'

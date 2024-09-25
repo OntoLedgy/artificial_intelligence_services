@@ -18,6 +18,15 @@ class NfGeneralConfigurations:
     HUGGING_FACE_MODEL_NAME = \
         'accounting_fine_tuned'
     
+    NUMBER_OF_ROWS = \
+        10
+    
+    MAXIMUM_WORKERS = \
+        10
+    
+    # number_of_rows = 10,
+    # maximum_workers = 10
+    
     # def test_text_generation(self):
     #
     #     model_path = r'data/outputs/models/'
