@@ -60,15 +60,25 @@ class BoroGraphRagOrchestrator:
         with ThreadPoolExecutor(
                 max_workers=maximum_workers) as executor:
             # Submitting all tasks and creating a list of future objects
-            futures = [
-                executor.submit(
-                        self.process_text,
-                        f"{row['title']} {row['text']}",
-                        self.llm_transformer)
-                
-                for i, row in self.data_set.head(
-                        number_of_rows).iterrows()
-                ]
+            if isinstance(self.data_set, list):
+                futures = [
+                    executor.submit(
+                            self.process_text,
+                            text_to_be_processed,
+                            self.llm_transformer)
+                    
+                    for text_to_be_processed in self.data_set]
+            
+            else:
+                futures = [
+                    executor.submit(
+                            self.process_text,
+                            f"{row['title']} {row['text']}",
+                            self.llm_transformer)
+                    
+                    for i, row in self.data_set.head(
+                            number_of_rows).iterrows()
+                    ]
             
             for future in tqdm(
                     as_completed(

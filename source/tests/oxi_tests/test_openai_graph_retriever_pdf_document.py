@@ -4,7 +4,9 @@ from networkx.readwrite.graphml import write_graphml
 
 from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.constants import GRAPHML_FILE_EXTENSION
+from services.data_preparation.pdf_documents_from_directory_loader import load_pdf_documents_from_directory
 from services.data_preparation.pdf_services import extract_text_from_pdf
+from services.data_preparation.pdf_services import load_pdfs
 from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import BoroGraphRagOrchestrator
 from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import override_nf_open_ai_configurations_oxi
 from source.z_sandpit.test_data.configuration.z_sandpit_test_constants import Z_SANDPIT_TEST_DATA_FOLDER_PATH, \
@@ -64,3 +66,30 @@ class TestOpenAiGraphRetrieverPdfDocument:
             self.output_file_path)
     
     # TODO: test directory of pdfs
+    def test_graph_retriever_pdf_directory_with_subfolders(
+            self) \
+            -> None:
+        zotero_pdf_directory_test_folder_form_path = \
+            os.path.join(
+                    Z_SANDPIT_TEST_DATA_FOLDER_PATH,
+                    'inputs',
+                    'STIDS-2024-bCLEARer_form')
+        
+        pdf_documents = \
+            load_pdf_documents_from_directory(
+                    directory_path=zotero_pdf_directory_test_folder_form_path,
+                    looks_into_subfolders=True)
+        
+        graph_rag_orchestrator = \
+            BoroGraphRagOrchestrator(
+                    model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
+                    data_set=pdf_documents)
+        
+        graph_rag_orchestrator.orchestrate()
+        
+        networkx_graph = \
+            graph_rag_orchestrator.get_combined_networkx_graph_from_graph_documents()
+        
+        write_graphml(
+                networkx_graph,
+                self.output_file_path)

@@ -380,3 +380,5 @@ wsproto==1.2.0
 xxhash==3.5.0
 yarl==1.9.4
 zopfli==0.2.3
+
+git+https://NfGuestReadOnly:ATBBJGXSNjjH8E4BBK74Af7HLFsK47751792@bitbucket.org/boro-nf/nf_common.git
