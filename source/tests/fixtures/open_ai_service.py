@@ -1,6 +1,6 @@
 import pytest
 
-from services.object_model.clients.OpenAiClient import OpenAiClient
+from b_code.services.object_model.clients.open_ai_client import OpenAiClient
 
 
 @pytest.fixture(autouse=True)

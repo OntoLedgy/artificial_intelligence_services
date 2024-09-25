@@ -11,6 +11,7 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core.indices.property_graph import SchemaLLMPathExtractor
 from llama_index.graph_stores.neo4j import Neo4jPGStore
 from llama_index.core import PropertyGraphIndex
+from llama_index.embeddings.openai import OpenAIEmbedding
 
 import os.path
 import pytest
@@ -20,24 +21,28 @@ import pandas as pd
 from typing import Literal
 
 
-@pytest.fixture(scope="class")
-def setup_tests():
-    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-    logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
-
-    username = "neo4j"
-    password = "stump-inlet-student"
-    url = "bolt://localhost:7687"
-
-    graph_store = Neo4jPGStore(
-        username=username,
-        password=password,
-        url=url,
-    )
 
 
 @pytest.mark.usefixtures("setup_tests")
 class TestLlamaIndex:
+
+    @pytest.fixture(autouse=True)
+    def setup_tests(self):
+        logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+        logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
+
+        username = "neo4j"
+        password = "stump-inlet-student"
+        url = "bolt://localhost:7687"
+
+        self.graph_store = Neo4jPGStore(
+            username=username,
+            password=password,
+            url=url,
+        )
+
+        self. embed_model = OpenAIEmbedding()
+
 
     def test_llama_index(
             self):
@@ -116,7 +121,9 @@ class TestLlamaIndex:
             documents[:NUMBER_OF_ARTICLES],
             kg_extractors=[kg_extractor],
             llm=OpenAI(),
-            embed_model=embed_model,
-            property_graph_store=graph_store,
+            embed_model=self.embed_model,
+            property_graph_store=self.graph_store,
             show_progress=True,
         )
+
+        print(index)
