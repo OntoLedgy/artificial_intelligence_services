@@ -3,6 +3,7 @@ import pytest
 
 from transformers import  AutoModelForCausalLM
 
+from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
 from services.data_preparation.pdf_services import extract_text_from_pdfs
 from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
@@ -71,7 +72,7 @@ class TestHuggingFaceFineTunedModel:
     def test_text_generation(self):
 
         model_path = r'data/outputs/models/'
-        model_name = "accounting_fine_tuned"
+        model_name = NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME
 
         model, tokeniser = load_model(
             model_name,

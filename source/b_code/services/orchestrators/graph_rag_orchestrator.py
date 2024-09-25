@@ -7,11 +7,13 @@ from langchain_community.graphs import Neo4jGraph
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from langchain_openai import ChatOpenAI
 
+from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+
 
 class GraphRagOrchestrator:
     def __init__(self,
                  data_set,
-                 model_name="gpt-4o"):
+                 model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O):
         self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(

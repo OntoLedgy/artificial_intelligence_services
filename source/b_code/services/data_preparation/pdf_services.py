@@ -1,6 +1,9 @@
 import os
 import PyPDF2
 
+from configurations.constants import PDF_FILE_EXTENSION
+from configurations.constants import READ_BYTES_ACRONYM
+
 
 # TODO: MKh - these first two methods appear the same? Merge?
 # TODO: MKh - should these be separate files? Helpers?
@@ -11,12 +14,12 @@ def extract_text_from_pdfs(
     for pdf_file in os.listdir(
             pdf_folder):
         if pdf_file.endswith(
-                '.pdf'):
+                PDF_FILE_EXTENSION):
             with open(
                     os.path.join(
                         pdf_folder,
                         pdf_file),
-                    'rb') as file:
+                    READ_BYTES_ACRONYM) as file:
                 reader = PyPDF2.PdfReader(
                     file)
                 text = ''
@@ -34,7 +37,7 @@ def extract_text_from_pdf(
     text = ""
     with open(
             pdf_path,
-            'rb') as file:
+            READ_BYTES_ACRONYM) as file:
         pdf_reader = PyPDF2.PdfReader(
             file)
         for page_num in range(
@@ -54,7 +57,7 @@ def load_pdfs(
     for filename in os.listdir(
             directory):
         if filename.endswith(
-                ".pdf"):
+                PDF_FILE_EXTENSION):
             file_path = os.path.join(
                 directory,
                 filename)
