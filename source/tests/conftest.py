@@ -1,2 +1,2 @@
-from fixtures.configurations import *
-from fixtures.open_ai_service import *
+from tests.fixtures.configurations import * # noqa: F403
+from tests.fixtures.open_ai_service import * # noqa: F403

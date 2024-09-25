@@ -1,4 +1,3 @@
-import os
 
 
 # to be replaced by interop_services

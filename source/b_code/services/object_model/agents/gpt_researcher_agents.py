@@ -1,5 +1,4 @@
 from gpt_researcher import GPTResearcher
-import asyncio
 
 
 
@@ -32,7 +31,7 @@ class GPTResearcherAgents:
     async def _get_report(
             self
     ) -> str:
-        research_result = await self.researcher.conduct_research()
+        await self.researcher.conduct_research()
         report = await self.researcher.write_report()
 
         return report
