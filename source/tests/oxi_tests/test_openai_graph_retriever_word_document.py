@@ -8,6 +8,7 @@ from source.z_sandpit.test_data.configuration.z_sandpit_test_constants import Z_
     COMPACT_TIMESTAMP_SUFFIX
 
 
+# TODO: Test temporarily on hold
 class TestOpenAiGraphRetrieverWordDocument:
     @pytest.fixture(
             autouse=True)

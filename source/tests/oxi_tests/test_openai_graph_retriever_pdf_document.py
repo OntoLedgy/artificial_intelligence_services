@@ -1,6 +1,7 @@
 import os
 import pytest
 from networkx.readwrite.graphml import write_graphml
+from configurations.constants import GRAPHML_FILE_EXTENSION
 from services.data_preparation.pdf_services import extract_text_from_pdf
 from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import BoroGraphRagOrchestrator
 from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import override_nf_open_ai_configurations_oxi
@@ -29,7 +30,9 @@ class TestOpenAiGraphRetrieverPdfDocument:
             os.path.join(
                 Z_SANDPIT_TEST_DATA_FOLDER_PATH,
                 'outputs',
-                'STIDS2024-FormalizingInformationalIntelligenceUncertainty-v0038' + COMPACT_TIMESTAMP_SUFFIX + '.graphml')
+                'STIDS2024-FormalizingInformationalIntelligenceUncertainty-v0038' + \
+                    COMPACT_TIMESTAMP_SUFFIX + \
+                    GRAPHML_FILE_EXTENSION)
 
     def test_graph_retriever_pdf_document_full_text(
             self) \
@@ -56,3 +59,5 @@ class TestOpenAiGraphRetrieverPdfDocument:
         write_graphml(
             networkx_graph,
             self.output_file_path)
+    
+    # TODO: test directory of pdfs

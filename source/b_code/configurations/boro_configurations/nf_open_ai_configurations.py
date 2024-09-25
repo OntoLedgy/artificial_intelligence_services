@@ -25,7 +25,7 @@ class NfOpenAiConfigurations:
         'gpt-4o'
 
     OPEN_AI_TEMPERATURE = \
-        0
+        0.7
 
     OPEN_AI_MAX_TOKENS = \
         1000

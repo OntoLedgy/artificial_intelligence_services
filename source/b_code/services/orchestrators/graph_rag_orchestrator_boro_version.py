@@ -12,6 +12,8 @@ from networkx.readwrite.graphml import write_graphml
 from networkx.relabel import relabel_nodes
 from tqdm import tqdm
 from typing import List
+
+from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
 from source.b_code.configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 
 
@@ -20,13 +22,13 @@ class BoroGraphRagOrchestrator:
     def __init__(
             self,
             data_set,
-            model_name = "gpt-4o"):
+            model_name = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI):
         # self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(
                 api_key=NfOpenAiConfigurations.OPEN_AI_API_KEY,
                 temperature=NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
-                model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME)
+                model_name=model_name)
         
         self.llm_transformer = LLMGraphTransformer(
                 llm=self.llm,
@@ -53,8 +55,8 @@ class BoroGraphRagOrchestrator:
     # TODO: change parameters to configurations
     def orchestrate(
             self,
-            number_of_rows = 10,
-            maximum_workers = 10):
+            number_of_rows = NfGeneralConfigurations.NUMBER_OF_ROWS,
+            maximum_workers = NfGeneralConfigurations.MAXIMUM_WORKERS):
         with ThreadPoolExecutor(
                 max_workers=maximum_workers) as executor:
             # Submitting all tasks and creating a list of future objects
