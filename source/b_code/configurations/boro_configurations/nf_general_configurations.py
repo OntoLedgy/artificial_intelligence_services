@@ -24,6 +24,22 @@ class NfGeneralConfigurations:
     MAXIMUM_WORKERS = \
         10
     
+    TEXT_GENERATION_MAX_LENGTH = \
+        200
+    
+    TEXT_GENERATION_TEMPERATURE = \
+        0.7
+    
+    # def generate_text_using_model
+        # output_ids = model.generate(
+        #     input_ids,
+        #     max_length=200,
+        #     num_return_sequences=1,
+        #     no_repeat_ngram_size=2,
+        #     top_p=0.95,
+        #     temperature=0.7,
+        #     do_sample=True,
+    
     # number_of_rows = 10,
     # maximum_workers = 10
     

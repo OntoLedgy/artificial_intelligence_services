@@ -1,13 +1,15 @@
 from openai import OpenAI
 import openai
 
+from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+
 
 class OpenAiClient:
     def __init__(
             self,
             api_key,
-            model="gpt-4o",
-            temperature=0.7):
+            model=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
+            temperature=NfOpenAiConfigurations.OPEN_AI_TEMPERATURE):
 
         self.api_key = api_key
         self.model = model
