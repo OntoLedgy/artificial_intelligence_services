@@ -8,6 +8,15 @@ class NfGeneralConfigurations:
     
     RECURSIVE_CHARACTER_TEXTSPLITTER_CHUNK_OVERLAP = \
         50
+    
+    NUMBER_OF_ROWS = \
+        10
+    
+    MAXIMUM_WORKERS = \
+        10
+    
+    # number_of_rows = 10,
+    # maximum_workers = 10
 
 # model.generate(
 #         input_ids,
