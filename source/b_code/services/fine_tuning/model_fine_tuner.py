@@ -1,8 +1,10 @@
-
-
+from nf_common_source.code.configurations.datastructure.logging_inspection_level_b_enums import LoggingInspectionLevelBEnums
+from nf_common_source.code.services.reporting_service.reporters.inspection_message_logger import log_inspection_message
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 from transformers import Trainer, TrainingArguments
 
 
+@run_and_log_function
 def train_model(
         tokenized_dataset,
         tokenizer,
@@ -30,6 +32,10 @@ def train_model(
     )
 
     # Train the model
+    log_inspection_message(
+            message='Training model...',
+            logging_inspection_level_b_enum=LoggingInspectionLevelBEnums.INFO)
+    
     trainer.train()
 
     return model

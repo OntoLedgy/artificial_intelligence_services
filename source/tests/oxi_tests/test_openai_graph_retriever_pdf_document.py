@@ -1,6 +1,7 @@
 import os
 import pytest
 from networkx.readwrite.graphml import write_graphml
+from nf_common_source.code.services.reporting_service.reporters.log_file import LogFiles
 
 from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.constants import GRAPHML_FILE_EXTENSION
@@ -37,6 +38,11 @@ class TestOpenAiGraphRetrieverPdfDocument:
                 'STIDS2024-FormalizingInformationalIntelligenceUncertainty-v0038' + \
                     COMPACT_TIMESTAMP_SUFFIX + \
                     GRAPHML_FILE_EXTENSION)
+        
+        LogFiles.open_log_file(
+                folder_path=os.path.join(
+                    Z_SANDPIT_TEST_DATA_FOLDER_PATH,
+                    'outputs'))
 
     def test_graph_retriever_pdf_document_full_text(
             self) \
@@ -85,6 +91,7 @@ class TestOpenAiGraphRetrieverPdfDocument:
                     model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
                     data_set=pdf_documents)
         
+        # TODO: Try to orchestrate sequentially rather than in parallel to test if there
         graph_rag_orchestrator.orchestrate()
         
         networkx_graph = \
