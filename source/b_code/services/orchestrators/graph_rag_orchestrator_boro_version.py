@@ -10,6 +10,7 @@ from networkx.classes import Graph, \
     DiGraph
 from networkx.readwrite.graphml import write_graphml
 from networkx.relabel import relabel_nodes
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 from tqdm import tqdm
 from typing import List
 
@@ -38,6 +39,7 @@ class BoroGraphRagOrchestrator:
         self.graph_documents = []
     
     
+    @run_and_log_function
     def process_text(
             self,
             text: str,
@@ -53,6 +55,7 @@ class BoroGraphRagOrchestrator:
     
     
     # TODO: change parameters to configurations
+    @run_and_log_function
     def orchestrate(
             self,
             number_of_rows = NfGeneralConfigurations.NUMBER_OF_ROWS,
@@ -101,6 +104,7 @@ class BoroGraphRagOrchestrator:
     
     # OXi additions  #####################################
     
+    @run_and_log_function
     def get_combined_networkx_graph_from_graph_documents(
             self) \
             -> DiGraph:

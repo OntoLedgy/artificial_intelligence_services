@@ -1,9 +1,11 @@
 import glob
 import os
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 from configurations.constants import PDF_FILE_EXTENSION
 from services.data_preparation.pdf_services import extract_text_from_pdf
 
 
+@run_and_log_function
 def load_pdf_documents_from_directory(
         directory_path: str,
         looks_into_subfolders: bool = True) \
@@ -22,7 +24,7 @@ def load_pdf_documents_from_directory(
     for file_system_object_path in \
             file_system_object_paths:
         pdf_document_texts = \
-            __add_file_of_specific_extension(
+            __add_pdf_text(
                 file_system_object_path=file_system_object_path,
                 pdf_document_texts=pdf_document_texts)
 
@@ -30,7 +32,8 @@ def load_pdf_documents_from_directory(
         pdf_document_texts
 
 
-def __add_file_of_specific_extension(
+@run_and_log_function
+def __add_pdf_text(
         file_system_object_path: str,
         pdf_document_texts: list) \
         -> list:
