@@ -7,15 +7,18 @@ from langchain_community.graphs import Neo4jGraph
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from langchain_openai import ChatOpenAI
 
+from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
+from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+
 
 class GraphRagOrchestrator:
     def __init__(self,
                  data_set,
-                 model_name="gpt-4o"):
+                 model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O):
         self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(
-            temperature=0,
+            temperature=NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
             model_name=model_name)
 
         self.llm_transformer = LLMGraphTransformer(
@@ -38,8 +41,8 @@ class GraphRagOrchestrator:
 
     def orchestrate(
             self,
-            number_of_rows=10,
-            maximum_workers=10):
+            number_of_rows = NfGeneralConfigurations.NUMBER_OF_ROWS,
+            maximum_workers = NfGeneralConfigurations.MAXIMUM_WORKERS):
         with ThreadPoolExecutor(max_workers=maximum_workers) as executor:
             # Submitting all tasks and creating a list of future objects
             futures = [

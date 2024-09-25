@@ -8,6 +8,53 @@ class NfGeneralConfigurations:
     
     RECURSIVE_CHARACTER_TEXTSPLITTER_CHUNK_OVERLAP = \
         50
+    
+    DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING = \
+        512
+    
+    DEFAULT_TRUNCATE_CONTEXT_MAX_TOKENS = \
+        4000
+    
+    HUGGING_FACE_MODEL_NAME = \
+        'accounting_fine_tuned'
+    
+    NUMBER_OF_ROWS = \
+        10
+    
+    MAXIMUM_WORKERS = \
+        10
+    
+    TEXT_GENERATION_MAX_LENGTH = \
+        200
+    
+    TEXT_GENERATION_TEMPERATURE = \
+        0.7
+    
+    # def generate_text_using_model
+        # output_ids = model.generate(
+        #     input_ids,
+        #     max_length=200,
+        #     num_return_sequences=1,
+        #     no_repeat_ngram_size=2,
+        #     top_p=0.95,
+        #     temperature=0.7,
+        #     do_sample=True,
+    
+    # number_of_rows = 10,
+    # maximum_workers = 10
+    
+    # def test_text_generation(self):
+    #
+    #     model_path = r'data/outputs/models/'
+    #     model_name = "accounting_fine_tuned"
+    
+    # def truncate_context(
+    #         context,
+    #         max_tokens = 4000)
+    
+    # def prepare_data_for_training(
+    #         texts,
+    #         chunk_size = 512
 
 # model.generate(
 #         input_ids,
