@@ -11,13 +11,17 @@ class NfOpenAiConfigurations:
     OPEN_AI_PROJECT_KEY = \
         default_string_empty
 
-    OPEN_AI_MODEL_NAME_1 = \
+    # TODO: Are these constants rather than configurations?
+    OPEN_AI_MODEL_NAME_GPT_4O_MINI = \
         'gpt-4o-mini'
     
-    OPEN_AI_MODEL_NAME_2 = \
+    OPEN_AI_MODEL_NAME_GPT_3_5_TURBO = \
         'gpt-3.5-turbo'
     
-    OPEN_AI_MODEL_NAME_3 = \
+    OPEN_AI_MODEL_NAME_GPT2 = \
+        'gpt2'
+    
+    OPEN_AI_MODEL_NAME_GPT_4O = \
         'gpt-4o'
 
     OPEN_AI_TEMPERATURE = \
