@@ -18,7 +18,7 @@ class GraphRagOrchestrator:
         self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(
-            temperature=0,
+            temperature=NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
             model_name=model_name)
 
         self.llm_transformer = LLMGraphTransformer(

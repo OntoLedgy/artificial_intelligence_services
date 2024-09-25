@@ -27,7 +27,7 @@ class BoroGraphRagOrchestrator:
         self.data_set = data_set
         self.llm = ChatOpenAI(
                 api_key=NfOpenAiConfigurations.OPEN_AI_API_KEY,
-                temperature=NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
+                temperature=NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
                 model_name=model_name)
         
         self.llm_transformer = LLMGraphTransformer(

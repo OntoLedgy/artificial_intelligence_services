@@ -1,5 +1,7 @@
 from transformers import pipeline
 
+from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
+
 
 def generate_text_using_pipeline(
         model,
@@ -25,11 +27,11 @@ def generate_text_using_model(
     # Generate text with specified parameters
     output_ids = model.generate(
         input_ids,
-        max_length=200,
+        max_length=NfGeneralConfigurations.TEXT_GENERATION_MAX_LENGTH,
         num_return_sequences=1,
         no_repeat_ngram_size=2,
         top_p=0.95,
-        temperature=0.7,
+        temperature=NfGeneralConfigurations.TEXT_GENERATION_TEMPERATURE,
         do_sample=True,
     )
 
