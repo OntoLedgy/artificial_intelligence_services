@@ -22,7 +22,7 @@ class BoroGraphRagOrchestrator:
     def __init__(
             self,
             data_set,
-            model_name = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI):
+            model_name = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI):  # TODO: should we make this a default configuration
         # self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(

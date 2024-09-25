@@ -1,6 +1,8 @@
 import os
 import pytest
 from networkx.readwrite.graphml import write_graphml
+
+from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.constants import GRAPHML_FILE_EXTENSION
 from services.data_preparation.pdf_services import extract_text_from_pdf
 from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import BoroGraphRagOrchestrator
@@ -43,6 +45,7 @@ class TestOpenAiGraphRetrieverPdfDocument:
     
         graph_rag_orchestrator = \
             BoroGraphRagOrchestrator(
+                model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
                 data_set=pdf_full_text)
     
         graph_documents = \
