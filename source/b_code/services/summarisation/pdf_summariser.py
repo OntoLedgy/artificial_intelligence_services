@@ -6,6 +6,8 @@ from langchain.chains import load_summarize_chain
 from langchain_openai import ChatOpenAI
 from pypdf.errors import PdfReadError
 
+from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+
 # OpenAI API key setup
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -20,7 +22,7 @@ class PDFSummarizer:
 
         self.llm = ChatOpenAI(
             api_key=openai_api_key,
-            model_name="gpt-4o-mini",
+            model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
             temperature=0.7,
             max_tokens=1000
         )

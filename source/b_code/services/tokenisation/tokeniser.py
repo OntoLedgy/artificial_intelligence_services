@@ -4,6 +4,8 @@ from datasets import Dataset, load_dataset
 from transformers import AutoTokenizer
 import tiktoken
 
+from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+
 
 def num_tokens_from_string(
         string: str,
@@ -17,7 +19,7 @@ def num_tokens_from_string(
 class Tokeniser:
     def __init__(
             self,
-            model_name='gpt2'):
+            model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT2):
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
