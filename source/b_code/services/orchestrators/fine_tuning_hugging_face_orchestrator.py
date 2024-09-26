@@ -10,6 +10,7 @@ from services.llms.text_generators import generate_text_using_pipeline
 from services.tokenisation.tokeniser import Tokeniser
 
 
+# TODO: Modify the code to take the chunked data rather than exporting it and importing it from file
 def orchestrate_fine_tuning_hugging_face(
         pdf_folder_path: str,
         chunked_data_file_path: str,
@@ -39,10 +40,14 @@ def orchestrate_fine_tuning_hugging_face(
             tokenizer=tokenizer,
             model=pretrained_model)
     
-    __generate_text_from_pretrained_model(
-            pretrained_model=pretrained_model,
-            tokenizer=tokenizer,
-            prompt=prompt)
+    generated_texts_dictionary = \
+        __generate_text_from_pretrained_model(
+                pretrained_model=pretrained_model,
+                tokenizer=tokenizer,
+                prompt=prompt)
+    
+    return \
+        generated_texts_dictionary
     
     
 def __prepare_data_for_model_training(
@@ -98,16 +103,27 @@ def __tokenise_dataset(
 def __generate_text_from_pretrained_model(
         pretrained_model,
         tokenizer: Tokeniser,
-        prompt: str):
-    generate_text_using_pipeline(
-            model=pretrained_model,
-            tokenizer=tokenizer,
-            input_text=prompt)
+        prompt: str) \
+        -> dict:
+    generated_text_using_pipeline = \
+        generate_text_using_pipeline(
+                model=pretrained_model,
+                tokenizer=tokenizer,
+                input_text=prompt)
+        
+    generated_text_using_model = \
+        generate_text_using_model(
+                model=pretrained_model,
+                tokenizer=tokenizer,
+                input_text=prompt)
     
-    generate_text_using_model(
-            model=pretrained_model,
-            tokenizer=tokenizer,
-            input_text=prompt)
+    generated_texts_dictionary = {
+            'generated_text_using_pipeline': generated_text_using_pipeline,
+            'generated_text_using_model': generated_text_using_model
+        }
+    
+    return \
+        generated_texts_dictionary
 
 
 def write_list_of_dictionaries_to_json_file(
