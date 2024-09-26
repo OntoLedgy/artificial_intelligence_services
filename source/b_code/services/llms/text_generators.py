@@ -1,8 +1,10 @@
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 from transformers import pipeline
 
 from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
 
 
+@run_and_log_function
 def generate_text_using_pipeline(
         model,
         tokenizer,
@@ -17,6 +19,7 @@ def generate_text_using_pipeline(
     print(output[0]['generated_text'])
 
 
+@run_and_log_function
 def generate_text_using_model(
         model,
         tokenizer,

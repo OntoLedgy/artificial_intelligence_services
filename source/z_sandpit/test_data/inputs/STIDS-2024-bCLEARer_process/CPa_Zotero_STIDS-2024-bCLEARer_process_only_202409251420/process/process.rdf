@@ -1,0 +1,1543 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:vcard="http://nwalsh.com/rdf/vCard#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/">
+    <bib:BookSection rdf:about="urn:isbn:978-1-4612-5695-3">
+        <z:itemType>bookSection</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Book>
+                <dcterms:isPartOf>
+                    <bib:Series>
+                        <dc:title>Selected Writings on Computing: A personal Perspective</dc:title>
+                    </bib:Series>
+                </dcterms:isPartOf>
+                <dc:identifier>ISBN 978-1-4612-5695-3</dc:identifier>
+            </bib:Book>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>New York, NY</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Springer New York</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dijkstra</foaf:surname>
+                        <foaf:givenName>Edsger W.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_7064"/>
+        <dc:title>On the role of scientific thought</dc:title>
+        <dcterms:abstract>Essentially, this essay contains nothing new; on the contrary, its subject matter is so old that sometimes it seems forgotten. It is written in an effort to undo some of the more common misunderstandings that I encounter (nearly daily) in my professional world of computing scientists, programmers, computer users and computer designers, and even colleagues engaged in educational politics. The decision to write this essay now was taken because I suddenly realized that my confrontation with this same pattern of misunderstanding was becoming a regular occurrence.</dcterms:abstract>
+        <dc:date>1982</dc:date>
+        <dc:description>DOI: 10.1007/978-1-4612-5695-3_12</dc:description>
+        <bib:pages>60-66-362</bib:pages>
+    </bib:BookSection>
+    <z:Attachment rdf:about="#item_7064">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/7064/Dijkstra - 1982 - On the role of scientific thought.pdf"/>
+        <dc:title>Dijkstra - 1982 - On the role of scientific thought.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_9265">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:title>Proceedings of the 14th European Conference on Artificial Intelligence</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Citeseer</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Guarino</foaf:surname>
+                        <foaf:givenName>Nicola</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Welty</foaf:surname>
+                        <foaf:givenName>Christopher</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>Identity, unity, and individuality: Towards a formal toolkit for ontological analysis</dc:title>
+        <dc:date>2000</dc:date>
+        <bib:pages>219–223</bib:pages>
+    </rdf:Description>
+    <bib:Article rdf:about="https://api.semanticscholar.org/CorpusID:166580848">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>91</prism:volume>
+                <dc:title>Harvard Business Review</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Blank</foaf:surname>
+                        <foaf:givenName>Steve</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13617"/>
+        <dc:title>Why the Lean Start-Up Changes Everything</dc:title>
+        <dc:date>2013</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://api.semanticscholar.org/CorpusID:166580848</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>63-72</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_13617">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13617/Blank - 2013 - Why the Lean Start-Up Changes Everything.pdf"/>
+        <dc:title>Blank - 2013 - Why the Lean Start-Up Changes Everything.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_13870">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Houston</foaf:surname>
+                        <foaf:givenName>Archester</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dockstader</foaf:surname>
+                        <foaf:givenName>Steven L</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13871"/>
+        <dc:title>Total Quality Leadership: A Primer</dc:title>
+        <dc:date>1985</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_13871">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13871/Houston and Dockstader - 1985 - Total Quality Leadership A Primer.pdf"/>
+        <dc:title>Houston and Dockstader - 1985 - Total Quality Leadership A Primer.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-1-4165-9584-7">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>New York</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Free Press : Collier Macmillan</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Porter</foaf:surname>
+                        <foaf:givenName>Michael E.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13873"/>
+        <dc:title>Competitive advantage: creating and sustaining superior performance</dc:title>
+        <dcterms:abstract>Introduces a powerful tool that the strategist needs in order to diagnose and enhance competitive advantage: the value chain. Value-chain analysis allows the manager to separate the underlying activities a firm performs in designing, producing, marketing, and distributing its product or service. It is these activities from which competitive advantage ultimately stems. By showing how all the firm's activities can be examined in this integrated way, Porter provides a new and practical perspective on competitive strategy. ISBN 0-02-925090-0 : $23.95</dcterms:abstract>
+        <dc:date>1985</dc:date>
+        <z:language>eng</z:language>
+        <z:shortTitle>Competitive advantage</z:shortTitle>
+        <z:libraryCatalog>Open WorldCat</z:libraryCatalog>
+        <dc:description>OCLC: 1083669360</dc:description>
+        <dc:identifier>ISBN 978-1-4165-9584-7</dc:identifier>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_13873">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13873/Porter - 1985 - Competitive advantage creating and sustaining superior performance.pdf"/>
+        <dc:title>Porter - 1985 - Competitive advantage creating and sustaining superior performance.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://zenodo.org/doi/10.5281/zenodo.10890089">
+        <z:itemType>report</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>OntoCommons</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fernández-Izquierdo</foaf:surname>
+                        <foaf:givenName>Alba</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13936"/>
+        <dc:title>Methodological framework for ontology management</dc:title>
+        <dcterms:abstract>This document describes the Linked Open Terms (LOT) methodology, the methodological framework for OntoCommons. This document introduces the activities that should be performed in the ontology development process and includes recommendations and guidelines to put them into practice.
+The document first presents the state of the art in ontology development methodologies, including well-known and agile approaches, which are considered as the basis for the LOT methodology.
+Subsequently, the document introduces the additional inputs considered for the definition of LOT for OntoCommons, involving the domain-specific semantic landscape and the workshop on domain ontologies to identify current challenges and gaps in ontology development, and the demonstrators’ requirements on ontology tools and ontologies to identify existing requirements. Taking such inputs into account, an overview of LOT is presented.
+The LOT methodology focuses on the reuse of terms existing in published ontologies and on the publication of the ontology according to the Linked Data principles. It is an iterative methodology that includes four main activities: ontology requirement specification, ontology implementation, ontology publication, and ontology maintenance.</dcterms:abstract>
+        <dc:date>2021</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/doi/10.5281/zenodo.10890089</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:description>Issue: D4.2</dc:description>
+        <prism:number>D4.2</prism:number>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_13936">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13936/Fernández-Izquierdo - 2021 - Methodological framework for ontology management.pdf"/>
+        <dc:title>Fernández-Izquierdo - 2021 - Methodological framework for ontology management.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-0-262-52781-1">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Cambridge, Massachusetts</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Massachusetts Institute of Technology</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Arp</foaf:surname>
+                        <foaf:givenName>Robert</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Smith</foaf:surname>
+                        <foaf:givenName>Barry</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Spear</foaf:surname>
+                        <foaf:givenName>Andrew D.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13951"/>
+        <link:link rdf:resource="#item_13952"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Ontologies (Information retrieval)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Information storage and retrieval systems</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Medical informatics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Semantic networks (Information theory)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Building ontologies with Basic Formal Ontology</dc:title>
+        <dc:date>2015</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Library of Congress ISBN</z:libraryCatalog>
+        <dc:subject>
+           <dcterms:LCC><rdf:value>Q387.4 .A77 2015</rdf:value></dcterms:LCC>
+        </dc:subject>
+        <dc:identifier>ISBN 978-0-262-52781-1</dc:identifier>
+        <z:numPages>220</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_13951">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13951/Arp et al. - 2015 - Building ontologies with Basic Formal Ontology.epub"/>
+        <dc:title>Arp et al. - 2015 - Building ontologies with Basic Formal Ontology.epub</dc:title>
+        <link:type>application/epub+zip</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_13952">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13952/Arp et al. - 2015 - Building ontologies with Basic Formal Ontology.pdf"/>
+        <dc:title>Arp et al. - 2015 - Building ontologies with Basic Formal Ontology.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://api.semanticscholar.org/CorpusID:16641142">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:title>International Joint Conference on Artificial Intelligence</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gruninger</foaf:surname>
+                        <foaf:givenName>Michael</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fox</foaf:surname>
+                        <foaf:givenName>Mark S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13954"/>
+        <dc:title>Methodology for the Design and Evaluation of Ontologies</dc:title>
+        <dc:date>1995</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://api.semanticscholar.org/CorpusID:16641142</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_13954">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13954/Gruninger and Fox - 1995 - Methodology for the Design and Evaluation of Ontologies.pdf"/>
+        <dc:title>Gruninger and Fox - 1995 - Methodology for the Design and Evaluation of Ontologies.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-0-262-54116-9">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Cambridge, Mass.</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>MIT Press</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Deming</foaf:surname>
+                        <foaf:givenName>William Edwards</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13965"/>
+        <dc:title>The new economics: for industry, government, education</dc:title>
+        <dc:date>2000</dc:date>
+        <z:language>eng</z:language>
+        <z:shortTitle>The new economics</z:shortTitle>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:identifier>ISBN 978-0-262-54116-9</dc:identifier>
+        <prism:edition>2. ed</prism:edition>
+        <z:numPages>247</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_13965">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13965/Deming - 2000 - The new economics for industry, government, education.pdf"/>
+        <dc:title>Deming - 2000 - The new economics for industry, government, education.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="#item_13971">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>New York</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>McGraw-Hill</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Juran</foaf:surname>
+                        <foaf:givenName>J. M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13972"/>
+        <dc:title>Quality Control Handbook</dc:title>
+        <dc:date>1951</dc:date>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_13972">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13972/Quality Control Handbook (J.M. Juran).djvu"/>
+        <dc:title>Quality Control Handbook (J.M. Juran).djvu</dc:title>
+        <link:type>application/octet-stream</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="https://www.osti.gov/servlets/purl/1785164/">
+        <z:itemType>report</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Klein</foaf:surname>
+                        <foaf:givenName>Brandon</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13974"/>
+        <dc:title>The DevOps: A Concise Understanding to the DevOps Philosophy and Science</dc:title>
+        <dc:date>2021-05-01</dc:date>
+        <z:shortTitle>The DevOps</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.osti.gov/servlets/purl/1785164/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-08-30 13:03:35</dcterms:dateSubmitted>
+        <dc:description>Issue: SAND--2021-6250R, 1785164, 696421
+DOI: 10.2172/1785164</dc:description>
+        <bib:pages>SAND--2021-6250R, 1785164, 696421</bib:pages>
+        <prism:number>SAND--2021-6250R, 1785164, 696421</prism:number>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_13974">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/13974/Klein - 2021 - The DevOps A Concise Understanding to the DevOps Philosophy and Science.pdf"/>
+        <dc:title>Klein - 2021 - The DevOps A Concise Understanding to the DevOps Philosophy and Science.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.emerald.com/insight/content/doi/10.1108/03684920210417283/full/html">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0368-492X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Beer</foaf:surname>
+                        <foaf:givenName>Stafford</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14007"/>
+        <dc:title>What is cybernetics?</dc:title>
+        <dcterms:abstract>An address delivered at the University of Valladolid, Spain. Asks the Question-What is Cybernetics?. Discusses popular notions and genuine difﬁculties. Looks at the origins, derivations and deﬁnitions of cybernetics. Considers intrinsic control and Socio-Economic Governance in realtime. Relates cybernetics to the current world situation.</dcterms:abstract>
+        <dc:date>2002-03-01</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.emerald.com/insight/content/doi/10.1108/03684920210417283/full/html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-03 15:05:48</dcterms:dateSubmitted>
+        <dc:rights>https://www.emerald.com/insight/site-policies</dc:rights>
+        <dc:description>Number: 2</dc:description>
+        <bib:pages>209-219</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0368-492X">
+        <prism:volume>31</prism:volume>
+        <dc:title>Kybernetes</dc:title>
+        <dc:identifier>DOI 10.1108/03684920210417283</dc:identifier>
+        <prism:number>2</prism:number>
+        <dc:identifier>ISSN 0368-492X</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14007">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14007/Beer - 2002 - What is cybernetics.pdf"/>
+        <dc:title>Beer - 2002 - What is cybernetics.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14008">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>26</prism:volume>
+                <dc:title>Dr. Dobb's Journal</dc:title>
+                <prism:number>9</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Smith</foaf:surname>
+                        <foaf:givenName>Larry</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14009"/>
+        <dc:title>Shift-left testing</dc:title>
+        <dc:date>2001</dc:date>
+        <dc:description>Number: 9
+Publisher: CMP Media, Inc.</dc:description>
+        <bib:pages>56–ff</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14009">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14009/Smith - 2001 - Shift-left testing.pdf"/>
+        <dc:title>Smith - 2001 - Shift-left testing.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="#item_14021">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Pearson Education</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Martin</foaf:surname>
+                        <foaf:givenName>Robert C</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14022"/>
+        <dc:title>Clean Code: A Handbook of Agile Software Craftsmanship</dc:title>
+        <dc:date>2009</dc:date>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_14022">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14022/Martin2009 - Clean code- a handbook of agile software craftsmanship.pdf"/>
+        <dc:title>Martin2009 - Clean code- a handbook of agile software craftsmanship.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14023">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Welty</foaf:surname>
+                        <foaf:givenName>Christopher</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Andersen</foaf:surname>
+                        <foaf:givenName>William</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14024"/>
+        <dc:title>Towards OntoClean 2.0: A framework for rigidity</dc:title>
+        <dcterms:abstract>The OntoClean methodology was based on a set of formal meta-properties whose semantics were specified in S5 modal logic. One of these metaproperties, Rigidity, has come under more focused scrutiny by the ontology community, and several problems with the formalization have been discussed along with several solutions. In this paper, we attempt to reconcile these results in a larger framework that exposes different kinds of rigidity, as well as two new metaproperties, actuality and permanence, which deal more specifically with the behavior of properties with respect to time and existence.</dcterms:abstract>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14024">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14024/Welty and Andersen - Towards OntoClean 2.0 A framework for rigidity.pdf"/>
+        <dc:title>Welty and Andersen - Towards OntoClean 2.0 A framework for rigidity.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-1-4920-7644-5">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                        <vcard:locality>Beijing Boston Farnham Sebastopol Tokyo</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>O'Reilly</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Majors</foaf:surname>
+                        <foaf:givenName>Charity</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fong-Jones</foaf:surname>
+                        <foaf:givenName>Liz</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Miranda</foaf:surname>
+                        <foaf:givenName>George</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14047"/>
+        <dc:title>Observability engineering: achieving production excellence</dc:title>
+        <dcterms:abstract>Observability is critical for building, changing, and understanding the software that powers complex modern systems. Teams that adopt observability are much better equipped to ship code swiftly and confidently, identify outliers and aberrant behaviors, and understand the experience of each and every user. This practical book explains the value of observable systems and shows you how to practice observability-driven development. Authors Charity Majors, Liz Fong-Jones, and George Miranda from Honeycomb explain what constitutes good observability, show you how to improve upon what you're doing today, and provide practical dos and don'ts for migrating from legacy tooling, such as metrics, monitoring, and log management. You'll also learn the impact observability has on organizational culture (and vice versa)</dcterms:abstract>
+        <dc:date>2022</dc:date>
+        <z:language>eng</z:language>
+        <z:shortTitle>Observability engineering</z:shortTitle>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:identifier>ISBN 978-1-4920-7644-5</dc:identifier>
+        <prism:edition>First edition</prism:edition>
+        <z:numPages>295</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_14047">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14047/Majors et al. - 2022 - Observability engineering achieving production excellence.pdf"/>
+        <dc:title>Majors et al. - 2022 - Observability engineering achieving production excellence.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-1-4920-3342-4">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Sebastopol, CA</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>O'Reilly Media</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sridharan</foaf:surname>
+                        <foaf:givenName>Cindy</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14049"/>
+        <dc:title>Distributed systems observability: a guide to building robust systems</dc:title>
+        <dcterms:abstract>Network infrastructure is in the midst of a paradigm shift. As systems become more distributed, methods for building and operating them are rapidly evolving--and that makes visibility into your services and infrastructure more important than ever. In this practical ebook, author Cindy Sridharan examines new monitoring tools that, while promising, bring their own set of technical and organizational challenges. Platforms such as Kubernetes have solved several problems that traditional monitoring tools used to flag, but partial, implicit, and &quot;soft&quot; failure modes have risen along with the overall complexity of the system. This ebook provides an honest overview of monitoring challenges and trade-offs to help you choose the best observability strategy for your distributed system. Learn the pros and cons of the three pillars of modern observability--logging, metrics collection, and request tracing Explore the challenges involved when logging, tracing, and metrics are used in conjunction Understand what you need to monitor in a modern cloud-native environment to derive alerts and insightful analysis Examine the current crop of monitoring systems using Prometheus for metrics and Jaegar for tracing Learn when it makes sense to use additional tools to augment logging, tracing, and metrics Get a blueprint for evolving your monitoring stack to include the latest advances in the space</dcterms:abstract>
+        <dc:date>2018</dc:date>
+        <z:language>eng</z:language>
+        <z:shortTitle>Distributed systems observability</z:shortTitle>
+        <z:libraryCatalog>Open WorldCat</z:libraryCatalog>
+        <dc:description>OCLC: 1044741317</dc:description>
+        <dc:identifier>ISBN 978-1-4920-3342-4</dc:identifier>
+        <prism:edition>First edition</prism:edition>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_14049">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14049/Sridharan - 2018 - Distributed systems observability a guide to building robust systems.pdf"/>
+        <dc:title>Sridharan - 2018 - Distributed systems observability a guide to building robust systems.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:ConferenceProceedings rdf:about="https://www.academia.edu/89132134">
+        <z:itemType>presentation</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                        <vcard:locality>Gemini Call, Weekly meeting</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+            </foaf:Organization>
+        </dc:publisher>
+        <z:presenters>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Partridge</foaf:surname>
+                        <foaf:givenName>Chris</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:presenters>
+        <link:link rdf:resource="#item_14057"/>
+        <dc:title>Digitalisation Levels</dc:title>
+        <dcterms:abstract>An overview of the digitalisation levels being considered for the National Digital Twin (NDT) programme.</dcterms:abstract>
+        <dc:date>2021</dc:date>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.academia.edu/89132134</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:description>Presenters: _:n21075
+Presenters: _:n11183
+Presenters: _:n2</dc:description>
+    </bib:ConferenceProceedings>
+    <z:Attachment rdf:about="#item_14057">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14057/Partridge - 2021 - Digitalisation Levels.ppsx"/>
+        <dc:title>Partridge - 2021 - Digitalisation Levels.ppsx</dc:title>
+        <link:type>application/vnd.openxmlformats-officedocument.presentationml.slideshow</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-1-59140-573-3">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Hershey</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Idea Group Reference</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:editors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schwartz</foaf:surname>
+                        <foaf:givenName>David G.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:editors>
+        <link:link rdf:resource="#item_14061"/>
+        <dc:title>Encyclopedia of knowledge management</dc:title>
+        <dc:date>2006</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:identifier>ISBN 978-1-59140-573-3</dc:identifier>
+        <z:numPages>897</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_14061">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14061/Schwartz - 2006 - Encyclopedia of knowledge management.pdf"/>
+        <dc:title>Schwartz - 2006 - Encyclopedia of knowledge management.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:BookSection rdf:about="#item_14062">
+        <z:itemType>bookSection</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Book>
+               <dc:title>Encyclopedia of Knowledge Management</dc:title>
+            </bib:Book>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cuel</foaf:surname>
+                        <foaf:givenName>Roberta</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14063"/>
+        <dc:title>Domain Ontologies</dc:title>
+        <dc:date>2008</dc:date>
+    </bib:BookSection>
+    <z:Attachment rdf:about="#item_14063">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14063/Cuel - 2008 - Domain Ontologies.pdf"/>
+        <dc:title>Cuel - 2008 - Domain Ontologies.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://maxwellsci.com/jp/mspabstract.php?jid=RJASET&amp;doi=rjaset.6.3684">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2040-7459,%202040-7467"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Iqbal</foaf:surname>
+                        <foaf:givenName>Rizwan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Murad</foaf:surname>
+                        <foaf:givenName>Masrah Azrifah Azmi</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mustapha</foaf:surname>
+                        <foaf:givenName>Aida</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sharef</foaf:surname>
+                        <foaf:givenName>Nurfadhlina Mohd</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14065"/>
+        <dc:title>An Analysis of Ontology Engineering Methodologies: A Literature Review</dc:title>
+        <dcterms:abstract>It is now widely accepted that ontologies play a critical role in achieving the goal of machine understandable web, also known as semantic web. In order to develop ontologies, several methodologies have been proposed during the last two decades. Despite the fact, that quite a number of ontology engineering methodologies have been proposed, still the field lacks widely accepted and mature methodologies. Most methodologies lack sufficient details of techniques and activities employed in them. However, some methodologies provide sufficient details including METHONTOLOGY. This article discusses and reports a critical analysis and comparison of these methodologies. The analysis is performed based on a criterion, derived from related literature, trends and needs which evolved over the years. The results of the analysis showed that there is no completely mature methodology. Therefore, this research may act as a preliminary guide to come with a state of art ontology engineering methodology, bridging up the existing gaps and shortfalls.</dcterms:abstract>
+        <dc:date>2013-09-10</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>An Analysis of Ontology Engineering Methodologies</z:shortTitle>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://maxwellsci.com/jp/mspabstract.php?jid=RJASET&amp;doi=rjaset.6.3684</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 09:48:24</dcterms:dateSubmitted>
+        <dc:description>Number: 16
+Publisher: Maxwell Scientific Publication Corp.</dc:description>
+        <bib:pages>2993-3000</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2040-7459,%202040-7467">
+        <prism:volume>6</prism:volume>
+        <dc:title>Research Journal of Applied Sciences, Engineering and Technology</dc:title>
+        <dc:identifier>DOI 10.19026/rjaset.6.3684</dc:identifier>
+        <prism:number>16</prism:number>
+        <dcterms:alternative>RJASET</dcterms:alternative>
+        <dc:identifier>ISSN 2040-7459, 2040-7467</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14065">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14065/Iqbal et al. - 2013 - An Analysis of Ontology Engineering Methodologies A Literature Review.pdf"/>
+        <dc:title>Iqbal et al. - 2013 - An Analysis of Ontology Engineering Methodologies A Literature Review.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14066">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cristani</foaf:surname>
+                        <foaf:givenName>Matteo</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cuel</foaf:surname>
+                        <foaf:givenName>Roberta</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14067"/>
+        <dc:title>A Survey on Ontology Creation Methodologies</dc:title>
+        <dcterms:abstract>In the current literature of knowledge management and artificial intelligence, several different approaches have been tried to the problem of developing domain ontologies from scratch. All these approaches deal fundamentally with three problems: (1) providing a collection of general terms describing classes and relations to be employed in the description of the domain itself; (2) organizing the terms into a taxonomy of the classes by the ISA relation; and (3) expressing in an explicit way the constraints that make the ISA pairs meaningful. Though a number of such approaches can be found, no systematic analysis of them exists which can be used to understand the inspiring motivation, the applicability context, and the structure of the approaches. In this chapter, we provide a framework for analyzing the existing methodologies that compare them to a set of general criteria. In particular, we obtain a classification based upon the direction of ontology construction; bottom-up are those methodologies that start with some descriptions of the domain and obtain a classification, while top-down ones start with an abstract view of the domain itself, which is given a priori. The resulting classification is useful not only for theoretical purposes but also in the practice of deployment of ontologies in Information Systems, since it provides a framework for choosing the right methodology to be applied in the specific context, depending also on the needs of the application itself.</dcterms:abstract>
+        <dc:date>2005</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14067">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14067/Cristani and Cuel - 2005 - A Survey on Ontology Creation Methodologies.pdf"/>
+        <dc:title>Cristani and Cuel - 2005 - A Survey on Ontology Creation Methodologies.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14068">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Uschold</foaf:surname>
+                        <foaf:givenName>Mike</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>King</foaf:surname>
+                        <foaf:givenName>Martin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14069"/>
+        <dc:title>Towards a Methodology for Building Ontologies</dc:title>
+        <dc:date>1995</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14069">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14069/Uschold and King - 1995 - Towards a Methodology for Building Ontologies.pdf"/>
+        <dc:title>Uschold and King - 1995 - Towards a Methodology for Building Ontologies.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Report rdf:about="#item_14070">
+        <z:itemType>report</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Series>
+                <dcterms:alternative>Information Integration for Concurrent Engineering (IICE)</dcterms:alternative>
+            </bib:Series>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>KBSI</foaf:surname></foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14071"/>
+        <dc:title>IDEF5 Method Report</dc:title>
+        <dc:date>1994</dc:date>
+        <dc:description>Prepared for: Armstrong Laboratory AL/HRGA Wright-Patterson Air Force Base, Ohio 45433
+Prepared by: Knowledge Based Systems, Inc. 1408 University Drive East College Station, Texas 77840 (409) 260-5274</dc:description>
+    </bib:Report>
+    <z:Attachment rdf:about="#item_14071">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14071/Idef5.pdf"/>
+        <dc:title>Idef5.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14072">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>López</foaf:surname>
+                        <foaf:givenName>Fernández</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14073"/>
+        <dc:title>Overview Of Methodologies For Building Ontologies</dc:title>
+        <dcterms:abstract>A few research groups are now proposing a series of steps and methodologies for developing ontologies. However, mainly due to the fact that Ontological Engineering is still a relatively immature discipline, each work group employs its own methodology. Our goal is to present the most representative methodologies used in ontology development and to perform an analysis of such methodologies against the same framework of reference. So, the goal of this paper is not to provide new insights about methodologies, but to put it all in one place and help people to select which methodology to use.</dcterms:abstract>
+        <dc:date>1999</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14073">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14073/López - 1999 - Overview Of Methodologies For Building Ontologies.pdf"/>
+        <dc:title>López - 1999 - Overview Of Methodologies For Building Ontologies.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14074">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dahlem</foaf:surname>
+                        <foaf:givenName>Nikolai</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hahn</foaf:surname>
+                        <foaf:givenName>Axel</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14075"/>
+        <dc:title>User-Friendly Ontology Creation Methodologies - A Survey</dc:title>
+        <dcterms:abstract>The convergence of the semantic web and the social web to the social semantic web leads to new challenges in ontology engineering. As of today ontologies are created by highly specialized ontology engineers. In order to unite &quot;the wisdom of crowds&quot; and ontologies new approaches to ontology creation are necessary to bridge the &quot;ontology gap&quot; and enable novice users to create formalized knowledge. Numerous ontology development methodologies are available; in this paper we will briefly present 16 ontology development methodologies and evaluate them against criteria for their user-friendliness and their suitability for usage by novice users and domain experts. Our eventual goal is the identification of best practices and required research for user-friendly ontology design.</dcterms:abstract>
+        <dc:date>2009</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14075">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14075/Dahlem and Hahn - 2009 - User-Friendly Ontology Creation Methodologies - A Survey.pdf"/>
+        <dc:title>Dahlem and Hahn - 2009 - User-Friendly Ontology Creation Methodologies - A Survey.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14076">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jones</foaf:surname>
+                        <foaf:givenName>Dean</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bench-Capon</foaf:surname>
+                        <foaf:givenName>Trevor</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Visser</foaf:surname>
+                        <foaf:givenName>Pepijn</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14077"/>
+        <dc:title>Methodologies for Ontology Development</dc:title>
+        <dc:date>1998</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14077">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14077/Jones et al. - METHODOLOGIES FOR ONTOLOGY DEVELOPMENT.pdf"/>
+        <dc:title>Jones et al. - METHODOLOGIES FOR ONTOLOGY DEVELOPMENT.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.cambridge.org/core/product/identifier/S0269888902000462/type/journal_article">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0269-8889,%201469-8005"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fernández-López</foaf:surname>
+                        <foaf:givenName>Mariano</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gómez-Pérez</foaf:surname>
+                        <foaf:givenName>Asunción</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14079"/>
+        <dc:title>Overview and analysis of methodologies for building ontologies</dc:title>
+        <dcterms:abstract>The use of methodologies in software and knowledge engineering is very extensive due to their important advantages. In the case of the development of ontologies, until now, several methodological proposals have been presented for building ontologies. Some of these methodologies are designed for building ontologies from scratch or reusing other ontologies without modifying them, concretely, the following cases can be mentioned: the Cyc methodology, the approach proposed by Uschold and King, Grüninger and Fox’s methodology, the KACTUS methodology, METHONTOLOGY and the SENSUS methodology. There is even a proposal for re-engineering ontologies, and several proposals for collaborative construction of ontologies.</dcterms:abstract>
+        <dc:date>06/2002</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.cambridge.org/core/product/identifier/S0269888902000462/type/journal_article</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:16:17</dcterms:dateSubmitted>
+        <dc:rights>https://www.cambridge.org/core/terms</dc:rights>
+        <dc:description>Number: 2
+Publisher: Cambridge University Press (CUP)</dc:description>
+        <bib:pages>129-156</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0269-8889,%201469-8005">
+        <prism:volume>17</prism:volume>
+        <dc:title>The Knowledge Engineering Review</dc:title>
+        <dc:identifier>DOI 10.1017/s0269888902000462</dc:identifier>
+        <prism:number>2</prism:number>
+        <dc:identifier>ISSN 0269-8889, 1469-8005</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14079">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14079/Fernández-López and Gómez-Pérez - 2002 - Overview and analysis of methodologies for building ontologies.pdf"/>
+        <dc:title>Fernández-López and Gómez-Pérez - 2002 - Overview and analysis of methodologies for building ontologies.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://thesai.org/Publications/ViewPaper?Volume=11&amp;Issue=5&amp;Code=IJACSA&amp;SerialNo=15">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2156-5570,%202158-107X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sattar</foaf:surname>
+                        <foaf:givenName>Abdul</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Salwana</foaf:surname>
+                        <foaf:givenName>Ely</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nazir</foaf:surname>
+                        <foaf:givenName>Mohammad</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ahmad</foaf:surname>
+                        <foaf:givenName>Mazida</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kamil</foaf:surname>
+                        <foaf:givenName>Ahmad</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14081"/>
+        <dc:title>Comparative Analysis of Methodologies for Domain Ontology Development: A Systematic Review</dc:title>
+        <dcterms:abstract>Interlocking Institutional Worlds (IWs) is a concept explaining the need to interoperate between institutions (or players), to solve problems of common interest in a given domain. Managing knowledge in the IWs domain is complex, but promoting knowledge sharing based on standards and common terms agreeable to all players is essential and is something that must be established. In this sense, ontologies, as a conceptual tool and a key component of knowledge-based systems, have been used by organizations for effective knowledge management of the domain of discourse. There are many methodologies that have been proposed by several researchers during the last decade. However, designing a domain ontology for IWs needs a welldefined ontology development methodology. Therefore, in this article, a survey has been conducted to compare ontology development methodologies between 2015 and 2020. The purpose of this survey is to identify limitations and benefits of previously developed ontology development methodologies. The criteria for the comparison of methodologies has been derived from evolving trends in literature. Our findings give some guidelines that help to define a suitable methodology for designing any domain ontology under the domain of interlocking institutional worlds.</dcterms:abstract>
+        <dc:date>2020</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Comparative Analysis of Methodologies for Domain Ontology Development</z:shortTitle>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://thesai.org/Publications/ViewPaper?Volume=11&amp;Issue=5&amp;Code=IJACSA&amp;SerialNo=15</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:16:35</dcterms:dateSubmitted>
+        <dc:description>Number: 5
+Publisher: The Science and Information Organization</dc:description>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2156-5570,%202158-107X">
+        <prism:volume>11</prism:volume>
+        <dc:title>International Journal of Advanced Computer Science and Applications</dc:title>
+        <dc:identifier>DOI 10.14569/ijacsa.2020.0110515</dc:identifier>
+        <prism:number>5</prism:number>
+        <dcterms:alternative>IJACSA</dcterms:alternative>
+        <dc:identifier>ISSN 2156-5570, 2158-107X</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14081">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14081/Sattar et al. - 2020 - Comparative Analysis of Methodologies for Domain Ontology Development A Systematic Review.pdf"/>
+        <dc:title>Sattar et al. - 2020 - Comparative Analysis of Methodologies for Domain Ontology Development A Systematic Review.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://www.cya.unam.mx/index.php/cya/article/view/2368">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2448-8410,%200186-1042"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bravo Contreras</foaf:surname>
+                        <foaf:givenName>Maricela Claudia</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hoyos Reyes</foaf:surname>
+                        <foaf:givenName>Luis Fernando</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes Ortiz</foaf:surname>
+                        <foaf:givenName>José Alejandro</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14083"/>
+        <dc:title>Methodology for ontology design and construction</dc:title>
+        <dcterms:abstract>In this paper we present a methodology for ontology design and construction which incorporates the most outstanding design principles and a thorough evaluation process. An ontology provides logical formulation of complex problems of decision sciences like risk management, decision making under uncertainty, statistics and forecasting, negotiation and financial analysis. The main stages of this methodology are: requirements specification, formal design, construction, and evaluation. At each stage of the methodology a series of tasks are defined together with methods and techniques to build the ontology considering quality characteristics. Description logics is used as the formal language during design, a set of informal competency questions is used to support ontology conceptualization; at the evaluation stage, the set of questions are translated to a formal reasoning language and are used for evaluation purposes. Many methodologies and tools have been reported in literature, but little attention has been paid in the creation of consistent, modular, coherent, usable and reusable ontologies as an objective from the beginning of the design process. A comparative analysis with other methodologies is discussed and an Ontological Model for Medical Diagnosis is presented.</dcterms:abstract>
+        <dc:date>2019-03-19</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://www.cya.unam.mx/index.php/cya/article/view/2368</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:17:04</dcterms:dateSubmitted>
+        <dc:rights>http://creativecommons.org/licenses/by/4.0</dc:rights>
+        <dc:description>Number: 4
+Publisher: Universidad Nacional Autonoma de Mexico</dc:description>
+        <bib:pages>134</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2448-8410,%200186-1042">
+        <prism:volume>64</prism:volume>
+        <dc:title>Contaduría y Administración</dc:title>
+        <dc:identifier>DOI 10.22201/fca.24488410e.2020.2368</dc:identifier>
+        <prism:number>4</prism:number>
+        <dcterms:alternative>CyA</dcterms:alternative>
+        <dc:identifier>ISSN 2448-8410, 0186-1042</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14083">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14083/Bravo Contreras et al. - 2019 - Methodology for ontology design and construction.pdf"/>
+        <dc:title>Bravo Contreras et al. - 2019 - Methodology for ontology design and construction.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S1877050920319657">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1877-0509"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stadnicki</foaf:surname>
+                        <foaf:givenName>Adrian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Filip Pietroń</foaf:surname>
+                        <foaf:givenName>Filip</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Burek</foaf:surname>
+                        <foaf:givenName>Patryk</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14085"/>
+        <dc:title>Towards a Modern Ontology Development Environment</dc:title>
+        <dcterms:abstract>Ontologies provide engineers and developers with an unambiguous, verifiable, and expandable knowledge base related to a certain domain. Every project that requires control over consistent knowledge, which is especially relatable when using artificial intelligence with datasets increasing in size every second, would reap benefits from adding ontologies to the equation. It is a powerful asset enabling the development of a project with integrity between platforms or teams. Unfortunately, the cost of entry for a developer into the ontology engineering area is high, as it has been proven over the last decades that developing an ontology is a complex, collaborative task, which requires the support of an adequate methodology as well as software tools. The current paper’s objective is twofold. First, it provides a survey on the methodology and software tools used for the creation of the ontology, its maintenance and collaboration. The paper investigates how the tools evolved over the years and what trends have emerged. Second, as the result of the analysis conducted, we show that current solutions have deficiencies and a technological debt; therefore, we present our plan to build a modern tool that uses state-of-the-art technology.</dcterms:abstract>
+        <dc:date>2020</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S1877050920319657</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:20:51</dcterms:dateSubmitted>
+        <dc:rights>https://www.elsevier.com/tdm/userlicense/1.0/</dc:rights>
+        <dc:description>Publisher: Elsevier BV</dc:description>
+        <bib:pages>753-762</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1877-0509">
+        <prism:volume>176</prism:volume>
+        <dc:title>Procedia Computer Science</dc:title>
+        <dc:identifier>DOI 10.1016/j.procs.2020.09.070</dc:identifier>
+        <dc:identifier>ISSN 1877-0509</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14085">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14085/Stadnicki et al. - 2020 - Towards a Modern Ontology Development Environment.pdf"/>
+        <dc:title>Stadnicki et al. - 2020 - Towards a Modern Ontology Development Environment.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14086">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Soares</foaf:surname>
+                        <foaf:givenName>Andrey</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14087"/>
+        <dc:title>Towards Ontology-Driven Information Systems: Guidelines to the creation of new methodologies to build ontologies</dc:title>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14087">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14087/Soares - Towards Ontology-Driven Information Systems Guidelines to the creation of new methodologies to buil.pdf"/>
+        <dc:title>Soares - Towards Ontology-Driven Information Systems Guidelines to the creation of new methodologies to buil.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://arxiv.org/abs/2210.12026">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1875-8533,%201570-5838"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Neuhaus</foaf:surname>
+                        <foaf:givenName>Fabian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hastings</foaf:surname>
+                        <foaf:givenName>Janna</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14089"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Computer Science - Artificial Intelligence</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Ontology Development is Consensus Creation, Not (Merely) Representation</dc:title>
+        <dcterms:abstract>Ontology development methodologies emphasise knowledge gathering from domain experts and documentary resources, and knowledge representation using an ontology language such as OWL or FOL. However, working ontologists are often surprised by how challenging and slow it can be to develop ontologies. Here, with a particular emphasis on the sorts of ontologies that are content-heavy and intended to be shared across a community of users (reference ontologies), we propose that a significant and heretofore under-emphasised contributor of challenges during ontology development is the need to create, or bring about, consensus in the face of disagreement. For this reason reference ontology development cannot be automated, at least within the limitations of existing AI approaches. Further, for the same reason ontologists are required to have speciﬁc social-negotiating skills which are currently lacking in most technical curricula.</dcterms:abstract>
+        <dc:date>2022-12-07</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/2210.12026</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:23:22</dcterms:dateSubmitted>
+        <dc:description>Number: 4
+arXiv:2210.12026 [cs]</dc:description>
+        <bib:pages>495-513</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1875-8533,%201570-5838">
+        <prism:volume>17</prism:volume>
+        <dc:title>Applied Ontology</dc:title>
+        <dc:identifier>DOI 10.3233/AO-220273</dc:identifier>
+        <prism:number>4</prism:number>
+        <dcterms:alternative>AO</dcterms:alternative>
+        <dc:identifier>ISSN 1875-8533, 1570-5838</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_14089">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14089/Neuhaus and Hastings - 2022 - Ontology Development is Consensus Creation, Not (Merely) Representation.pdf"/>
+        <dc:title>Neuhaus and Hastings - 2022 - Ontology Development is Consensus Creation, Not (Merely) Representation.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.cambridge.org/core/product/identifier/S0269888920000065/type/journal_article">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>35</prism:volume>
+                <dc:title>The Knowledge Engineering Review</dc:title>
+                <dc:identifier>DOI 10.1017/s0269888920000065</dc:identifier>
+                <dc:identifier>ISSN 0269-8889, 1469-8005</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kotis</foaf:surname>
+                        <foaf:givenName>Konstantinos I.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vouros</foaf:surname>
+                        <foaf:givenName>George A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Spiliotopoulos</foaf:surname>
+                        <foaf:givenName>Dimitris</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14091"/>
+        <dc:title>Ontology engineering methodologies for the evolution of living and reused ontologies: status, trends, findings and recommendations</dc:title>
+        <dcterms:abstract>The aim of this critical review paper is threefold: (a) to provide an insight on the impact of ontology engineering methodologies (OEMs) to the evolution of living and reused ontologies, (b) to update the ontology engineering (OE) community on the status and trends in OEMs and of their use in practice and (c) to propose a set of recommendations for working ontologists to consider during the life cycle of living, evolved and reused ontologies. The work outlined in this critical review paper has been motivated by the need to address critical issues on keeping ontologies alive and evolving while these are shared in wide communities. It is argued that the engineering of ontologies must follow a well-deﬁned methodology, addressing practical aspects that would allow (sometimes wide) communities of experts and ontologists to reach consensus on developments and keep the evolution of ontologies ‘in track’. In doing so, speciﬁc collaborative and iterative tool-supported tasks and phases within a complete and evaluated ontology life cycle are necessary. This way the engineered ontologies can be considered ‘shared, commonly agreed and continuously evolved “live” conceptualizations’ of domains of discourse. Today, in the era of Linked Data and Knowledge Graphs, it is more necessary than ever not to neglect to consider the recommendations that OEMs explicitly and implicitly introduce and their implications to the evolution of living ontologies. This paper reports on the status of OEMs, identiﬁes trends and provides recommendations based on the ﬁndings of an analysis that concerns the impact of OEMs to the status of well-known, widely used and representative ontologies.</dcterms:abstract>
+        <dc:date>2020</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Ontology engineering methodologies for the evolution of living and reused ontologies</z:shortTitle>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.cambridge.org/core/product/identifier/S0269888920000065/type/journal_article</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:23:24</dcterms:dateSubmitted>
+        <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+        <dc:description>Publisher: Cambridge University Press (CUP)</dc:description>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14091">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14091/Kotis et al. - 2020 - Ontology engineering methodologies for the evolution of living and reused ontologies status, trends.pdf"/>
+        <dc:title>Kotis et al. - 2020 - Ontology engineering methodologies for the evolution of living and reused ontologies status, trends.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14092">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Suárez-Figueroa</foaf:surname>
+                        <foaf:givenName>Mari Carmen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>García-Castro</foaf:surname>
+                        <foaf:givenName>Raúl</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Terrazas</foaf:surname>
+                        <foaf:givenName>Boris Villazón</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gómez-Pérez</foaf:surname>
+                        <foaf:givenName>Asunción</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14093"/>
+        <dc:title>Ontological Engineering State of the Art</dc:title>
+        <dcterms:abstract>In the beginning of the 90s, ontology development was similar to an art: ontology developers did not have clear guidelines on how to build ontologies but only some design criteria to be followed. Work on principles, methods and methodologies, together with supporting technologies and languages, made ontology development become an engineering discipline, the so-called Ontology Engineering. Ontology Engineering refers to the set of activities that concern the ontology development process and the ontology life cycle, the methods and methodologies for building ontologies, and the tool suites and languages that support them. Thanks to the work done in the Ontology Engineering field, the development of ontologies within and between teams has increased and improved, as well as the possibility of reusing ontologies in other developments and in final applications. Currently, ontologies are widely used in (a) Knowledge Engineering, Artificial Intelligence and Computer Science, (b) applications related to knowledge management, natural language processing, e-commerce, intelligent information integration, information retrieval, database design and integration, bio-informatics, education, and (c) the Semantic Web, the Semantic Grid, and the Linked Data initiative. In this paper, we provide an overview of Ontology Engineering, mentioning the most outstanding and used methodologies, languages, and tools for building ontologies. In addition, we include some words on how all these elements can be used in the Linked Data initiative.</dcterms:abstract>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14093">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14093/Suárez-Figueroa et al. - Ontological Engineering State of the Art.pdf"/>
+        <dc:title>Suárez-Figueroa et al. - Ontological Engineering State of the Art.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://link.springer.com/10.1007/11586180_2">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <dc:title>Lecture Notes in Computer Science</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:contributors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mizen</foaf:surname>
+                        <foaf:givenName>Hayley</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dolbear</foaf:surname>
+                        <foaf:givenName>Catherine</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hart</foaf:surname>
+                        <foaf:givenName>Glen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:contributors>
+        <link:link rdf:resource="#item_14095"/>
+        <dc:title>Ontology Ontogeny: Understanding How an Ontology Is Created and Developed</dc:title>
+        <dc:date>2005</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Ontology Ontogeny</z:shortTitle>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://link.springer.com/10.1007/11586180_2</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2024-09-17 10:23:28</dcterms:dateSubmitted>
+        <dc:description>DOI: 10.1007/11586180_2
+ISSN: 0302-9743, 1611-3349</dc:description>
+        <bib:pages>15-29</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_14095">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/14095/Mizen et al. - 2005 - Ontology Ontogeny Understanding How an Ontology Is Created and Developed.pdf"/>
+        <dc:title>Mizen et al. - 2005 - Ontology Ontogeny Understanding How an Ontology Is Created and Developed.pdf</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-0-201-61641-5">
+        <z:itemType>book</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Series><dc:title>The XP Series</dc:title></bib:Series>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Boston, Mass. Munich</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Addison Wesley</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Beck</foaf:surname>
+                        <foaf:givenName>Kent</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>Extreme Programming explained: embrace Change</dc:title>
+        <dc:date>2003</dc:date>
+        <z:language>eng</z:language>
+        <z:shortTitle>Extreme Programming explained</z:shortTitle>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:identifier>ISBN 978-0-201-61641-5</dc:identifier>
+        <z:numPages>190</z:numPages>
+    </bib:Book>
+    <z:Collection rdf:about="#collection_430">
+        <dc:title>ontology methodologies</dc:title>
+        <dcterms:hasPart rdf:resource="https://zenodo.org/doi/10.5281/zenodo.10890089"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-0-262-52781-1"/>
+        <dcterms:hasPart rdf:resource="https://api.semanticscholar.org/CorpusID:16641142"/>
+        <dcterms:hasPart rdf:resource="#item_14062"/>
+        <dcterms:hasPart rdf:resource="http://maxwellsci.com/jp/mspabstract.php?jid=RJASET&amp;doi=rjaset.6.3684"/>
+        <dcterms:hasPart rdf:resource="#item_14066"/>
+        <dcterms:hasPart rdf:resource="#item_14068"/>
+        <dcterms:hasPart rdf:resource="#item_14070"/>
+        <dcterms:hasPart rdf:resource="#item_14072"/>
+        <dcterms:hasPart rdf:resource="#item_14074"/>
+        <dcterms:hasPart rdf:resource="#item_14076"/>
+        <dcterms:hasPart rdf:resource="https://www.cambridge.org/core/product/identifier/S0269888902000462/type/journal_article"/>
+        <dcterms:hasPart rdf:resource="http://thesai.org/Publications/ViewPaper?Volume=11&amp;Issue=5&amp;Code=IJACSA&amp;SerialNo=15"/>
+        <dcterms:hasPart rdf:resource="http://www.cya.unam.mx/index.php/cya/article/view/2368"/>
+        <dcterms:hasPart rdf:resource="https://linkinghub.elsevier.com/retrieve/pii/S1877050920319657"/>
+        <dcterms:hasPart rdf:resource="#item_14086"/>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/2210.12026"/>
+        <dcterms:hasPart rdf:resource="https://www.cambridge.org/core/product/identifier/S0269888920000065/type/journal_article"/>
+        <dcterms:hasPart rdf:resource="#item_14092"/>
+        <dcterms:hasPart rdf:resource="http://link.springer.com/10.1007/11586180_2"/>
+    </z:Collection>
+</rdf:RDF>

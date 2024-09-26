@@ -1,6 +1,7 @@
 import json
 
 from datasets import Dataset, load_dataset
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 from transformers import AutoTokenizer
 import tiktoken
 
@@ -19,12 +20,13 @@ def num_tokens_from_string(
 class Tokeniser:
     def __init__(
             self,
-            model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT2):
+            model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2):
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         self.tokenized_dataset = {}
 
+    @run_and_log_function
     def tokenize(self,
                  data_files):
 
@@ -36,6 +38,7 @@ class Tokeniser:
             data_files=data_files)
 
         # Tokenize the dataset
+        @run_and_log_function
         def tokenize_function(examples):
             tokens = self.tokenizer(examples['text'], padding='max_length', truncation=True, max_length=512)
             tokens['labels'] = tokens['input_ids'].copy()  # Use input_ids as labels
@@ -101,6 +104,7 @@ class Tokeniser:
                 # Write the dictionary as a JSON line
                 f.write(json.dumps(tokenized_entry) + '\n')
 
+    @run_and_log_function
     def read_tokenized_data_from_file(self, input_file):
         """
         Reads tokenized data from a JSONL file and returns it as a Hugging Face Dataset.
