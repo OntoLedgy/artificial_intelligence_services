@@ -21,12 +21,12 @@ class TestEmbeddings:
         # Load a pre-trained Sentence Transformer model
         self.model = SentenceTransformer(
             'all-MiniLM-L6-v2')
+
         self.index_file_full_path = './data/outputs/embeddings/pdf_article_embeddings.index'
         self.file_metadata = './data/outputs/embeddings/pdf_article_texts.npy'
         self.output_file = './data/outputs/embeddings/retrieved_articles.txt'
         self.query = "describe different types of ontologies in computing"
-        self.client = OpenAI(
-            api_key=os.environ['OPENAI_API_KEY'])
+
 
     def test_embeddings(self):
         embedding = Embeddings(
@@ -60,6 +60,9 @@ class TestEmbeddings:
 
     def test_rag_response(self):
         # Generate a response using the retrieved articles as context
+        self.client = OpenAI(
+            api_key=os.environ['OPENAI_API_KEY'])
+
         response = get_response(
             self.query,
             client=self.client,

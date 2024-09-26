@@ -52,6 +52,7 @@ def get_response(
         model_name = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,
         input_file = 'retrieved_articles.txt',
         max_context_tokens = NfOpenAiConfigurations.DEFAULT_MAX_TRUNCATE_CONTEXT_TOKENS):
+
     # Read the retrieved articles from the file
     with open(
             input_file,
