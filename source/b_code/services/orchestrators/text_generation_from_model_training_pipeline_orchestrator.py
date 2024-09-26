@@ -1,12 +1,10 @@
 import json
 from transformers import AutoModelForCausalLM
 from services.fine_tuning.model_fine_tuner import train_model
-from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
 from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
-from services.data_preparation.pdf_services import extract_text_from_pdfs
-from services.data_preparation.prepare_data import prepare_data_for_training
 from services.llms.text_generators import generate_text_using_model
 from services.llms.text_generators import generate_text_using_pipeline
+from services.orchestrators.model_pdf_data_preparer import prepare_model_pdf_data
 from services.tokenisation.tokeniser import Tokeniser
 
 
@@ -16,7 +14,7 @@ def orchestrate_text_generation_from_model_training_pipeline(
         chunked_data_file_path: str,
         prompt: str):
     chunked_data = \
-        __prepare_data_for_model_training(
+        prepare_model_pdf_data(
                 pdf_folder_path=pdf_folder_path,
                 chunked_data_file_path=chunked_data_file_path)
     
@@ -48,29 +46,8 @@ def orchestrate_text_generation_from_model_training_pipeline(
     
     return \
         generated_texts_dictionary
-    
-    
-def __prepare_data_for_model_training(
-        pdf_folder_path: str,
-        chunked_data_file_path: str) \
-        -> list:
-    pdf_texts = \
-        extract_text_from_pdfs(
-                pdf_folder=pdf_folder_path)
-    
-    chunked_data = \
-        prepare_data_for_training(
-                texts=pdf_texts,
-                chunk_size=NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING)
-    
-    write_list_of_dictionaries_to_json_file(
-            output_file_path=chunked_data_file_path,
-            list_of_dictionaries=chunked_data)
-    
-    return \
-        chunked_data
-    
-    
+
+
 def __initialise_model_and_tokeniser(
         model_type,
         pretrained_model) \
