@@ -151,8 +151,7 @@ class TestHuggingFaceFineTunedModelBoro:
                 self.prompt)
     
     def test_text_generation_from_model_training_pipeline(
-            self) \
-            -> None:
+            self):
         generated_texts_dictionary = \
             orchestrate_text_generation_from_model_training_pipeline(
                     pdf_folder_path=self.pdf_folder,
