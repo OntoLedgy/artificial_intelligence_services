@@ -1,7 +1,6 @@
 import json
 import os
 import pytest
-from langchain_experimental.llms.anthropic_functions import prompt
 from nf_common_source.code.services.reporting_service.reporters.log_file import LogFiles
 from transformers import AutoModelForCausalLM
 from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
