@@ -1,16 +1,15 @@
 import json
 import pytest
+import os
 
 from transformers import  AutoModelForCausalLM
 
 from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
-from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from services.data_preparation.pdf_services import extract_text_from_pdfs
 from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
 from services.llms.text_generators import generate_text_using_pipeline, generate_text_using_model
 from services.model_management.model_loader import load_model
-from services.orchestrators.text_generation_orchestrator import orchestrate_text_generation
 from services.tokenisation.tokeniser import Tokeniser
 
 
@@ -18,17 +17,28 @@ class TestHuggingFaceFineTunedModel:
 
     @pytest.fixture(autouse=True)
     def setup(self):
-        pdf_folder = r'D:\OneDrives\OneDrive - OntoLedgy\Ontology of Money\Literature Review\Accounting'
+        pdf_folder = r'./data/inputs/pdf'
         self.pdf_text = extract_text_from_pdfs(pdf_folder)
         self.chunked_data_file_path = 'data/outputs/training_data/accounting_training_data.jsonl'
         self.tokenised_data_file_path = 'data/outputs/tokenised_data/accounting_tokenised_data.jsonl'
-        self.pretrained_model_name_or_path = 'data/outputs/models/accounting_fine_tuned_model'
-        self.pretrained_tokenizer_name_or_path = 'data/outputs/models/accounting_fine_tuned_tokenizer'
-        self.model_type = NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2
+        self.models_folder_path = 'data/outputs/models'
+        self.model_name = 'accounting'
+
+        self.model_folder_path = os.path.join(
+            self.models_folder_path,
+            self.model_name,
+            "fine_tuned_model")
+
+        self.tokeniser_folder_path = os.path.join(
+            self.models_folder_path,
+            self.model_name ,
+            "fine_tuned_tokeniser")
+
+        self.model_type = 'gpt2'
         self.tokenizer = Tokeniser(model_name=self.model_type)
         self.model = AutoModelForCausalLM.from_pretrained(self.model_type)
         self.model.resize_token_embeddings(len(self.tokenizer.tokenizer))
-        self.prompt = "what is accounting"
+        self.prompt = "describe different data modelling methodologies"
 
     def test_data_preparation(self):
         chunked_data = prepare_data_for_training(
@@ -66,31 +76,23 @@ class TestHuggingFaceFineTunedModel:
                     self.model)
 
         self.model.save_pretrained(
-            save_directory=self.pretrained_model_name_or_path)
+            save_directory=self.model_folder_path)
 
         self.tokenizer.tokenizer.save_pretrained(
-            save_directory=self.pretrained_tokenizer_name_or_path)
+            save_directory=self.tokeniser_folder_path)
 
     def test_text_generation(self):
 
-        model_path = r'data/outputs/models/'
-        model_name = NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME
-        
-        orchestrate_text_generation(
-            model_path,
-            model_name,
+        model, tokeniser = load_model(
+            self.model_name,
+            self.models_folder_path)
+
+        generate_text_using_pipeline(
+            model,
+            tokeniser,
             self.prompt)
 
-        # model, tokeniser = load_model(
-        #     model_name,
-        #     model_path)
-        #
-        # generate_text_using_pipeline(
-        #     model,
-        #     tokeniser,
-        #     self.prompt)
-        #
-        # generate_text_using_model(
-        #     model,
-        #     tokeniser,
-        #     self.prompt)
+        generate_text_using_model(
+            model,
+            tokeniser,
+            self.prompt)
