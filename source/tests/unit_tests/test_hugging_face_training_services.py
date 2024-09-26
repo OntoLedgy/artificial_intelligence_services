@@ -9,6 +9,7 @@ from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
 from services.llms.text_generators import generate_text_using_pipeline, generate_text_using_model
 from services.model_management.model_loader import load_model
+from services.orchestrators.text_generation_orchestrator import orchestrate_text_generation
 from services.tokenisation.tokeniser import Tokeniser
 
 
@@ -73,17 +74,22 @@ class TestHuggingFaceFineTunedModel:
 
         model_path = r'data/outputs/models/'
         model_name = NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME
-
-        model, tokeniser = load_model(
+        
+        orchestrate_text_generation(
+            model_path,
             model_name,
-            model_path)
-
-        generate_text_using_pipeline(
-            model,
-            tokeniser,
             self.prompt)
 
-        generate_text_using_model(
-            model,
-            tokeniser,
-            self.prompt)
+        # model, tokeniser = load_model(
+        #     model_name,
+        #     model_path)
+        #
+        # generate_text_using_pipeline(
+        #     model,
+        #     tokeniser,
+        #     self.prompt)
+        #
+        # generate_text_using_model(
+        #     model,
+        #     tokeniser,
+        #     self.prompt)
