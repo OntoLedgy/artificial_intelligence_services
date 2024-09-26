@@ -52,39 +52,43 @@ class TestHuggingFaceFineTunedModelBoro:
                     'models',
                     'accounting_fine_tuned_tokenizer')
         
+        self.prompt = \
+            'what is BORO'
+        
         self.model_type = \
             NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2
         
-        self.tokenizer = \
-            Tokeniser(
-                    model_name=self.model_type)
-        
-        self.model = \
-            AutoModelForCausalLM.from_pretrained(
-                    pretrained_model_name_or_path=self.model_type)
-        
-        self.model.resize_token_embeddings(
-                len(
-                    self.tokenizer.tokenizer))
-        
-        self.prompt = \
-            'what is BORO'
+        self.__initialise_model_and_tokeniser()
         
         LogFiles.open_log_file(
                 folder_path=os.path.join(
                         z_sandpit_outputs_folder,
                         'logs'))
     
+    def __initialise_model_and_tokeniser(
+            self) \
+            -> None:
+        self.model = \
+            AutoModelForCausalLM.from_pretrained(
+                    pretrained_model_name_or_path=self.model_type)
+        
+        self.tokenizer = \
+            Tokeniser(
+                    model_name=self.model_type)
+        
+        self.model.resize_token_embeddings(
+                len(
+                        self.tokenizer.tokenizer))
     
     def test_data_preparation(
             self):
-        self.pdf_text = \
+        self.pdf_texts = \
             extract_text_from_pdfs(
                     pdf_folder=self.pdf_folder)
         
         chunked_data = \
             prepare_data_for_training(
-                    self.pdf_text,
+                    self.pdf_texts,
                     chunk_size=512)
         
         print(
@@ -112,21 +116,19 @@ class TestHuggingFaceFineTunedModelBoro:
         self.tokenizer.save_tokenized_data_to_file(
                 output_file=self.tokenised_data_file_path)
     
-    
     def test_fine_tuning(
             self):
-        # Example usage
-        tokenized_dataset = self.tokenizer.read_tokenized_data_from_file(
-                self.tokenised_data_file_path)
+        tokenized_dataset = \
+            self.tokenizer.read_tokenized_data_from_file(
+                input_file=self.tokenised_data_file_path)
         
-        # To inspect the loaded data
         print(
                 tokenized_dataset[0])
         
         train_model(
-            tokenized_dataset,
-            self.tokenizer.tokenizer,
-            self.model)
+                tokenized_dataset=tokenized_dataset,
+                tokenizer=self.tokenizer.tokenizer,
+                model=self.model)
         
         self.model.save_pretrained(
                 save_directory=self.pretrained_model_name_or_path)
