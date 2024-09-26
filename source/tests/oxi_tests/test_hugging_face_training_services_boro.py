@@ -13,6 +13,7 @@ from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
 from services.llms.text_generators import generate_text_using_pipeline, generate_text_using_model
 from services.model_management.model_loader import load_model
+from services.orchestrators.text_generation_orchestrator import orchestrate_text_generation
 from services.tokenisation.tokeniser import Tokeniser
 from z_sandpit.test_data.configuration.z_sandpit_test_constants import Z_SANDPIT_TEST_DATA_FOLDER_PATH
 
@@ -21,7 +22,7 @@ class TestHuggingFaceFineTunedModelBoro:
 
     @pytest.fixture(autouse=True)
     def setup(self):
-        pdf_folder = \
+        self.pdf_folder = \
             os.path.join(
                 Z_SANDPIT_TEST_DATA_FOLDER_PATH,
                 'inputs')
@@ -31,7 +32,6 @@ class TestHuggingFaceFineTunedModelBoro:
                 Z_SANDPIT_TEST_DATA_FOLDER_PATH,
                 'outputs')
         
-        self.pdf_text = extract_text_from_pdfs(pdf_folder)
         self.chunked_data_file_path = \
             os.path.join(
                 z_sandpit_outputs_folder,
@@ -64,6 +64,10 @@ class TestHuggingFaceFineTunedModelBoro:
                     'logs'))
 
     def test_data_preparation(self):
+        self.pdf_text = \
+            extract_text_from_pdfs(
+                    pdf_folder=self.pdf_folder)
+
         chunked_data = prepare_data_for_training(
             self.pdf_text,
             chunk_size=512)
@@ -108,17 +112,22 @@ class TestHuggingFaceFineTunedModelBoro:
 
         model_path = r'data/outputs/models/'
         model_name = NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME
-
-        model, tokeniser = load_model(
-            model_name,
-            model_path)
-
-        generate_text_using_pipeline(
-            model,
-            tokeniser,
-            self.prompt)
-
-        generate_text_using_model(
-            model,
-            tokeniser,
-            self.prompt)
+        
+        orchestrate_text_generation(
+                model_path,
+                model_name,
+                self.prompt)
+        
+        # model, tokeniser = load_model(
+        #     model_name,
+        #     model_path)
+        #
+        # generate_text_using_pipeline(
+        #     model,
+        #     tokeniser,
+        #     self.prompt)
+        #
+        # generate_text_using_model(
+        #     model,
+        #     tokeniser,
+        #     self.prompt)
