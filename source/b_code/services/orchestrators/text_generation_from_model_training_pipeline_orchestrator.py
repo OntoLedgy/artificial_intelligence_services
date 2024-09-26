@@ -11,7 +11,7 @@ from services.tokenisation.tokeniser import Tokeniser
 
 
 # TODO: Modify the code to take the chunked data rather than exporting it and importing it from file
-def orchestrate_fine_tuning_hugging_face(
+def orchestrate_text_generation_from_model_training_pipeline(
         pdf_folder_path: str,
         chunked_data_file_path: str,
         prompt: str):

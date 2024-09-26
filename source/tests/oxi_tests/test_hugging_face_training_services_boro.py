@@ -9,7 +9,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import NfOpenA
 from services.data_preparation.pdf_services import extract_text_from_pdfs
 from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
-from services.orchestrators.fine_tuning_hugging_face_orchestrator import orchestrate_fine_tuning_hugging_face
+from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import orchestrate_text_generation_from_model_training_pipeline
 from services.orchestrators.text_generation_orchestrator import orchestrate_text_generation
 from services.tokenisation.tokeniser import Tokeniser
 from z_sandpit.test_data.configuration.z_sandpit_test_constants import Z_SANDPIT_TEST_DATA_FOLDER_PATH
@@ -154,7 +154,7 @@ class TestHuggingFaceFineTunedModelBoro:
             self) \
             -> None:
         generated_texts_dictionary = \
-            orchestrate_fine_tuning_hugging_face(
+            orchestrate_text_generation_from_model_training_pipeline(
                     pdf_folder_path=self.pdf_folder,
                     chunked_data_file_path=self.chunked_data_file_path,
                     prompt=self.prompt)
