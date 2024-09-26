@@ -1,4 +1,3 @@
-import json
 from transformers import AutoModelForCausalLM
 from services.fine_tuning.model_fine_tuner import train_model
 from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
@@ -103,16 +102,3 @@ def __generate_text_from_pretrained_model(
         generated_texts_dictionary
 
 
-def write_list_of_dictionaries_to_json_file(
-        output_file_path: str,
-        list_of_dictionaries: list) \
-        -> None:
-    with open(
-            output_file_path,
-            'w') as output_file:
-        for entry in list_of_dictionaries:
-            json.dump(
-                    entry,
-                    output_file)
-            output_file.write(
-                    '\n')
