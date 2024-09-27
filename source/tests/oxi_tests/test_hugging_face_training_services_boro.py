@@ -8,6 +8,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import NfOpenA
 from services.data_preparation.pdf_services import extract_text_from_pdfs
 from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
+from services.orchestrators.model_pdf_data_preparer import prepare_model_pdf_data
 from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import orchestrate_text_generation_from_model_training_pipeline
 from services.orchestrators.text_generation_orchestrator import orchestrate_text_generation
 from services.tokenisation.tokeniser import Tokeniser
@@ -25,36 +26,51 @@ class TestHuggingFaceFineTunedModelBoro:
                     Z_SANDPIT_TEST_DATA_FOLDER_PATH,
                     'inputs')
         
-        z_sandpit_outputs_folder = \
+        self.z_sandpit_outputs_folder = \
             os.path.join(
                     Z_SANDPIT_TEST_DATA_FOLDER_PATH,
                     'outputs')
         
+        self.models_folder_path = \
+            os.path.join(
+                    self.z_sandpit_outputs_folder,
+                    'models')
+        
+        self.model_folder_path = os.path.join(
+                self.models_folder_path,
+                NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME,
+                "fine_tuned_model")
+        
+        self.tokeniser_folder_path = os.path.join(
+                self.models_folder_path,
+                NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME,
+                "fine_tuned_tokeniser")
+        
         self.chunked_data_file_path = \
             os.path.join(
-                    z_sandpit_outputs_folder,
+                    self.z_sandpit_outputs_folder,
                     'training_data',
                     'accounting_training_data.jsonl')
         
         self.tokenised_data_file_path = \
             os.path.join(
-                    z_sandpit_outputs_folder,
+                    self.z_sandpit_outputs_folder,
                     'tokenised_data',
                     'accounting_tokenised_data.jsonl')
         self.pretrained_model_name_or_path = \
             os.path.join(
-                    z_sandpit_outputs_folder,
+                    self.z_sandpit_outputs_folder,
                     'models',
                     'accounting_fine_tuned_model')
         
         self.pretrained_tokenizer_name_or_path = \
             os.path.join(
-                    z_sandpit_outputs_folder,
+                    self.z_sandpit_outputs_folder,
                     'models',
                     'accounting_fine_tuned_tokenizer')
         
         self.prompt = \
-            'what is BORO'
+            'what is BORO?'
         
         self.model_type = \
             NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2
@@ -63,7 +79,7 @@ class TestHuggingFaceFineTunedModelBoro:
         
         LogFiles.open_log_file(
                 folder_path=os.path.join(
-                        z_sandpit_outputs_folder,
+                        self.z_sandpit_outputs_folder,
                         'logs'))
     
     def __initialise_model_and_tokeniser(
@@ -83,28 +99,10 @@ class TestHuggingFaceFineTunedModelBoro:
     
     def test_data_preparation(
             self):
-        self.pdf_texts = \
-            extract_text_from_pdfs(
-                    pdf_folder=self.pdf_folder)
-        
         chunked_data = \
-            prepare_data_for_training(
-                    self.pdf_texts,
-                    chunk_size=512)
-        
-        print(
-            chunked_data)
-        
-        # Save the dataset in JSONL format
-        with open(
-                self.chunked_data_file_path,
-                'w') as f:
-            for entry in chunked_data:
-                json.dump(
-                    entry,
-                    f)
-                f.write(
-                    '\n')
+            prepare_model_pdf_data(
+                    pdf_folder_path=self.pdf_folder,
+                    chunked_data_file_path=self.chunked_data_file_path)
     
     def test_tokenisation(
             self):
@@ -129,14 +127,15 @@ class TestHuggingFaceFineTunedModelBoro:
         train_model(
                 tokenized_dataset=tokenized_dataset,
                 tokenizer=self.tokenizer.tokenizer,
-                model=self.model)
+                model=self.model,
+                output_path=self.z_sandpit_outputs_folder + '/results',
+                logging_dir=LogFiles.folder_path)
         
         self.model.save_pretrained(
-                save_directory=self.pretrained_model_name_or_path)
+                save_directory=self.model_folder_path)
         
         self.tokenizer.tokenizer.save_pretrained(
-                save_directory=self.pretrained_tokenizer_name_or_path,
-                filename_prefix=NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME)
+                save_directory=self.tokeniser_folder_path)
     
     
     def test_text_generation(
@@ -145,7 +144,7 @@ class TestHuggingFaceFineTunedModelBoro:
             NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME
         
         orchestrate_text_generation(
-                self.pretrained_model_name_or_path,
+                self.models_folder_path,
                 model_name,
                 self.prompt)
     
@@ -154,6 +153,7 @@ class TestHuggingFaceFineTunedModelBoro:
         generated_texts_dictionary = \
             orchestrate_text_generation_from_model_training_pipeline(
                     pdf_folder_path=self.pdf_folder,
+                    output_folder_path=self.z_sandpit_outputs_folder,
                     chunked_data_file_path=self.chunked_data_file_path,
                     prompt=self.prompt)
 

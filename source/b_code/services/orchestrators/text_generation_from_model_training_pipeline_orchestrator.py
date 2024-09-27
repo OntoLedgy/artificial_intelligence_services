@@ -10,6 +10,7 @@ from services.tokenisation.tokeniser import Tokeniser
 # TODO: Modify the code to take the chunked data rather than exporting it and importing it from file
 def orchestrate_text_generation_from_model_training_pipeline(
         pdf_folder_path: str,
+        output_folder_path: str,
         chunked_data_file_path: str,
         prompt: str):
     chunked_data = \
@@ -35,7 +36,9 @@ def orchestrate_text_generation_from_model_training_pipeline(
     train_model(
             tokenized_dataset=tokenised_dataset,
             tokenizer=tokenizer,
-            model=pretrained_model)
+            model=pretrained_model,
+            output_path=output_folder_path + '/results',
+            logging_dir=output_folder_path + '/logs')
     
     generated_texts_dictionary = \
         __generate_text_from_pretrained_model(
@@ -67,7 +70,7 @@ def __tokenise_dataset(
         tokenizer: Tokeniser,
         chunked_data_file_path: str):
     tokenizer.tokenize(
-            chunked_data_file_path=chunked_data_file_path)
+            data_files=chunked_data_file_path)
     
     tokenised_dataset = \
         tokenizer.tokenized_dataset

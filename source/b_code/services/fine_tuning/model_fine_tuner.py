@@ -9,8 +9,8 @@ def train_model(
         tokenized_dataset,
         tokenizer,
         model,
-        output_path='./data/outputs/results',
-        logging_dir='./data/outputs/logs'):
+        output_path: str = './data/outputs/results',
+        logging_dir: str = './data/outputs/logs'):
 
 
     training_args = TrainingArguments(
