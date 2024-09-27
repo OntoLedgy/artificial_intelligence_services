@@ -11,7 +11,7 @@ from services.orchestrators.list_of_dictionaries_to_json_file_writer import (
 def prepare_model_pdf_data(
     pdf_folder_path: str,
     chunked_data_file_path: str = None,
-    chunk_size: int = NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING,
+    chunk_size: int = NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING,  # TODO: record this in the class
 ) -> list:
     pdf_texts = extract_text_from_pdfs(pdf_folder=pdf_folder_path)
 

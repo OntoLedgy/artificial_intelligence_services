@@ -86,8 +86,7 @@ class TestHuggingFaceFineTunedModelBoro:
     def test_data_preparation(self):
         chunked_data = prepare_model_pdf_data(
             pdf_folder_path=self.pdf_folder,
-            chunked_data_file_path=self.chunked_data_file_path,
-        )
+            chunked_data_file_path=self.chunked_data_file_path)
 
     def test_tokenisation(self):
         self.tokenizer.tokenize(self.chunked_data_file_path)

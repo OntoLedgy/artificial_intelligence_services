@@ -17,8 +17,14 @@ def orchestrate_text_generation_from_model_training_pipeline(
     prompt: str,
 ):
     chunked_data = prepare_model_pdf_data(
-        pdf_folder_path=pdf_folder_path, chunked_data_file_path=chunked_data_file_path
-    )
+            pdf_folder_path=pdf_folder_path,
+            chunked_data_file_path=chunked_data_file_path)
+    
+    # TODO: To be used only for staged testing
+    test = 'test'
+    
+    if test == 'test':
+        return dict()
 
     pretrained_model = AutoModelForCausalLM.from_pretrained(
         pretrained_model_name_or_path=NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2
