@@ -1,6 +1,5 @@
 import os
 import pytest
-from networkx.readwrite.graphml import write_graphml
 from services.data_preparation.text_from_word_document_sections_extractor import (
     extract_text_from_word_document_sections,
 )

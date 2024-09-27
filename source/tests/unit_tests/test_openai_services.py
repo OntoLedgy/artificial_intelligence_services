@@ -1,4 +1,3 @@
-from source.b_code.services.object_model.clients.OpenAiClient import OpenAiClient
 
 
 class TestOpenAiServices:

@@ -1,4 +1,3 @@
-import json
 import os
 import pytest
 from nf_common_source.code.services.reporting_service.reporters.log_file import LogFiles
@@ -9,8 +8,6 @@ from configurations.boro_configurations.nf_general_configurations import (
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
-from services.data_preparation.pdf_services import extract_text_from_pdfs
-from services.data_preparation.prepare_data import prepare_data_for_training
 from services.fine_tuning.model_fine_tuner import train_model
 from services.orchestrators.model_pdf_data_preparer import prepare_model_pdf_data
 from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import (
