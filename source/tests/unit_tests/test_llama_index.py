@@ -1,4 +1,4 @@
-#https://www.llamaindex.ai/blog/customizing-property-graph-index-in-llamaindex
+# https://www.llamaindex.ai/blog/customizing-property-graph-index-in-llamaindex
 
 from llama_index.core import (
     Document,
@@ -21,11 +21,8 @@ import pandas as pd
 from typing import Literal
 
 
-
-
 @pytest.mark.usefixtures("setup_tests")
 class TestLlamaIndex:
-
     @pytest.fixture(autouse=True)
     def setup_tests(self):
         logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
@@ -41,19 +38,16 @@ class TestLlamaIndex:
             url=url,
         )
 
-        self. embed_model = OpenAIEmbedding()
+        self.embed_model = OpenAIEmbedding()
 
-
-    def test_llama_index(
-            self):
+    def test_llama_index(self):
         persist_dir = "./data/outputs/vector_storage"
         if not os.path.exists(persist_dir):
             # load the documents and create the index
             documents = SimpleDirectoryReader("./data/inputs/txt").load_data()
             index = VectorStoreIndex.from_documents(documents)
             # store it for later
-            index.storage_context.persist(
-                persist_dir=persist_dir)
+            index.storage_context.persist(persist_dir=persist_dir)
         else:
             # load the existing index
             storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
@@ -66,8 +60,12 @@ class TestLlamaIndex:
 
     def test_llama_rag(self):
         news = pd.read_csv(
-            "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv")
-        documents = [Document(text=f"{row['title']}: {row['text']}") for i, row in news.iterrows()]
+            "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv"
+        )
+        documents = [
+            Document(text=f"{row['title']}: {row['text']}")
+            for i, row in news.iterrows()
+        ]
 
         entities = Literal["PERSON", "LOCATION", "ORGANIZATION", "PRODUCT", "EVENT"]
         relations = Literal[

@@ -3,16 +3,14 @@ from configurations.ol_configurations.open_ai_configurations import OpenAIConfig
 
 
 class TestConfigurationParsers:
-    def test_parse_configuration(self
-                                 ):
+    def test_parse_configuration(self):
         configuration_file = r"source\tests\configurations\open_ai_configuration.json"
 
-        configuration_manager = Configurations(
-            configuration_file)
+        configuration_manager = Configurations(configuration_file)
 
         configuration_manager.validate_config(
-            model_class=OpenAIConfigurations,
-            section_name="open_ai_configuration")
+            model_class=OpenAIConfigurations, section_name="open_ai_configuration"
+        )
 
         print(configuration_manager.get_config("api_key"))
 
