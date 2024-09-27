@@ -1,3 +1,5 @@
+import os
+
 from configurations.boro_configurations.nf_general_configurations import (
     NfGeneralConfigurations,
 )
@@ -25,7 +27,8 @@ def get_chunked_texts(
         
     texts = \
         Texts(
-            source_texts=source_texts)
+            source_texts=source_texts,
+            output_folder_path=os.path.dirname(chunked_texts_output_file_path))
     
     chunked_texts = \
         ChunkedTexts(
@@ -34,6 +37,8 @@ def get_chunked_texts(
             output_file_path=chunked_texts_output_file_path)
 
     if chunked_texts_output_file_path:
+        texts.export_to_csv()
+        
         chunked_texts.export_to_jsonl()  # TODO: move the output folder to the class parameters - DONE
 
     return \
