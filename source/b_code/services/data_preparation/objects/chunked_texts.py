@@ -7,12 +7,16 @@ class ChunkedTexts:
     def __init__(
             self,
             texts: Texts,
-            chunk_size: int):
+            chunk_size: int,
+            output_file_path: str):  # TODO: this should be the output folder, not file path
         self.texts = \
             texts
         
         self.chunk_size = \
             chunk_size
+        
+        self.output_file_path = \
+            output_file_path
         
         self.chunked_texts = \
             self.chunk_texts()
@@ -37,29 +41,9 @@ class ChunkedTexts:
         return \
             chunked_texts
     
-    # def create_training_data(
-    #         pdf_texts):
-    #     # Create training data
-    #     training_data = prepare_data_for_training(
-    #         pdf_texts)
-    #
-    #     # TODO: MKh - should 'training_data.jsonl' and 'w' and '\n' be a common literal?
-    #     # Save the dataset in JSONL format
-    #     with open(
-    #             "training_data.jsonl",
-    #             "w") as f:
-    #         for entry in training_data:
-    #             json.dump(
-    #                 entry,
-    #                 f)
-    #             f.write(
-    #                 "\n")
-    
-    
     def export_to_jsonl(
-            self,
-            output_folder_path: str) \
+            self) \
             -> None:
         write_list_of_dictionaries_to_json_file(
-                output_file_path=output_folder_path,
+                output_file_path=self.output_file_path,
                 list_of_dictionaries=self.chunked_texts)
