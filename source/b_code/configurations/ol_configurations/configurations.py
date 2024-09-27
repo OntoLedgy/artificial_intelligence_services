@@ -3,37 +3,28 @@ from dynaconf import Dynaconf
 
 
 class Configurations:
-    def __init__(self,
-                 configuration_file_path):
+    def __init__(self, configuration_file_path):
         self.settings = Dynaconf(
             settings_files=[configuration_file_path],
         )
 
-    def validate_config(
-            self,
-            model_class,
-            section_name):
-
+    def validate_config(self, model_class, section_name):
         try:
-
-            settings_section = getattr(
-                self.settings,
-                section_name.upper())
+            settings_section = getattr(self.settings, section_name.upper())
 
             config_data = {
-                key.lower(): getattr(
-                    settings_section,
-                    key) for key in settings_section}
+                key.lower(): getattr(settings_section, key) for key in settings_section
+            }
 
-            model_instance = model_class(
-                **config_data)
+            model_instance = model_class(**config_data)
 
             setattr(
-                self,
-                section_name.lower(),
-                model_instance)  # Store the validated config
+                self, section_name.lower(), model_instance
+            )  # Store the validated config
 
-            print(f"{model_class.__name__} Configuration Validated and Loaded: {model_instance}")
+            print(
+                f"{model_class.__name__} Configuration Validated and Loaded: {model_instance}"
+            )
 
         except ValidationError as e:
             print(f"Configuration Validation Error in {model_class.__name__}: {e}")
@@ -41,11 +32,7 @@ class Configurations:
         except AttributeError:
             print(f"Missing configuration section: {section_name}")
 
-    def get_config(
-            self,
-            section_name,
-            key=None):
-
+    def get_config(self, section_name, key=None):
         """Gets a configuration section or a specific key from the section."""
         section = getattr(self, section_name.lower(), None)
         if section is None:
@@ -62,6 +49,8 @@ class Configurations:
         if hasattr(self, section_name.lower()):
             for key, value in kwargs.items():
                 setattr(getattr(self, section_name.lower()), key, value)
-            print(f"Updated {section_name} Configuration: {getattr(self, section_name.lower())}")
+            print(
+                f"Updated {section_name} Configuration: {getattr(self, section_name.lower())}"
+            )
         else:
             print(f"No existing configuration to update for {section_name}")

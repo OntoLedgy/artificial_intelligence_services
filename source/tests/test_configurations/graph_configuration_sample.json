@@ -1,6 +1,0 @@
-{
-  "URI" : "bolt://127.0.0.1:7687",
-  "database_name": "test",
-  "USERNAME": "neo4j",
-  "PASSWORD": "password"
-}

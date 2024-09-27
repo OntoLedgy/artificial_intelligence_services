@@ -1,28 +1,28 @@
 from transformers import pipeline
 
-from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
+from configurations.boro_configurations.nf_general_configurations import (
+    NfGeneralConfigurations,
+)
 
 
 def generate_text_using_pipeline(
-        model,
-        tokenizer,
-        input_text="In this study, we explore the effects of"):
-
+    model, tokenizer, input_text="In this study, we explore the effects of"
+):
     # Create a text generation pipeline with the fine-tuned model
-    generator = pipeline('text-generation', model=model, tokenizer=tokenizer)
+    generator = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
     # Use the model to generate text
-    output = generator(input_text, max_length=200, num_return_sequences=1, truncation=True)
+    output = generator(
+        input_text, max_length=200, num_return_sequences=1, truncation=True
+    )
     print("output")
-    print(output[0]['generated_text'])
+    print(output[0]["generated_text"])
 
 
 def generate_text_using_model(
-        model,
-        tokenizer,
-        input_text="In this study, we explore the effects of"):
-
-    input_ids = tokenizer.encode(input_text, return_tensors='pt')
+    model, tokenizer, input_text="In this study, we explore the effects of"
+):
+    input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
     # Generate text with specified parameters
     output_ids = model.generate(
