@@ -11,7 +11,6 @@ from services.data_preparation.pdf_documents_from_directory_loader import (
     load_pdf_documents_from_directory,
 )
 from services.data_preparation.pdf_services import extract_text_from_pdf
-from services.data_preparation.pdf_services import load_pdfs
 from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import (
     BoroGraphRagOrchestrator,
 )
