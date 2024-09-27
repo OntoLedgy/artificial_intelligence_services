@@ -9,7 +9,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 from services.fine_tuning.model_fine_tuner import train_model
-from services.orchestrators.chunked_data_getter import get_chunked_data
+from services.orchestrators.chunked_texts_getter import get_chunked_texts
 from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import (
     orchestrate_text_generation_from_model_training_pipeline,
 )
@@ -84,9 +84,10 @@ class TestHuggingFaceFineTunedModelBoro:
         self.model.resize_token_embeddings(len(self.tokenizer.tokenizer))
 
     def test_data_preparation(self):
-        chunked_data = get_chunked_data(
-            source_documents_folder_path=self.pdf_folder,
-            chunked_data_output_file_path=self.chunked_data_file_path)
+        chunked_texts = \
+            get_chunked_texts(
+                source_texts_folder_path=self.pdf_folder,
+                chunked_texts_output_file_path=self.chunked_data_file_path)
 
     def test_tokenisation(self):
         self.tokenizer.tokenize(self.chunked_data_file_path)
@@ -126,9 +127,9 @@ class TestHuggingFaceFineTunedModelBoro:
     def test_text_generation_from_model_training_pipeline(self):
         generated_texts_dictionary = (
             orchestrate_text_generation_from_model_training_pipeline(
-                pdf_folder_path=self.pdf_folder,
+                source_texts_folder_path=self.pdf_folder,
                 output_folder_path=self.z_sandpit_outputs_folder,
-                chunked_data_file_path=self.chunked_data_file_path,
+                chunked_texts_output_file_path=self.chunked_data_file_path,
                 prompt=self.prompt,
             )
         )

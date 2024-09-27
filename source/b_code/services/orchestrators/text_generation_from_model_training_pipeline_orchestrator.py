@@ -5,21 +5,20 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
 )
 from services.llms.text_generators import generate_text_using_model
 from services.llms.text_generators import generate_text_using_pipeline
-from services.orchestrators.chunked_data_getter import get_chunked_data
+from services.orchestrators.chunked_texts_getter import get_chunked_texts
 from services.tokenisation.tokeniser import Tokeniser
 
 
 # TODO: Modify the code to take the chunked data rather than exporting it and importing it from file
 def orchestrate_text_generation_from_model_training_pipeline(
-    pdf_folder_path: str,
-    output_folder_path: str,
-    chunked_data_file_path: str,
-    prompt: str,
-):
-    chunked_data = \
-        get_chunked_data(
-            source_documents_folder_path=pdf_folder_path,
-            chunked_data_output_file_path=chunked_data_file_path)
+        source_texts_folder_path: str,
+        output_folder_path: str,
+        chunked_texts_output_file_path: str,
+        prompt: str):
+    chunked_texts = \
+        get_chunked_texts(
+            source_texts_folder_path=source_texts_folder_path,
+            chunked_texts_output_file_path=chunked_texts_output_file_path)
     
     # TODO: To be used only for staged testing
     test = 'test'
@@ -38,7 +37,7 @@ def orchestrate_text_generation_from_model_training_pipeline(
 
     # TODO: modify inside code to tokenize the chunked data list rather than having to load it from file
     tokenised_dataset = __tokenise_dataset(
-        tokenizer=tokenizer, chunked_data_file_path=chunked_data_file_path
+        tokenizer=tokenizer, chunked_data_file_path=chunked_texts_output_file_path
     )
 
     train_model(
