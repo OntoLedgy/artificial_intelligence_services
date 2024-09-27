@@ -5,7 +5,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
 )
 from services.llms.text_generators import generate_text_using_model
 from services.llms.text_generators import generate_text_using_pipeline
-from services.orchestrators.model_pdf_data_preparer import prepare_model_pdf_data
+from services.orchestrators.chunked_data_getter import get_chunked_data
 from services.tokenisation.tokeniser import Tokeniser
 
 
@@ -16,9 +16,10 @@ def orchestrate_text_generation_from_model_training_pipeline(
     chunked_data_file_path: str,
     prompt: str,
 ):
-    chunked_data = prepare_model_pdf_data(
-            pdf_folder_path=pdf_folder_path,
-            chunked_data_file_path=chunked_data_file_path)
+    chunked_data = \
+        get_chunked_data(
+            source_documents_folder_path=pdf_folder_path,
+            chunked_data_output_file_path=chunked_data_file_path)
     
     # TODO: To be used only for staged testing
     test = 'test'
