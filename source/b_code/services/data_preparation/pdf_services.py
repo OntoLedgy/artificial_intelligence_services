@@ -34,7 +34,7 @@ def extract_text_from_pdfs(
 # TODO: MKh - should 'rb' be a common literal?
 def extract_text_from_pdf(
         pdf_path):
-    text = ""
+    text = ''
     with open(
             pdf_path,
             READ_BYTES_ACRONYM) as file:
