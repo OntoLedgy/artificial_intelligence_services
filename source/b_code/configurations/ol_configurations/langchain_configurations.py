@@ -1,7 +1,8 @@
 from pydantic import BaseModel
 
 
-class LangChainConfiguration(BaseModel):
+class LangChainConfiguration(
+        BaseModel):
     langchain_url: str
     langchain_api_key: str
     langchain_model_id: str

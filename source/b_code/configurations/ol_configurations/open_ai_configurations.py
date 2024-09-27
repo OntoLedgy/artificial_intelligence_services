@@ -1,7 +1,8 @@
 from pydantic import BaseModel
 
 
-class OpenAIConfigurations(BaseModel):
+class OpenAIConfigurations(
+        BaseModel):
     api_key: str
     openai_organisation: str
     openai_project: str
