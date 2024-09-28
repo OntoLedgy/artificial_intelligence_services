@@ -10,7 +10,7 @@ class NfGeneralConfigurations:
 
     DEFAULT_TRUNCATE_CONTEXT_MAX_TOKENS = 4000
 
-    HUGGING_FACE_MODEL_NAME = "accounting_fine_tuned"
+    HUGGING_FACE_MODEL_NAME = "accounting"
 
     NUMBER_OF_ROWS = 10
 

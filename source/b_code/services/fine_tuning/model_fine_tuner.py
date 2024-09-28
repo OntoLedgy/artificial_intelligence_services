@@ -1,12 +1,22 @@
+from nf_common_source.code.configurations.datastructure.logging_inspection_level_b_enums import (
+    LoggingInspectionLevelBEnums,
+)
+from nf_common_source.code.services.reporting_service.reporters.inspection_message_logger import (
+    log_inspection_message,
+)
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import (
+    run_and_log_function,
+)
 from transformers import Trainer, TrainingArguments
 
 
+@run_and_log_function
 def train_model(
     tokenized_dataset,
     tokenizer,
     model,
-    output_path="./data/outputs/results",
-    logging_dir="./data/outputs/logs",
+    output_path: str = "./data/outputs/results",
+    logging_dir: str = "./data/outputs/logs",
 ):
     training_args = TrainingArguments(
         output_dir=output_path,
@@ -29,6 +39,11 @@ def train_model(
     )
 
     # Train the model
+    log_inspection_message(
+        message="Training model...",
+        logging_inspection_level_b_enum=LoggingInspectionLevelBEnums.INFO,
+    )
+
     trainer.train()
 
     return model

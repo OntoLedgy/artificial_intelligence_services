@@ -1,13 +1,13 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from langchain_community.chat_models import ChatOpenAI
-from langchain_community.graphs import Neo4jGraph
 from langchain_community.graphs.graph_document import GraphDocument
 from langchain_core.documents import Document
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from networkx.algorithms.operators.binary import compose
-from networkx.classes import Graph, DiGraph
-from networkx.readwrite.graphml import write_graphml
-from networkx.relabel import relabel_nodes
+from networkx.classes import DiGraph
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import (
+    run_and_log_function,
+)
 from tqdm import tqdm
 from typing import List
 
@@ -22,7 +22,7 @@ from source.b_code.configurations.boro_configurations.nf_open_ai_configurations 
 class BoroGraphRagOrchestrator:
     def __init__(
         self, data_set, model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI
-    ):
+    ):  # TODO: should we make this a default configuration
         # self.graph = Neo4jGraph()
         self.data_set = data_set
         self.llm = ChatOpenAI(
@@ -38,6 +38,7 @@ class BoroGraphRagOrchestrator:
         )
         self.graph_documents = []
 
+    @run_and_log_function
     def process_text(self, text: str, llm_transformer) -> List[GraphDocument]:
         doc = Document(page_content=text)
 
@@ -46,6 +47,7 @@ class BoroGraphRagOrchestrator:
         return graph_documents
 
     # TODO: change parameters to configurations
+    @run_and_log_function
     def orchestrate(
         self,
         number_of_rows=NfGeneralConfigurations.NUMBER_OF_ROWS,
@@ -53,14 +55,23 @@ class BoroGraphRagOrchestrator:
     ):
         with ThreadPoolExecutor(max_workers=maximum_workers) as executor:
             # Submitting all tasks and creating a list of future objects
-            futures = [
-                executor.submit(
-                    self.process_text,
-                    f"{row['title']} {row['text']}",
-                    self.llm_transformer,
-                )
-                for i, row in self.data_set.head(number_of_rows).iterrows()
-            ]
+            if isinstance(self.data_set, list):
+                futures = [
+                    executor.submit(
+                        self.process_text, text_to_be_processed, self.llm_transformer
+                    )
+                    for text_to_be_processed in self.data_set
+                ]
+
+            else:
+                futures = [
+                    executor.submit(
+                        self.process_text,
+                        f"{row['title']} {row['text']}",
+                        self.llm_transformer,
+                    )
+                    for i, row in self.data_set.head(number_of_rows).iterrows()
+                ]
 
             for future in tqdm(
                 as_completed(futures), total=len(futures), desc="Processing documents"
@@ -77,6 +88,7 @@ class BoroGraphRagOrchestrator:
 
     # OXi additions  #####################################
 
+    @run_and_log_function
     def get_combined_networkx_graph_from_graph_documents(self) -> DiGraph:
         combined_graph = DiGraph()
 

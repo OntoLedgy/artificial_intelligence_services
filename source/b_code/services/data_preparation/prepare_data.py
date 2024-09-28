@@ -1,5 +1,9 @@
 import json
 
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import (
+    run_and_log_function,
+)
+
 from configurations.boro_configurations.nf_general_configurations import (
     NfGeneralConfigurations,
 )
@@ -8,9 +12,9 @@ from configurations.boro_configurations.nf_general_configurations import (
 # TODO: MKh - should these be separate files? Helpers?
 # TODO: MKh - should these be clean coded?
 # --------Prep
+@run_and_log_function
 def prepare_data_for_training(
-    texts,
-    chunk_size=NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING
+    texts, chunk_size=NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING
 ):
     data = []
 

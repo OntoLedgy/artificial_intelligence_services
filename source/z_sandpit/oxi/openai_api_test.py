@@ -1,6 +1,3 @@
-from source.b_code.services.object_model.agents.GPTResearcherAgent import (
-    get_research_response,
-)
 from source.b_code.services.object_model.clients.OpenAiClient import OpenAiClient
 
 if __name__ == "__main__":
