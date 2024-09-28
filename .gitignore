@@ -3,3 +3,5 @@
 /source/tests/data/outputs/
 /source/tests/data/inputs/pdf
 *.pyc
+
+__pycache__
