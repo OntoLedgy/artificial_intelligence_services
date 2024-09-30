@@ -8,8 +8,8 @@ from configurations.boro_configurations.nf_general_configurations import (
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
-from services.fine_tuning.model_fine_tuner import train_model
-from services.orchestrators.chunked_texts_getter import get_chunked_texts
+from services.fine_tuning.model_fine_tuner import fine_tune_model
+from services.data_preparation.chunked_texts_getter import get_chunked_texts
 from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import (
     orchestrate_text_generation_from_model_training_pipeline,
 )
@@ -105,7 +105,7 @@ class TestHuggingFaceFineTunedModelBoro:
 
         print(tokenized_dataset[0])
 
-        train_model(
+        fine_tune_model(
             tokenized_dataset=tokenized_dataset,
             tokenizer=self.tokenizer.tokenizer,
             model=self.model,
