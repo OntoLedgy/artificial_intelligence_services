@@ -19,6 +19,8 @@ from source.b_code.configurations.boro_configurations.nf_open_ai_configurations 
 )
 
 
+# TODO: Maybe this orchestrator class should be dismantled. Orchestrators shouldn't be classes, as they put together
+#  very different processes
 class BoroGraphRagOrchestrator:
     def __init__(
         self, data_set, model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI
