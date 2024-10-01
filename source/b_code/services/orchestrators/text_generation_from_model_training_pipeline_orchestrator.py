@@ -21,10 +21,10 @@ def orchestrate_text_generation_from_model_training_pipeline(
             chunked_texts_output_file_path=chunked_texts_output_file_path)
     
     # TODO: To be used only for staged testing
-    # test = 'test'
-    #
-    # if test == 'test':
-    #     return dict()
+    test = 'test'
+
+    if test == 'test':
+        return dict()
 
     pretrained_model = AutoModelForCausalLM.from_pretrained(
         pretrained_model_name_or_path=NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2

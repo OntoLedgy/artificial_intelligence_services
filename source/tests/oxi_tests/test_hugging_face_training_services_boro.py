@@ -8,6 +8,7 @@ from configurations.boro_configurations.nf_general_configurations import (
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
+from services.data_preparation.dictionary_of_strings_to_csv_exporter import export_dictionary_of_strings_to_csv
 from services.fine_tuning.model_fine_tuner import fine_tune_model
 from services.data_preparation.chunked_texts_getter import get_chunked_texts
 from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import (
@@ -64,7 +65,7 @@ class TestHuggingFaceFineTunedModelBoro:
             self.z_sandpit_outputs_folder, "models", "accounting_fine_tuned_tokenizer"
         )
 
-        self.prompt = "what is BORO?"
+        self.prompt = "what is bCLEARer?"
 
         self.model_type = NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2
 
@@ -122,8 +123,15 @@ class TestHuggingFaceFineTunedModelBoro:
     def test_text_generation(self):
         model_name = NfGeneralConfigurations.HUGGING_FACE_MODEL_NAME
 
-        orchestrate_text_generation(self.models_folder_path, model_name, self.prompt)
-
+        generated_texts_dictionary = \
+            orchestrate_text_generation(self.models_folder_path, model_name, self.prompt)
+        
+        export_dictionary_of_strings_to_csv(
+                output_file_path=self.z_sandpit_outputs_folder + '/generated_text/generated_texts.csv',
+                dictionary_of_strings=generated_texts_dictionary,
+                keys_column_name='generation_method',
+                values_column_name='text_generated')
+        
     def test_text_generation_from_model_training_pipeline(self):
         generated_texts_dictionary = (
             orchestrate_text_generation_from_model_training_pipeline(
