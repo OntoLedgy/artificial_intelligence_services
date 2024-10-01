@@ -6,7 +6,7 @@ from transformers import AutoModelForCausalLM
 
 from services.data_preparation.pdf_services import extract_text_from_pdfs
 from services.data_preparation.prepare_data import prepare_data_for_training
-from services.fine_tuning.model_fine_tuner import train_model
+from services.fine_tuning.model_fine_tuner import fine_tune_model
 from services.llms.text_generators import (
     generate_text_using_pipeline,
     generate_text_using_model,
@@ -72,7 +72,7 @@ class TestHuggingFaceFineTunedModel:
         # To inspect the loaded data
         print(tokenized_dataset[0])
 
-        train_model(tokenized_dataset, self.tokenizer.tokenizer, self.model)
+        fine_tune_model(tokenized_dataset, self.tokenizer.tokenizer, self.model)
 
         self.model.save_pretrained(save_directory=self.model_folder_path)
 

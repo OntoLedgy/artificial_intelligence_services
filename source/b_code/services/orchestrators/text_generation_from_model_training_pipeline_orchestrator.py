@@ -1,24 +1,30 @@
 from transformers import AutoModelForCausalLM
-from services.fine_tuning.model_fine_tuner import train_model
+from services.fine_tuning.model_fine_tuner import fine_tune_model
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 from services.llms.text_generators import generate_text_using_model
 from services.llms.text_generators import generate_text_using_pipeline
-from services.orchestrators.model_pdf_data_preparer import prepare_model_pdf_data
+from services.data_preparation.chunked_texts_getter import get_chunked_texts
 from services.tokenisation.tokeniser import Tokeniser
 
 
 # TODO: Modify the code to take the chunked data rather than exporting it and importing it from file
 def orchestrate_text_generation_from_model_training_pipeline(
-    pdf_folder_path: str,
-    output_folder_path: str,
-    chunked_data_file_path: str,
-    prompt: str,
-):
-    chunked_data = prepare_model_pdf_data(
-        pdf_folder_path=pdf_folder_path, chunked_data_file_path=chunked_data_file_path
-    )
+        source_texts_folder_path: str,
+        output_folder_path: str,
+        chunked_texts_output_file_path: str,
+        prompt: str):
+    chunked_texts = \
+        get_chunked_texts(
+            source_texts_folder_path=source_texts_folder_path,
+            chunked_texts_output_file_path=chunked_texts_output_file_path)
+    
+    # TODO: To be used only for staged testing
+    test = 'test'
+
+    if test == 'test':
+        return dict()
 
     pretrained_model = AutoModelForCausalLM.from_pretrained(
         pretrained_model_name_or_path=NfOpenAiConfigurations.OPEN_AI_MODEL_TYPE_NAME_GPT2
@@ -31,10 +37,11 @@ def orchestrate_text_generation_from_model_training_pipeline(
 
     # TODO: modify inside code to tokenize the chunked data list rather than having to load it from file
     tokenised_dataset = __tokenise_dataset(
-        tokenizer=tokenizer, chunked_data_file_path=chunked_data_file_path
+        tokenizer=tokenizer,
+        chunked_data_file_path=chunked_texts_output_file_path
     )
 
-    train_model(
+    fine_tune_model(
         tokenized_dataset=tokenised_dataset,
         tokenizer=tokenizer,
         model=pretrained_model,
@@ -69,11 +76,15 @@ def __generate_text_from_pretrained_model(
     pretrained_model, tokenizer: Tokeniser, prompt: str
 ) -> dict:
     generated_text_using_pipeline = generate_text_using_pipeline(
-        model=pretrained_model, tokenizer=tokenizer, input_text=prompt
+        model=pretrained_model,
+        tokenizer=tokenizer,
+        input_text=prompt
     )
 
     generated_text_using_model = generate_text_using_model(
-        model=pretrained_model, tokenizer=tokenizer, input_text=prompt
+        model=pretrained_model,
+        tokenizer=tokenizer,
+        input_text=prompt
     )
 
     generated_texts_dictionary = {

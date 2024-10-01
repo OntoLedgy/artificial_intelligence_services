@@ -30,8 +30,10 @@ def generate_text_using_pipeline(
 
 @run_and_log_function
 def generate_text_using_model(
-    model, tokenizer, input_text="In this study, we explore the effects of"
-) -> str:
+        model,
+        tokenizer,
+        input_text: str = "In this study, we explore the effects of"
+        ) -> str:
     input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
     # Generate text with specified parameters
