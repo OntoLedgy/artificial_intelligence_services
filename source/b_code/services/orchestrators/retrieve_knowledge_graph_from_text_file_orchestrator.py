@@ -1,44 +1,46 @@
 import os.path
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from networkx.classes import DiGraph
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
+
 from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.constants import PDF_FILE_EXTENSION
 from services.data_preparation.pdf_services import extract_text_from_pdf
 from services.llms.chat_open_ai_session_getter import get_chat_open_ai_session
-from services.orchestrators.graph_rag_orchestrator_boro_version import BoroGraphRagOrchestrator
+from services.llms.graph_documents_from_text_extractor import extract_graph_documents_from_text
+from services.llms.networkx_digraph_from_graph_documents_getter import get_networkx_digraph_from_graph_documents
 
 
-def orchestrate_retrieve_graph_from_text(
-        text_path: str) \
+@run_and_log_function
+def orchestrate_retrieve_knowledge_graph_from_text_file(
+        text_file_path: str,
+        model_name: str,
+        temperature: float) \
         -> DiGraph:
     # TODO: maybe use the Texts class created in the huggingface restructuring branch?
     text = \
         __get_text_from_file(
-            text_path=text_path)
+            text_path=text_file_path)
     
     llm_graph_transformer = \
-        __get_llm_graph_transformer()
-    
-    graph_rag_orchestrator = \
-        BoroGraphRagOrchestrator(
-            model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
-            data_set=text)
+        __get_llm_graph_transformer(
+            model_name=model_name,
+            temperature=temperature)
     
     graph_documents = \
-        graph_rag_orchestrator.process_text(
+        extract_graph_documents_from_text(
             text=text,
-            llm_transformer=graph_rag_orchestrator.llm_transformer)
+            llm_graph_transformer=llm_graph_transformer)
     
-    graph_rag_orchestrator.graph_documents = \
-        graph_documents
-    
-    networkx_graph = \
-        graph_rag_orchestrator.get_combined_networkx_graph_from_graph_documents()
+    graph_document_digraph = \
+        get_networkx_digraph_from_graph_documents(
+                graph_documents=graph_documents)
     
     return \
-        networkx_graph
+        graph_document_digraph
 
 
+@run_and_log_function
 def __get_text_from_file(
         text_path: str) \
         -> str:
@@ -60,13 +62,16 @@ def __get_text_from_file(
         text
 
 
-def __get_llm_graph_transformer() \
+@run_and_log_function
+def __get_llm_graph_transformer(
+        model_name: str,
+        temperature: float) \
         -> LLMGraphTransformer:
     chat_open_ai_session = \
         get_chat_open_ai_session(
                 api_key=NfOpenAiConfigurations.OPEN_AI_API_KEY,
-                temperature=NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
-                model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI)
+                temperature=temperature,
+                model_name=model_name)
     
     llm_graph_transformer = \
         LLMGraphTransformer(

@@ -11,7 +11,7 @@ from services.data_preparation.pdf_documents_from_directory_loader import (
     load_pdf_documents_from_directory,
     )
 from services.data_preparation.pdf_services import extract_text_from_pdf
-from services.orchestrators.retrieve_graph_from_text_orchestrator import orchestrate_retrieve_graph_from_text
+from services.orchestrators.retrieve_knowledge_graph_from_text_file_orchestrator import orchestrate_retrieve_knowledge_graph_from_text_file
 from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import (
     BoroGraphRagOrchestrator,
     )
@@ -55,35 +55,19 @@ class TestOpenAiGraphRetrieverPdfDocument:
                     "outputs")
                 )
     
-    
+    # TODO: Can this test be parametrised with @pytest.mark.parametrize to test different model and temperatures
+    #  at once?
     def test_graph_retriever_pdf_document_full_text(
             self) \
             -> None:
-        networkx_graph = \
-            orchestrate_retrieve_graph_from_text(
-                    text_path=self.pdf_path)
-        
-        # pdf_full_text = extract_text_from_pdf(
-        #     pdf_path=self.pdf_path)
-        #
-        # graph_rag_orchestrator = BoroGraphRagOrchestrator(
-        #         model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
-        #         data_set=pdf_full_text,
-        #         )
-        #
-        # graph_documents = graph_rag_orchestrator.process_text(
-        #         text=pdf_full_text,
-        #         llm_transformer=graph_rag_orchestrator.llm_transformer
-        #         )
-        #
-        # graph_rag_orchestrator.graph_documents = graph_documents
-        #
-        # networkx_graph = (
-        #     graph_rag_orchestrator.get_combined_networkx_graph_from_graph_documents()
-        # )
+        knowledge_directed_graph = \
+            orchestrate_retrieve_knowledge_graph_from_text_file(
+                text_file_path=self.pdf_path,
+                model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
+                temperature=NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE)
         
         write_graphml(
-            networkx_graph,
+            knowledge_directed_graph,
             self.output_file_path)
     
     
