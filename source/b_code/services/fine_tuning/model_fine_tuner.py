@@ -11,7 +11,7 @@ from transformers import Trainer, TrainingArguments
 
 
 @run_and_log_function
-def train_model(
+def fine_tune_model(
     tokenized_dataset,
     tokenizer,
     model,

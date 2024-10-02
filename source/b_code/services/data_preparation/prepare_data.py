@@ -11,6 +11,7 @@ from configurations.boro_configurations.nf_general_configurations import (
 
 # TODO: MKh - should these be separate files? Helpers?
 # TODO: MKh - should these be clean coded?
+# TODO: MKh - See class ChunkedTexts
 # --------Prep
 @run_and_log_function
 def prepare_data_for_training(

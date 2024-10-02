@@ -8,6 +8,7 @@ from configurations.constants import READ_BYTES_ACRONYM
 # TODO: MKh - these first two methods appear the same? Merge?
 # TODO: MKh - should these be separate files? Helpers?
 # TODO: MKh - should these be clean coded?
+# TODO: MKh - See class Texts
 def extract_text_from_pdfs(pdf_folder):
     pdf_texts = []
     for pdf_file in os.listdir(pdf_folder):
