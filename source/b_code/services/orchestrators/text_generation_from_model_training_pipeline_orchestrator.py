@@ -5,7 +5,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
 )
 from services.llms.text_generators import generate_text_using_model
 from services.llms.text_generators import generate_text_using_pipeline
-from services.data_preparation.chunked_texts_getter import get_chunked_texts
+from services.chunking.chunked_texts_getter import get_chunked_texts
 from services.tokenisation.tokeniser import Tokeniser
 
 
@@ -72,9 +72,13 @@ def __tokenise_dataset(tokenizer: Tokeniser, chunked_data_file_path: str):
     return tokenised_dataset
 
 
+#TODO: this should be call the tuner model text generation method.
+#TODO: consider if the orchestrator should do this or stop at delivering a model
 def __generate_text_from_pretrained_model(
-    pretrained_model, tokenizer: Tokeniser, prompt: str
-) -> dict:
+            pretrained_model,
+            tokenizer: Tokeniser,
+            prompt: str
+        ) -> dict:
     generated_text_using_pipeline = generate_text_using_pipeline(
         model=pretrained_model,
         tokenizer=tokenizer,

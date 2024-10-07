@@ -5,7 +5,8 @@ import faiss
 from sentence_transformers import SentenceTransformer
 from openai import OpenAI
 
-from services.data_preparation.pdf_services import load_pdfs
+from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdfs_in_folder
+
 from services.embeddings.embeddings import Embeddings
 from services.embeddings.search_embedded_documents import (
     retrieve_similar_documents,
@@ -19,7 +20,7 @@ class TestEmbeddings:
     @pytest.fixture(autouse=True)
     def setup_method(self):
         # Load articles from PDFs
-        self.articles = load_pdfs(PDF_DIR)
+        self.articles = extract_text_from_pdfs_in_folder(PDF_DIR)
         # Load a pre-trained Sentence Transformer model
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
 
