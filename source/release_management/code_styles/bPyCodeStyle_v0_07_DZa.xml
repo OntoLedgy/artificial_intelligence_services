@@ -1,0 +1,52 @@
+<code_scheme name="bPyCodeStyle v0.07 DZa" version="173">
+    <option name="AUTODETECT_INDENTS" value="false" />
+    <Properties>
+        <option name="KEEP_BLANK_LINES" value="true" />
+    </Properties>
+    <Python>
+        <inspection_tool class="SingleQuotedStringInspection" enabled="true" />
+        <option name="SPACE_AROUND_EQ_IN_NAMED_PARAMETER" value="true" />
+        <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
+        <option name="NEW_LINE_AFTER_COLON" value="true" />
+        <option name="DICT_ALIGNMENT" value="2" />
+        <option name="DICT_WRAPPING" value="2" />
+        <option name="DICT_NEW_LINE_AFTER_LEFT_BRACE" value="true" />
+        <option name="DICT_NEW_LINE_BEFORE_RIGHT_BRACE" value="true" />
+        <option name="BLANK_LINES_AFTER_LOCAL_IMPORTS" value="1" />
+        <option name="USE_CONTINUATION_INDENT_FOR_ARGUMENTS" value="true" />
+        <option name="OPTIMIZE_IMPORTS_SORT_NAMES_IN_FROM_IMPORTS" value="true" />
+        <option name="OPTIMIZE_IMPORTS_ALWAYS_SPLIT_FROM_IMPORTS" value="true" />
+        <option name="OPTIMIZE_IMPORTS_CASE_INSENSITIVE_ORDER" value="true" />
+        <option name="FROM_IMPORT_WRAPPING" value="2" />
+        <option name="FROM_IMPORT_NEW_LINE_AFTER_LEFT_PARENTHESIS" value="true" />
+        <option name="FROM_IMPORT_TRAILING_COMMA_IF_MULTILINE" value="true" />
+        <option name="HANG_CLOSING_BRACKETS" value="true" />
+    </Python>
+    <codeStyleSettings language="Python">
+        <option name="BLANK_LINES_AROUND_CLASS" value="2" />
+        <option name="CALL_PARAMETERS_WRAP" value="2" />
+        <option name="CALL_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
+        <option name="METHOD_PARAMETERS_WRAP" value="2" />
+        <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
+        <option name="WRAP_LONG_LINES" value="true" />
+
+        <!-- IN TESTING MODE -->
+        <option name="CLASS_BRACE_STYLE" value="3" />
+        <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="0" />
+        <option name="ALIGN_MULTILINE_PARAMETERS_IN_DECLARATION" value="false" />
+        <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="true" />
+        <option name="INDENT_PARAMETERS_IN_CALLS" value="true" />
+        <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
+        <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="1" />
+        <option name="BLANK_LINES_AROUND_METHOD_IN_CLASS" value="1" />
+        <option name="BLANK_LINES_AROUND_METHOD" value="2" />
+        <option name="DO_NOT_WRAP_AFTER_SINGLE_STATEMENT_IN_BLOCK" value="true" />
+        <option name="ALIGN_MULTILINE_PARAMETERS_IN_DECLARATION" value="false" />
+        <!-- IN TESTING MODE -->
+
+        <indentOptions>
+            <option name="SMART_TABS" value="true" />
+            <option name="KEEP_INDENTS_ON_EMPTY_LINES" value="true" />
+        </indentOptions>
+    </codeStyleSettings>
+</code_scheme>
