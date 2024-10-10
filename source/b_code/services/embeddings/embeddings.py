@@ -6,7 +6,13 @@ import faiss
 
 # TODO: MKh - should we type the parameters? Is there a way of automating this?
 class Embeddings:
-    def __init__(self, model, documents, index_file_full_path, file_metadata):
+    def __init__(
+            self,
+            model,
+            documents,
+            index_file_full_path,
+            file_metadata):
+
         self.model = model
         self.documents = documents
         self.index_file_full_path = index_file_full_path

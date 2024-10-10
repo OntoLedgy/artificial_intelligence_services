@@ -1,8 +1,9 @@
 import pytest
+from test_unstructured.test_utils import output_jsonl_file
 
-from services.data_preparation.pdf_services import extract_text_from_pdfs
-from services.data_preparation.prepare_data import prepare_data_for_training
-from services.data_preparation.save_texts_to_jsonl import save_texts_to_jsonl
+from services.chunking.chunked_texts_getter import get_chunked_texts
+from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdfs_in_folder
+
 from services.llms.model_types import ModelTypes
 from services.tokenisation.tokeniser_factories import TokeniserFactory
 from services.tokenisation.tokeniser_types import TokeniserTypes
@@ -14,19 +15,20 @@ class TestTokenisationServices:
     def setup_method(self):
         pdf_folder = r"./data/inputs/pdf"
 
-        self.pdf_text = extract_text_from_pdfs(
+        self.pdf_text = extract_text_from_pdfs_in_folder(
             pdf_folder)
 
         self.chunked_file_name_and_path = "./data/outputs/chunked_data/chunked_data.json"
         self.tokenised_data_file_name_and_path = "./data/outputs/tokenised_data/tokenised_data.json"
-        chunked_data = prepare_data_for_training(
-            self.pdf_text,
+        chunked_data = get_chunked_texts(
+            source_texts_folder_path=pdf_folder,
+            chunked_texts_output_file_path=self.chunked_file_name_and_path,
             chunk_size=512
         )
 
-        save_texts_to_jsonl(
-            chunked_data,
-            self.chunked_file_name_and_path)
+        # save_texts_to_jsonl(
+        #     chunked_data,
+        #     self.chunked_file_name_and_path)
 
     def test_tokenisation_hugging_face(self):
 

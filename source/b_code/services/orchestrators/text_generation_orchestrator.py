@@ -3,6 +3,7 @@ from services.llms.text_generators import generate_text_using_pipeline
 from services.model_management.model_loader import load_model
 
 
+#TODO: wrap this in a model class.
 def orchestrate_text_generation(
         model_path: str,
         model_name: str,
