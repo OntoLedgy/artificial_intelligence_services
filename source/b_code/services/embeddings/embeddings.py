@@ -1,6 +1,6 @@
 import numpy as np
 
-# TODO: MKh - should we import faiss?
+# TODO: MKh - should we import faiss? - added to requirements faiss-cpu - DONE
 import faiss
 
 

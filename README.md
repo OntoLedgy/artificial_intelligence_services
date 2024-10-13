@@ -55,16 +55,17 @@ pip install -r requirements.txt
 ### GraphRAG Example
 
 ```python
-from services.orchestrators.graph_rag_orchestrator_ol import GraphRagOrchestrator
+from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import GraphRagOrchestrator
 import pandas as pd
 
 news = pd.read_csv(
-    "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv"
-)
+        "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv"
+        )
 
-graph_rag_orchestrator = GraphRagOrchestrator(news)
+graph_rag_orchestrator = GraphRagOrchestrator(
+        news)
 
-graph_rag_orchestrator.orchestrate()
+graph_rag_orchestrator.orchestrate_graph_rag_from_csv()
 
 ```
 

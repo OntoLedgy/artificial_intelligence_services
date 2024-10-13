@@ -4,8 +4,9 @@ from b_code.services.object_model.clients.open_ai_client import OpenAiClient
 
 
 @pytest.fixture(autouse=True)
-def openai_service(configuration_manager):
-    api_key = configuration_manager.get_config(
+def openai_service(
+        open_ai_configuration):
+    api_key = open_ai_configuration.get_config(
         section_name="open_ai_configuration", key="api_key"
     )
 

@@ -1,11 +1,13 @@
 import os
 import pytest
+
+from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
 from services.text_extraction.text_from_word_document_sections_extractor import (
     extract_text_from_word_document_sections,
 )
-from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import (
-    BoroGraphRagOrchestrator,
-)
+# from source.b_code.services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import (
+#     BoroGraphRagOrchestrator,
+# )
 from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import (
     override_nf_open_ai_configurations_oxi,
 )
@@ -43,7 +45,7 @@ class TestOpenAiGraphRetrieverWordDocument:
             document_file_path=self.word_document_path
         )
 
-        graph_rag_orchestrator = BoroGraphRagOrchestrator(
+        graph_documents = orchestrate_graph_rag_from_csv(
             data_set=word_document_sections
         )
 

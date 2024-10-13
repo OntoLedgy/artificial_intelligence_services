@@ -7,6 +7,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 from configurations.constants import UTF_8_ENCODING
+from configurations.constants import WRITE_ACRONYM
 
 
 def retrieve_similar_documents(
@@ -18,33 +19,43 @@ def retrieve_similar_documents(
     output_file="retrieved_similar_articles.txt",
 ):
     # Create an embedding for the query
-    query_embedding = model.encode([query], convert_to_tensor=False)
+    query_embedding = model.encode(
+            [query],
+            convert_to_tensor=False)
 
     # Search for similar articles in the index
-    distances, indices = index.search(np.array(query_embedding), top_k)
+    distances, indices = index.search(
+            np.array(
+                    query_embedding),
+            top_k)
 
     # Retrieve the top-k articles
     retrieved_documents = [documents[i] for i in indices[0]]
-
-    with open(output_file, "w", encoding="utf-8") as file:
+    
+    document_delimiter = "\n---\n"
+    
+    #TODO: make this a method in the exporter service
+    with open(
+            output_file,
+            WRITE_ACRONYM,
+            encoding=UTF_8_ENCODING) as file:
         for document in retrieved_documents:
             file.write(
-                document + "\n---\n"
-            )  # Use "---" as a delimiter between articles
+                document + document_delimiter
+            )
 
     return retrieved_documents
 
-
-# Helper function to truncate context to fit within a token limit
 def truncate_context(
-    context, max_tokens=NfGeneralConfigurations.DEFAULT_TRUNCATE_CONTEXT_MAX_TOKENS
+        context,
+        max_tokens=NfGeneralConfigurations.DEFAULT_TRUNCATE_CONTEXT_MAX_TOKENS
 ):
-    # Truncate the context to the specified number of characters (approximation for tokens)
-    return context[:max_tokens]
+    truncated_context_by_max_tokens = context[:max_tokens]
+    return truncated_context_by_max_tokens
 
 
 # Function to get response using retrieved documents
-def get_response(
+def get_response_using_retrieved_documents(
     query,
     client,
     model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,
@@ -56,7 +67,9 @@ def get_response(
         context = file.read()
 
     # Truncate the context to fit within the max context tokens
-    truncated_context = truncate_context(context, max_context_tokens)
+    truncated_context = truncate_context(
+            context,
+            max_context_tokens)
 
     # Craft the prompt with query and context
     prompt = (

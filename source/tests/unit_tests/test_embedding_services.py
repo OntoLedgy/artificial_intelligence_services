@@ -10,7 +10,7 @@ from services.text_extraction.text_from_pdf_document_extractor import extract_te
 from services.embeddings.embeddings import Embeddings
 from services.embeddings.search_embedded_documents import (
     retrieve_similar_documents,
-    get_response,
+    get_response_using_retrieved_documents,
 )
 
 PDF_DIR = r"./data/inputs/pdf"
@@ -61,7 +61,7 @@ class TestEmbeddings:
         # Generate a response using the retrieved articles as context
         self.client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-        response = get_response(
+        response = get_response_using_retrieved_documents(
             self.query, client=self.client, input_file=self.output_file
         )
 

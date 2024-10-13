@@ -12,10 +12,15 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
 )
 
 
-def num_tokens_from_string(string: str, model: str = "gpt-4o") -> int:
+def count_tokens_in_string(
+        string: str,
+        model: str = "gpt-4o") -> int:
     """Returns the number of tokens in a text string."""
     encoding = tiktoken.encoding_for_model(model)
-    num_tokens = len(encoding.encode(string))
+    num_tokens = len(
+            encoding.encode(
+                    string)
+            )
     return num_tokens
 
 
@@ -27,10 +32,13 @@ class Tokeniser:
 
     @run_and_log_function
     def tokenize(self, data_files):
-        self.tokenizer.add_special_tokens({"pad_token": "[PAD]"})
+        self.tokenizer.add_special_tokens(
+                {"pad_token": "[PAD]"})
 
         # Load the dataset from the JSONL file
-        dataset = load_dataset("json", data_files=data_files)
+        dataset = load_dataset(
+                "json",
+                data_files=data_files)
 
         # Tokenize the dataset
         @run_and_log_function
