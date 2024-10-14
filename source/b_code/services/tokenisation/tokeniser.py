@@ -56,7 +56,7 @@ class Tokeniser:
         Prints the tokenized data for analysis.
 
         Args:
-            tokenized_dataset: The tokenized dataset (Hugging Face Dataset or DatasetDict object).
+            tokenized_dataset: The tokenized dataset (Hugging Face Dataset or DatasetDict objects).
             tokenizer: The tokenizer used to tokenize the data.
             num_samples: Number of samples to print for analysis.
         """
@@ -86,7 +86,7 @@ class Tokeniser:
         Saves the tokenized data to a JSONL file.
 
         Args:
-            tokenized_dataset: The tokenized dataset (Hugging Face Dataset object).
+            tokenized_dataset: The tokenized dataset (Hugging Face Dataset objects).
             output_file: Path to the output file where tokenized data will be saved.
         """
         # Convert the entire dataset to a dictionary
@@ -112,7 +112,7 @@ class Tokeniser:
             input_file: Path to the JSONL file containing tokenized data.
 
         Returns:
-            A Hugging Face Dataset object containing the tokenized data.
+            A Hugging Face Dataset objects containing the tokenized data.
         """
         data = []
 

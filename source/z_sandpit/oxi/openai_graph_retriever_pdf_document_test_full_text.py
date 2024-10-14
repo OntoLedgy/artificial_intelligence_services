@@ -2,8 +2,8 @@ import os
 from pathlib import Path
 from networkx.readwrite.graphml import write_graphml
 
-from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import get_combined_networkx_graph_from_graph_documents
-from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import get_combined_networkx_graph_from_graph_documents
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
 from source.b_code.configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )

@@ -1,7 +1,7 @@
 import asyncio
 import pytest
 
-from services.orchestrators.gpt_researcher_orchestrator import orchestrate_gpt_research
+from services.agents.orchestrators import orchestrate_gpt_research
 
 
 @pytest.mark.asyncio

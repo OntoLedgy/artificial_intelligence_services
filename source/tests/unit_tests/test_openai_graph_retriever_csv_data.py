@@ -3,7 +3,7 @@
 import pytest
 
 
-from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
 
 
 class TestLangchainGraphRetriever:

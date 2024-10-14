@@ -13,10 +13,10 @@ from configurations.constants import TEXT_GENERATION_OUTPUT_COLUMN_NAME
 from services.data_export.dictionary_of_strings_to_csv_exporter import export_dictionary_of_strings_to_csv
 from services.fine_tuning.model_fine_tuner import fine_tune_model
 from services.chunking.chunked_texts_getter import get_chunked_texts
-from services.orchestrators.text_generation_from_model_training_pipeline_orchestrator import (
+from services.llms.orchestrators.text_generation_from_model_training_pipeline_orchestrator import (
     orchestrate_text_generation_from_model_training_pipeline,
 )
-from services.orchestrators.text_generation_orchestrator import (
+from services.llms.orchestrators.text_generation_orchestrator import (
     orchestrate_text_generation,
 )
 from services.tokenisation.tokeniser import Tokeniser

@@ -7,7 +7,7 @@ from openai import OpenAI
 
 from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdfs_in_folder
 
-from services.embeddings.embeddings import Embeddings
+from services.embeddings.objects.embeddings import Embeddings
 from services.embeddings.search_embedded_documents import (
     retrieve_similar_documents,
     get_response_using_retrieved_documents,

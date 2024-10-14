@@ -1,6 +1,6 @@
 from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 from services.chunking.objects.texts import Texts
-from services.orchestrators.list_of_dictionaries_to_json_file_writer import write_list_of_dictionaries_to_json_file
+from services.data_export.list_of_dictionaries_to_json_file_writer import write_list_of_dictionaries_to_json_file
 
 
 class ChunkedTexts:

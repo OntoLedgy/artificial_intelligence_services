@@ -1,4 +1,4 @@
-from source.b_code.services.object_model.clients.OpenAiClient import OpenAiClient
+from services.llms.clients import OpenAiClient
 
 if __name__ == "__main__":
     prompt = "Explain the theory of relativity in simple terms."

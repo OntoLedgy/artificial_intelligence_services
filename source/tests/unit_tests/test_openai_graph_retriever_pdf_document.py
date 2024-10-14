@@ -9,12 +9,12 @@ from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
     )
 from configurations.constants import GRAPHML_FILE_EXTENSION
-from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import get_combined_networkx_graph_from_graph_documents
-from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import get_combined_networkx_graph_from_graph_documents
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
 from services.text_extraction.pdf_documents_from_directory_loader import (
     load_pdf_documents_from_directory,
     )
-from services.orchestrators.knowledge_graph_rag_from_text_file_orchestrator import orchestrate_retrieve_knowledge_graph_from_text_file
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_text_file_orchestrator import orchestrate_retrieve_knowledge_graph_from_text_file
 from source.z_sandpit.test_data.configuration.z_sandpit_test_constants import (
     COMPACT_TIMESTAMP_SUFFIX,
     )

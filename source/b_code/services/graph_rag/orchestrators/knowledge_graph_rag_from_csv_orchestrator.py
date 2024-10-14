@@ -93,7 +93,7 @@ def __process_text(
         llm_transformer,
         chunk_size: int = NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING) -> List[GraphDocument]:
     
-    # Create a Texts object and pass it to ChunkedTexts for chunking
+    # Create a Texts objects and pass it to ChunkedTexts for chunking
     texts = Texts(
             source_texts=[text])
     

@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ### GraphRAG Example
 
 ```python
-from services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import GraphRagOrchestrator
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import GraphRagOrchestrator
 import pandas as pd
 
 news = pd.read_csv(
@@ -93,12 +93,15 @@ print(summary)
 
 ```python
 import asyncio
-from services.object_model.agents.gpt_researcher_agents import get_research_response
+from services.agents.objects.gpt_researcher_agents import get_research_response
 
 research_question_file_path = "../tests/data/inputs/research_question.prompt"
 output_file_path = "../tests/data/outputs/test_report1.txt"
 
-asyncio.run(get_research_response(research_question_file_path, output_file_path))
+asyncio.run(
+        get_research_response(
+                research_question_file_path,
+                output_file_path))
 ```
 
 ### Contributing

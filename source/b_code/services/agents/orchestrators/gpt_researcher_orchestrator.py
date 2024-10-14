@@ -1,4 +1,4 @@
-from services.object_model.agents.gpt_researcher_agents import GPTResearcherAgents
+from services.agents.objects.gpt_researcher_agents import GPTResearcherAgents
 
 
 async def orchestrate_gpt_research(research_question_file, output_file):
