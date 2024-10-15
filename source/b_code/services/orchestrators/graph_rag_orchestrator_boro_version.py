@@ -40,7 +40,7 @@ class BoroGraphRagOrchestrator:
         )
         self.graph_documents = []
 
-    @run_and_log_function()()
+    @run_and_log_function()
     def process_text(self, text: str, llm_transformer) -> List[GraphDocument]:
         doc = Document(page_content=text)
 
