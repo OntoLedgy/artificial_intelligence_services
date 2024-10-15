@@ -5,7 +5,7 @@ from networkx.classes import DiGraph
 from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 
 
-@run_and_log_function
+@run_and_log_function()
 def get_networkx_digraph_from_graph_documents(
         graph_documents: List[GraphDocument]) \
         -> DiGraph:

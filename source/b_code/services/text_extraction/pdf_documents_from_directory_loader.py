@@ -7,7 +7,7 @@ from configurations.constants import PDF_FILE_EXTENSION
 from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdf
 
 
-@run_and_log_function
+@run_and_log_function()
 def load_pdf_documents_from_directory(
     directory_path: str, looks_into_subfolders: bool = True
 ) -> list:
@@ -29,7 +29,7 @@ def load_pdf_documents_from_directory(
     return pdf_document_texts
 
 
-@run_and_log_function
+@run_and_log_function()
 def __add_pdf_text(file_system_object_path: str, pdf_document_texts: list) -> list:
     if not file_system_object_path.endswith(PDF_FILE_EXTENSION):
         return pdf_document_texts

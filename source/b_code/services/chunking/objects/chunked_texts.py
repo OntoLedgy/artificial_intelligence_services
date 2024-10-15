@@ -22,7 +22,7 @@ class ChunkedTexts:
             self.chunk_texts()
     
     
-    @run_and_log_function
+    @run_and_log_function()
     def chunk_texts(
             self):
         chunked_texts = \

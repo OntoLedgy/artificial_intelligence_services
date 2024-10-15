@@ -5,7 +5,7 @@ from langchain_experimental.graph_transformers import LLMGraphTransformer
 from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 
 
-@run_and_log_function
+@run_and_log_function()
 def extract_graph_documents_from_text(
         text: str,
         llm_graph_transformer: LLMGraphTransformer) \

@@ -40,7 +40,7 @@ class BoroGraphRagOrchestrator:
         )
         self.graph_documents = []
 
-    @run_and_log_function
+    @run_and_log_function()()
     def process_text(self, text: str, llm_transformer) -> List[GraphDocument]:
         doc = Document(page_content=text)
 
@@ -49,7 +49,7 @@ class BoroGraphRagOrchestrator:
         return graph_documents
 
     # TODO: change parameters to configurations
-    @run_and_log_function
+    @run_and_log_function()
     def orchestrate(
         self,
         number_of_rows=NfGeneralConfigurations.NUMBER_OF_ROWS,
@@ -90,7 +90,7 @@ class BoroGraphRagOrchestrator:
 
     # OXi additions  #####################################
 
-    @run_and_log_function
+    @run_and_log_function()
     def get_combined_networkx_graph_from_graph_documents(self) -> DiGraph:
         combined_graph = DiGraph()
 
