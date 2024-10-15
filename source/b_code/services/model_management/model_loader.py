@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import os
 
 
-@run_and_log_function
+@run_and_log_function()
 def load_model(model_name, model_path):
     # Load the fine-tuned model and tokenizer
 

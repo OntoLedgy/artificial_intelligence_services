@@ -25,7 +25,7 @@ class Tokeniser:
         self.tokenizer.add_special_tokens({"pad_token": "[PAD]"})
         self.tokenized_dataset = {}
 
-    @run_and_log_function
+    @run_and_log_function()
     def tokenize(self, data_files):
         self.tokenizer.add_special_tokens({"pad_token": "[PAD]"})
 
@@ -33,7 +33,7 @@ class Tokeniser:
         dataset = load_dataset("json", data_files=data_files)
 
         # Tokenize the dataset
-        @run_and_log_function
+        @run_and_log_function()
         def tokenize_function(examples):
             tokens = self.tokenizer(
                 examples["text"], padding="max_length", truncation=True, max_length=512
@@ -95,7 +95,7 @@ class Tokeniser:
                 # Write the dictionary as a JSON line
                 f.write(json.dumps(tokenized_entry) + "\n")
 
-    @run_and_log_function
+    @run_and_log_function()
     def read_tokenized_data_from_file(self, input_file):
         """
         Reads tokenized data from a JSONL file and returns it as a Hugging Face Dataset.

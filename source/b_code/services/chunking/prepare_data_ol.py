@@ -10,7 +10,7 @@ from configurations.boro_configurations.nf_general_configurations import (
 # TODO: MKh - should these be separate files? Helpers?  - removed the other function - DONE
 # TODO: MKh - See class ChunkedTexts - remove this after tests pass
 # --------Prep
-@run_and_log_function
+@run_and_log_function()
 def prepare_data_for_training(
     texts,
     chunk_size=NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING
