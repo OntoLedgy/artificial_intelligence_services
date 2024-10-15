@@ -8,7 +8,7 @@ from configurations.boro_configurations.nf_general_configurations import (
 )
 
 
-@run_and_log_function
+@run_and_log_function()
 def generate_text_using_pipeline(
     model, tokenizer, input_text="In this study, we explore the effects of"
 ) -> str:
@@ -28,7 +28,7 @@ def generate_text_using_pipeline(
     return generated_text
 
 
-@run_and_log_function
+@run_and_log_function()
 def generate_text_using_model(
         model,
         tokenizer,

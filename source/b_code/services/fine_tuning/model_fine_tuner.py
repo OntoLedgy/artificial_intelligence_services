@@ -10,7 +10,7 @@ from nf_common_source.code.services.reporting_service.wrappers.run_and_log_funct
 from transformers import Trainer, TrainingArguments
 
 
-@run_and_log_function
+@run_and_log_function()
 def fine_tune_model(
     tokenized_dataset,
     tokenizer,

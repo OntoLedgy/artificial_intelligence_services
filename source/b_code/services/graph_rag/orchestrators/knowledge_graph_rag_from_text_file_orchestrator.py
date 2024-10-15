@@ -11,7 +11,7 @@ from services.graph_rag.graph_documents_from_text_extractor import extract_graph
 from services.data_export.networkx_digraph_from_graph_documents_getter import get_networkx_digraph_from_graph_documents
 
 
-@run_and_log_function
+@run_and_log_function()
 def orchestrate_retrieve_knowledge_graph_from_text_file(
         text_file_path: str,
         model_name: str,
@@ -40,7 +40,7 @@ def orchestrate_retrieve_knowledge_graph_from_text_file(
         graph_document_digraph
 
 
-@run_and_log_function
+@run_and_log_function()
 def __get_text_from_file(
         text_path: str) \
         -> str:
@@ -62,7 +62,7 @@ def __get_text_from_file(
         text
 
 
-@run_and_log_function
+@run_and_log_function()
 def __get_llm_graph_transformer(
         model_name: str,
         temperature: float) \
