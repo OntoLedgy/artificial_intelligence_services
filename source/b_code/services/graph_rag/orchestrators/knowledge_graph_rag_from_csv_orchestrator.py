@@ -33,7 +33,7 @@ rate_limiter = InMemoryRateLimiter(
 )
 
 
-@run_and_log_function
+@run_and_log_function()
 def orchestrate_graph_rag_from_csv(
     data_set,
     model_name=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
@@ -87,7 +87,7 @@ def orchestrate_graph_rag_from_csv(
 
     return graph_documents
         
-@run_and_log_function
+@run_and_log_function()
 def __process_text(
         text: str,
         llm_transformer,
@@ -114,7 +114,7 @@ def __process_text(
 
 
 
-@run_and_log_function
+@run_and_log_function()
 def get_combined_networkx_graph_from_graph_documents(graph_documents) -> DiGraph:
     combined_graph = DiGraph()
 
@@ -169,7 +169,7 @@ def get_combined_networkx_graph_from_graph_documents(graph_documents) -> DiGraph
 #         )
 #         self.graph_documents = []
 #
-#     @run_and_log_function
+#     @run_and_log_function()
 #     def process_text(
 #             self,
 #             text: str,
@@ -182,7 +182,7 @@ def get_combined_networkx_graph_from_graph_documents(graph_documents) -> DiGraph
 #         return graph_documents
 #
 #     # TODO: change parameters to configurations
-#     @run_and_log_function
+#     @run_and_log_function()
 #     def orchestrate(
 #         self,
 #         number_of_rows=NfGeneralConfigurations.NUMBER_OF_ROWS,
@@ -224,7 +224,7 @@ def get_combined_networkx_graph_from_graph_documents(graph_documents) -> DiGraph
 #
 #     # OXi additions  #####################################
 #
-#     @run_and_log_function
+#     @run_and_log_function()
 #     def get_combined_networkx_graph_from_graph_documents(self) -> DiGraph:
 #         combined_graph = DiGraph()
 #
