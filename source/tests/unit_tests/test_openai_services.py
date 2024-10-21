@@ -1,7 +1,8 @@
 
 
 class TestOpenAiServices:
-    def test_gpt_response(self, openai_service):
+    def test_gpt_response(self,
+                          openai_service):
         prompt = "Explain the theory of relativity in simple terms."
 
         # openai_service = \

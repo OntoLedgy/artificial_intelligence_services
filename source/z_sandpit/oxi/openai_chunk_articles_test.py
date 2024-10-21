@@ -1,7 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from source.b_code.services.tokenisation.tokeniser import num_tokens_from_string
+from source.b_code.services.tokenisation.tokeniser import count_tokens_in_string
 
 if __name__ == "__main__":
     news = pd.read_csv(
@@ -9,7 +9,7 @@ if __name__ == "__main__":
     )
 
     news["tokens"] = [
-        num_tokens_from_string(f"{row['title']} {row['text']}")
+        count_tokens_in_string(f"{row['title']} {row['text']}")
         for i, row in news.iterrows()
     ]
 

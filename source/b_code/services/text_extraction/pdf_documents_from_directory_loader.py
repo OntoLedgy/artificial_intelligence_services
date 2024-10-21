@@ -5,11 +5,12 @@ from nf_common_source.code.services.reporting_service.wrappers.run_and_log_funct
 )
 from configurations.constants import PDF_FILE_EXTENSION
 from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdf
-
+from typing_extensions import LiteralString
 
 @run_and_log_function()
 def load_pdf_documents_from_directory(
-    directory_path: str, looks_into_subfolders: bool = True
+    directory_path: LiteralString | str | bytes,
+    looks_into_subfolders: bool = True
 ) -> list:
     pdf_document_texts = list()
 
@@ -35,7 +36,8 @@ def __add_pdf_text(file_system_object_path: str, pdf_document_texts: list) -> li
         return pdf_document_texts
 
     if not os.path.isdir(file_system_object_path):
-        pdf_text = extract_text_from_pdf(pdf_path=file_system_object_path)
+        pdf_text = extract_text_from_pdf(
+                pdf_path=file_system_object_path)
 
         pdf_document_texts.append(pdf_text)
 

@@ -51,18 +51,3 @@ def extract_text_from_pdf(
     return text
 
 
-# def load_pdfs(
-#         directory):
-#     pdf_texts = []
-#     for filename in os.listdir(
-#             directory):
-#         if filename.endswith(
-#                 PDF_FILE_EXTENSION):
-#             file_path = os.path.join(
-#                     directory,
-#                     filename)
-#             text = extract_text_from_pdf(
-#                     file_path)
-#             pdf_texts.append(
-#                     text)
-#     return pdf_texts

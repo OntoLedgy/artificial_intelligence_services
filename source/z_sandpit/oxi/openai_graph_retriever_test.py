@@ -1,9 +1,12 @@
 import os
 import pandas as pd
 from networkx.readwrite.graphml import write_graphml
-from source.b_code.services.orchestrators.graph_rag_orchestrator_boro_version import (
-    BoroGraphRagOrchestrator,
-)
+
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import get_combined_networkx_graph_from_graph_documents
+from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
+# from source.b_code.services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import (
+#     BoroGraphRagOrchestrator,
+# )
 from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import (
     override_nf_open_ai_configurations_oxi,
 )
@@ -18,12 +21,12 @@ if __name__ == "__main__":
         "https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/news_articles.csv"
     )
 
-    graph_rag_orchestrator = BoroGraphRagOrchestrator(news)
+    graph_documents = orchestrate_graph_rag_from_csv(news)
 
-    graph_rag_orchestrator.orchestrate()
+    # graph_rag_orchestrator.orchestrate()
 
     networkx_articles_combined_graph = (
-        graph_rag_orchestrator.get_combined_networkx_graph_from_graph_documents()
+        get_combined_networkx_graph_from_graph_documents(graph_documents)
     )
 
     output_file_path = os.path.join(
