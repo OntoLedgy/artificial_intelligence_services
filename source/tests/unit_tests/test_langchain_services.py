@@ -9,14 +9,19 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class TestLangChainDocumentSummariser:
     @pytest.fixture(autouse=True)
-    def setup_method(self):
-        self.pdf_path = r"data/inputs/pdf/Reference Ontology of Money.pdf"
+    def setup_method(self,
+                     inputs_folder_absolute_path):
+        
+        self.pdf_path = os.path.join(
+                inputs_folder_absolute_path,
+                "pdf/accounting/A reference ontology of money and virtual currencies.pdf"
+                )
 
     def test_connectivity(self):
         print(openai.api_key)
-        models = openai.Model.list()
-        for model in models["data"]:
-            print(model["id"])
+        models = openai.models.list()
+        for model in models:
+            print(model.id)
 
     def test_summarize(self):
         openai_api_key = os.getenv("OPENAI_API_KEY")
