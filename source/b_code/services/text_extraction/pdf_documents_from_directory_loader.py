@@ -5,7 +5,7 @@ from nf_common_source.code.services.reporting_service.wrappers.run_and_log_funct
 )
 from configurations.constants import PDF_FILE_EXTENSION
 from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdf
-from typing import LiteralString
+from typing_extensions import LiteralString
 
 @run_and_log_function()
 def load_pdf_documents_from_directory(
