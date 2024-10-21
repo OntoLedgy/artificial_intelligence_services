@@ -1,9 +1,11 @@
+import pytest
 from services.tokenisation.tokeniser import count_tokens_in_string
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 
 class TestChunking:
+    @pytest.fixture(autouse=True)
     def setup(self,
               news_data):
         self.news = news_data

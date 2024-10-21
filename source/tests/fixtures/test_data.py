@@ -1,5 +1,5 @@
 import os
-from typing import LiteralString
+from typing_extensions import LiteralString
 
 import pytest
 import pandas

@@ -1,25 +1,27 @@
-from openai import OpenAI
-import openai
+from langchain_openai import ChatOpenAI
+
 
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
-)
+    )
 
 
 class OpenAiClient:
+    
     def __init__(
-        self,
-        api_key,
-        model=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
-        temperature=NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
-    ):
+            self,
+            api_key,
+            model = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
+            temperature = NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
+            ):
         self.api_key = api_key
         self.model = model
         self.temperature = temperature
-        openai.api_key = self.api_key
-        self.client = OpenAI(
+        
+        self.client = ChatOpenAI(
                 api_key=self.api_key)
-
+    
+    
     def get_response(
             self,
             prompt: str,
@@ -28,28 +30,35 @@ class OpenAiClient:
         
         try:
             response = openai.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=self.temperature,
-                max_tokens=max_tokens,
-            )
-
+                    model=self.model,
+                    messages=[{
+                                  "role": "user",
+                                  "content": prompt
+                                  }],
+                    temperature=self.temperature,
+                    max_tokens=max_tokens,
+                    )
+            
             return response.choices[0].message
         except Exception as e:
-            print(f"Error during API call: {e}")
+            print(
+                f"Error during API call: {e}")
             return None
-
+    
+    
     def set_model(
             self,
             model: str):
         
         self.model = model
-
+    
+    
     def set_temperature(
             self,
             temperature):
         self.temperature = temperature
-
+    
+    
     def set_api_key(
             self,
             api_key: str):

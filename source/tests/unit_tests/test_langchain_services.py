@@ -21,7 +21,9 @@ class TestLangChainDocumentSummariser:
     def test_summarize(self):
         openai_api_key = os.getenv("OPENAI_API_KEY")
 
-        summarizer = PDFSummarizer(self.pdf_path, openai_api_key)
+        summarizer = PDFSummarizer(
+                self.pdf_path,
+                openai_api_key)
 
         summarizer.load_and_split_pdf()
         summary = summarizer.summarize()
