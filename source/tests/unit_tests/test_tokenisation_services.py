@@ -20,15 +20,8 @@ class TestTokenisationServices:
 
         self.chunked_file_name_and_path = "./data/outputs/chunked_data/chunked_data.json"
         self.tokenised_data_file_name_and_path = "./data/outputs/tokenised_data/tokenised_data.json"
-        chunked_data = get_chunked_texts(
-            source_texts_folder_path=pdf_folder,
-            chunked_texts_output_file_path=self.chunked_file_name_and_path,
-            chunk_size=512
-        )
 
-        # save_texts_to_jsonl(
-        #     chunked_data,
-        #     self.chunked_file_name_and_path)
+
 
     def test_tokenisation_hugging_face(self):
 
