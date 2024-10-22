@@ -4,21 +4,23 @@ import openai
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
+from services.llms.llm_clients import AbstractOpenAiClient
 
 
-class OpenAiClient:
+class OpenAiClients(AbstractOpenAiClient):
     def __init__(
         self,
         api_key,
         model=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
         temperature=NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
     ):
-        self.api_key = api_key
-        self.model = model
-        self.temperature = temperature
+        super().__init__(
+            api_key,
+            model,
+            temperature)
+        
         openai.api_key = self.api_key
-        self.client = OpenAI(
-                api_key=self.api_key)
+        self.client = openai.ChatCompletion
 
     def get_response(
             self,
@@ -27,7 +29,7 @@ class OpenAiClient:
             ):
         
         try:
-            response = openai.chat.completions.create(
+            response = self.client.create(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=self.temperature,

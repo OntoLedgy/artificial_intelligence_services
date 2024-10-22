@@ -2,7 +2,7 @@ import pytest
 from test_unstructured.test_utils import output_jsonl_file
 
 from services.chunking.chunked_texts_getter import get_chunked_texts
-from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdfs_in_folder
+from services.text_extraction.pdf_document_extractor import extract_text_from_pdfs_in_folder
 
 from services.llms.model_types import ModelTypes
 from services.tokenisation.tokeniser_factories import TokeniserFactory

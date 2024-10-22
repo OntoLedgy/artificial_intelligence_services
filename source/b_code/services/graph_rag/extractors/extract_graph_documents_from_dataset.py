@@ -1,0 +1,44 @@
+from multiprocessing import Pool
+from tqdm import tqdm
+from langchain.globals import get_llm_cache
+from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
+
+from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
+from services.graph_rag.extractors.extract_graph_documents_from_text import extract_graph_documents_from_text
+
+
+def process_row(row):
+
+    llm_cache = get_llm_cache()
+    
+    if llm_cache:
+        llm_cache.clear()
+
+    graph_documents = extract_graph_documents_from_text(f"{row['title']} {row['text']}")
+    
+    return graph_documents
+
+
+@run_and_log_function()
+def extract_knowledge_graph_from_dataset(data_set):
+    graph_documents = []
+
+    with (Pool(
+            processes=NfGeneralConfigurations.MAXIMUM_WORKERS)
+                as pool):
+        
+        results = list(
+                tqdm(
+                        pool.imap(
+                                process_row,
+                                [row for _, row in data_set.iterrows()]
+                                ),
+                        total=len(data_set)
+                        )
+                )
+
+        for graph_document in results:
+            graph_documents.extend(graph_document)
+            print(f"Processed {len(graph_document)} documents.")
+
+    return graph_documents

@@ -1,8 +1,11 @@
 from docx import Document
 
 
-def extract_text_from_word_document_sections(document_file_path: str) -> list:
-    document = Document(document_file_path)
+def extract_text_from_word_document_sections(
+        document_file_path: str) -> list:
+    
+    document = Document(
+            document_file_path)
 
     sections = list()
 

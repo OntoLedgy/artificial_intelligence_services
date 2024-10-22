@@ -5,7 +5,7 @@ import faiss
 from sentence_transformers import SentenceTransformer
 from openai import OpenAI
 
-from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdfs_in_folder
+from services.text_extraction.pdf_document_extractor import extract_text_from_pdfs_in_folder
 
 from services.embeddings.objects.embeddings import Embeddings
 from services.embeddings.search_embedded_documents import (
@@ -60,7 +60,7 @@ class TestEmbeddings:
         embedding.save()
 
     def test_querying_embeddings(self):
-        # Load the saved FAISS index from disk
+        
         index = faiss.read_index(
                 self.index_file_full_path)
 

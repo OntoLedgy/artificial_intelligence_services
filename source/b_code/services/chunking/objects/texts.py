@@ -8,6 +8,7 @@ class Texts:
             self,
             source_texts: list,
             output_folder_path: str = None):
+        
         self.source_texts = \
             source_texts
         
