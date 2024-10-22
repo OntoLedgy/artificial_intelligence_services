@@ -62,24 +62,25 @@ def extract_dataframe_from_pdfs_in_folder(
 # TODO: MKh - should these be clean coded?
 # TODO: MKh - See class Texts
 def extract_text_from_pdfs_in_folder(
-        directory)->list[str]:
+        directory:str
+            )->list[str]:
     
     pdf_texts = []
     
-    for pdf_file in os.listdir(
+    for file in os.listdir(
             directory):
         
-        if pdf_file.endswith(
+        if file.endswith(
                 PDF_FILE_EXTENSION):
-            with open(
-                    os.path.join(
-                            directory,
-                            pdf_file),
-                    READ_BYTES_ACRONYM) as file:
-                
-                text = extract_text_from_pdf(
-                        file)
-                
-                pdf_texts.append(
-                        text)
+            
+            file_path = os.path.join(
+                    directory,
+                    file)
+            
+            text = extract_text_from_pdf(
+                    file_path)
+            
+            pdf_texts.append(
+                    text)
+            
     return pdf_texts

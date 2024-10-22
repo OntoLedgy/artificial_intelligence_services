@@ -3,15 +3,13 @@ import pytest
 import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
-from openai import OpenAI
-
-from services.text_extraction.pdf_document_extractor import extract_text_from_pdfs_in_folder
 
 from services.embeddings.objects.embeddings import Embeddings
 from services.embeddings.search_embedded_documents import (
     retrieve_similar_documents,
     get_response_using_retrieved_documents,
 )
+from services.text_extraction.pdf_folder_extractor import extract_text_from_pdfs_in_folder
 
 
 class TestEmbeddings:
