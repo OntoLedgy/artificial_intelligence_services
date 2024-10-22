@@ -37,7 +37,7 @@ class TestOpenAiGraphRetrieverPdfDocument:
         
         self.outputs_folder_path = os.path.join(
                 outputs_folder_absolute_path,
-                "graph_rag/bclearer"
+                "graph_rag/small"
                 )
         
         self.folder_graph_file_path = os.path.join(

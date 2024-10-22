@@ -1,4 +1,4 @@
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from nf_common_source.code.services.reporting_service.wrappers.run_and_log_function_wrapper import run_and_log_function
 
