@@ -10,7 +10,7 @@ from configurations.boro_configurations.nf_open_ai_configurations import NfOpenA
 from services.llms.chat_open_ai_session_getter import get_langchain_open_ai_model
 
 
-#@run_and_log_function()
+@run_and_log_function()
 def get_llm_graph_transformer(
         model_name: str,
         temperature: float) \

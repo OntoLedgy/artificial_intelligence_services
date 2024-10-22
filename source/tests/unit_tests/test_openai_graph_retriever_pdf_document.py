@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 from networkx.readwrite.graphml import write_graphml
 from nf_common_source.code.services.reporting_service.reporters.log_file import LogFiles
 
-from configurations.boro_configurations.nf_open_ai_configurations import (
-    NfOpenAiConfigurations,
-    )
 from configurations.constants import GRAPHML_FILE_EXTENSION
 from services.graph_rag.orchestrators.knowledge_graph_from_pdf_folder_orchestrator import orchestrate_retrieve_knowledge_graph_from_pdf_folder_file
 

@@ -5,16 +5,13 @@ from nf_common_source.code.services.reporting_service.wrappers.run_and_log_funct
 from langchain.globals import set_llm_cache
 from langchain_community.cache import InMemoryCache
 
-
-
-
 rate_limiter = InMemoryRateLimiter(
     requests_per_second=5,
     check_every_n_seconds=2,
     max_bucket_size=10  # Allow for small bursts of requests
 )
 
-#@run_and_log_function()
+@run_and_log_function()
 def get_langchain_open_ai_model(
         api_key: str,
         temperature: float,

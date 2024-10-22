@@ -10,7 +10,7 @@ from services.chunking.objects.texts import Texts
 from services.graph_rag.transformers.graph_transformer_getter import get_llm_graph_transformer
 
 
-#@run_and_log_function()
+@run_and_log_function()
 def extract_graph_documents_from_text(
         text: str,
         model_name: str = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,

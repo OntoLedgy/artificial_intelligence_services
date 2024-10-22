@@ -11,7 +11,7 @@ from services.graph_rag.extractors.extract_graph_documents_from_dataset import e
 from services.data_export.networkx_digraph_from_graph_documents_getter import get_networkx_digraph_from_graph_documents
 
 
-#@run_and_log_function()
+@run_and_log_function()
 def orchestrate_retrieve_knowledge_graph_from_text_file(
         text_file_path: str,
         model_name:str =NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,
