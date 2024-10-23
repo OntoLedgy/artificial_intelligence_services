@@ -114,8 +114,7 @@ class TestHuggingFaceFineTunedModelBoro:
                 num_samples=8)
 
         self.tokenizer.save_tokenized_data_to_file(
-            output_file=self.tokenised_data_file_path
-        )
+            output_file=self.tokenised_data_file_path)
 
     def test_fine_tuning(self):
         tokenized_dataset = self.tokenizer.read_tokenized_data_from_file(

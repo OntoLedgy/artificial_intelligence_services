@@ -19,6 +19,10 @@ class Texts:
     def export_to_csv(
             self) \
             -> None:
+        if not os.path.exists(self.output_folder_path):
+            os.makedirs(
+                    self.output_folder_path)
+            
         output_file_path = \
             os.path.join(
                 self.output_folder_path,
