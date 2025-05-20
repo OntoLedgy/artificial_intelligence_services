@@ -43,15 +43,23 @@ class TestLlamaIndex:
     def test_llama_index(self):
         persist_dir = "./data/outputs/vector_storage"
         if not os.path.exists(persist_dir):
-            # load the documents and create the index
-            documents = SimpleDirectoryReader("./data/inputs/txt").load_data()
-            index = VectorStoreIndex.from_documents(documents)
-            # store it for later
-            index.storage_context.persist(persist_dir=persist_dir)
+            
+            documents = SimpleDirectoryReader(
+                    "./data/inputs/txt").load_data()
+            
+            index = VectorStoreIndex.from_documents(
+                    documents)
+                    
+            index.storage_context.persist(
+                    persist_dir=persist_dir)
+            
         else:
-            # load the existing index
-            storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
-            index = load_index_from_storage(storage_context)
+            
+            storage_context = StorageContext.from_defaults(
+                    persist_dir=persist_dir)
+            
+            index = load_index_from_storage(
+                    storage_context)
 
         # Either way we can now query the index
         query_engine = index.as_query_engine()
@@ -67,7 +75,13 @@ class TestLlamaIndex:
             for i, row in news.iterrows()
         ]
 
-        entities = Literal["PERSON", "LOCATION", "ORGANIZATION", "PRODUCT", "EVENT"]
+        entities = Literal[
+            "PERSON",
+            "LOCATION",
+            "ORGANIZATION",
+            "PRODUCT",
+            "EVENT"]
+        
         relations = Literal[
             "SUPPLIER_OF",
             "COMPETITOR",
@@ -84,7 +98,11 @@ class TestLlamaIndex:
 
         # define which entities can have which relations
         validation_schema = {
-            "Person": ["WORKS_AT", "BOARD_MEMBER", "CEO", "HAS_EVENT"],
+            "Person": [
+                "WORKS_AT",
+                "BOARD_MEMBER",
+                "CEO",
+                "HAS_EVENT"],
             "Organization": [
                 "SUPPLIER_OF",
                 "COMPETITOR",
