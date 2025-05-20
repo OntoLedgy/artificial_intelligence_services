@@ -2,8 +2,7 @@
 
 import pytest
 
-
-from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
+from services.graph_rag.orchestrators.knowledge_graph_from_tabular_dataset_orchestrator import orchestrate_retrieve_knowledge_graph_from_tabular_data_set
 
 
 class TestLangchainGraphRetriever:
@@ -15,7 +14,9 @@ class TestLangchainGraphRetriever:
             self,
             news_data):
         
-        knowledge_graph = orchestrate_graph_rag_from_csv(
+        news_data = news_data[:5]
+        
+        knowledge_graph = orchestrate_retrieve_knowledge_graph_from_tabular_data_set(
                 news_data)
         
         print (knowledge_graph)

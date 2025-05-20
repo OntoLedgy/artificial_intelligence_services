@@ -2,14 +2,12 @@ import os
 from pathlib import Path
 from networkx.readwrite.graphml import write_graphml
 
-from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import get_combined_networkx_graph_from_graph_documents
-from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
+from services.graph_rag.orchestrators.knowledge_graph_from_tabular_dataset_orchestrator import get_combined_networkx_graph_from_graph_documents
+from services.graph_rag.orchestrators.knowledge_graph_from_tabular_dataset_orchestrator import orchestrate_retrieve_knowledge_graph_from_tabular_data_set
 from source.b_code.configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
-# from source.b_code.services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import (
-#     BoroGraphRagOrchestrator,
-# )
+
 from source.b_code.services.summarisation.pdf_summariser import PDFSummarizer
 from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import (
     override_nf_open_ai_configurations_oxi,
@@ -35,7 +33,7 @@ if __name__ == "__main__":
 
     # summarizer.load_and_split_pdf()
 
-    graph_documents = orchestrate_graph_rag_from_csv(data_set=pdf_full_text)
+    graph_documents = orchestrate_retrieve_knowledge_graph_from_tabular_data_set(data_set=pdf_full_text)
 
     # graph_documents = graph_rag_orchestrator.process_text(
     #     text=pdf_full_text, llm_transformer=graph_rag_orchestrator.llm_transformer

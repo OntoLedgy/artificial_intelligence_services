@@ -6,7 +6,7 @@ from configurations.boro_configurations.nf_general_configurations import (
 from configurations.constants import PDF_FILE_EXTENSION
 from services.chunking.objects.chunked_texts import ChunkedTexts
 from services.chunking.objects.texts import Texts
-from services.text_extraction.text_from_pdf_document_extractor import extract_text_from_pdfs_in_folder
+from services.text_extraction.pdf_folder_extractor import extract_text_from_pdfs_in_folder
 
 
 def get_chunked_texts(

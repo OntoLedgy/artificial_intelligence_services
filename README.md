@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ### GraphRAG Example
 
 ```python
-from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import GraphRagOrchestrator
+from services.graph_rag.orchestrators.knowledge_graph_from_tabular_dataset_orchestrator import GraphRagOrchestrator
 import pandas as pd
 
 news = pd.read_csv(
@@ -65,7 +65,7 @@ news = pd.read_csv(
 graph_rag_orchestrator = GraphRagOrchestrator(
         news)
 
-graph_rag_orchestrator.orchestrate_graph_rag_from_csv()
+graph_rag_orchestrator.orchestrate_retrieve_knowledge_graph_from_tabular_data_set()
 
 ```
 

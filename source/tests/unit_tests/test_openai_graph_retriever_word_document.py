@@ -1,65 +1,50 @@
 import os
 import pytest
+from networkx.readwrite.graphml import write_graphml
 
-from services.graph_rag.orchestrators.knowledge_graph_rag_from_csv_orchestrator import orchestrate_graph_rag_from_csv
-from services.text_extraction.text_from_word_document_sections_extractor import (
-    extract_text_from_word_document_sections,
-)
-# from source.b_code.services.orchestrators.knowledge_graph_rag_from_csv_orchestrator import (
-#     BoroGraphRagOrchestrator,
-# )
-from source.z_sandpit.oxi.helpers.nf_open_ai_configurations_overrider_oxi import (
-    override_nf_open_ai_configurations_oxi,
-)
+from services.graph_rag.orchestrators.knowledge_graph_from_word_file_orchestrator import orchestrate_retrieve_knowledge_graph_from_word_file
+from services.graph_rag.transformers.networkx_from_graph_document_getter import get_combined_networkx_graph_from_graph_documents
+
 from source.z_sandpit.test_data.configuration.z_sandpit_test_constants import (
-    Z_SANDPIT_TEST_DATA_FOLDER_PATH,
     COMPACT_TIMESTAMP_SUFFIX,
 )
 
 
-# TODO: Test temporarily on hold
 class TestOpenAiGraphRetrieverWordDocument:
     @pytest.fixture(autouse=True)
-    def setup_method(self) -> None:
-        override_nf_open_ai_configurations_oxi()
-
+    def setup_method(
+            self,
+            inputs_folder_absolute_path,
+            outputs_folder_absolute_path) -> None:
+        
         word_document_file_name = r"STIDS 2024 - Formalizing Informational Intelligence Uncertainty - v0.038 CPa - final format - word document.docx"
 
         self.word_document_path = os.path.join(
-            Z_SANDPIT_TEST_DATA_FOLDER_PATH, "inputs", word_document_file_name
+            inputs_folder_absolute_path,
+            "word",
+            word_document_file_name
         )
 
         if not os.path.isfile(self.word_document_path):
             raise FileNotFoundError
 
         self.output_file_path = os.path.join(
-            Z_SANDPIT_TEST_DATA_FOLDER_PATH,
-            "outputs",
+            outputs_folder_absolute_path,
+            "graph_rag/bclearer",
             "STIDS2024-FormalizingInformationalIntelligenceUncertainty-v0038"
             + COMPACT_TIMESTAMP_SUFFIX
             + ".graphml",
         )
 
-    def test_graph_retriever_pdf_document_full_text(self) -> None:
-        word_document_sections = extract_text_from_word_document_sections(
-            document_file_path=self.word_document_path
-        )
-
-        graph_documents = orchestrate_graph_rag_from_csv(
-            data_set=word_document_sections
-        )
-
-        # graph_documents = \
-        #     graph_rag_orchestrator.process_text(
-        #         text=word_document_sections,
-        #         llm_transformer=graph_rag_orchestrator.llm_transformer)
-        #
-        # graph_rag_orchestrator.graph_documents = \
-        #     graph_documents
-        #
-        # networkx_graph = \
-        #     graph_rag_orchestrator.get_combined_networkx_graph_from_graph_documents()
-        #
-        # write_graphml(
-        #     networkx_graph,
-        #     self.output_file_path)
+    def test_graph_retriever_word_document_full_text(self) -> None:
+        
+        graph_documents = orchestrate_retrieve_knowledge_graph_from_word_file(
+                word_file_path=self.word_document_path
+                )
+        
+        knowledge_directed_graph = get_combined_networkx_graph_from_graph_documents(
+            graph_documents)
+        
+        write_graphml(
+            knowledge_directed_graph,
+            self.output_file_path )
