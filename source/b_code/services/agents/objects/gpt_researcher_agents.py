@@ -9,7 +9,9 @@ class GPTResearcherAgents:
 
     async def generate_report(self):
         self.researcher = GPTResearcher(
-            agent="gpt-4o", query=self.query, report_type=self.report_type
+            agent="gpt-4o",
+            query=self.query,
+            report_type=self.report_type
         )
 
         report = await self._get_report()
