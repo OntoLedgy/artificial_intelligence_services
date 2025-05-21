@@ -6,7 +6,7 @@ client = get_client(url="http://localhost:2024")
 async def main():
     async for chunk in client.runs.stream(
         None,  # Threadless run
-        "agent", # Name of assistant. Defined in langgraph.json.
+        "agent", # Name of assistant. Defined in langgraph_builder.json.
         input={
         "messages": [{
             "role": "human",
