@@ -73,27 +73,30 @@ graph_rag_orchestrator.orchestrate_retrieve_knowledge_graph_from_tabular_data_se
 
 ```python
 import os
-from services.summarisation.pdf_summariser import PDFSummarizer
+from summarisation import PDFSummarizer
 
 pdf_path = r"\Kuper and Vardi - 1993 - The logical data model.pdf"
-openai_api_key = os.getenv('OPENAI_API_KEY')
+openai_api_key = os.getenv(
+    'OPENAI_API_KEY')
 
 summarizer = PDFSummarizer(
-    pdf_path,
-    openai_api_key)
+        pdf_path,
+        openai_api_key)
 
 summarizer.load_and_split_pdf()
 summary = summarizer.summarize()
 
-print("Summary of the PDF:")
-print(summary)
+print(
+    "Summary of the PDF:")
+print(
+    summary)
 
 ```
 ### Agents Example
 
 ```python
 import asyncio
-from services.agents.objects.gpt_researcher_agents import get_research_response
+from agents.objects.gpt_researcher_agents import get_research_response
 
 research_question_file_path = "../tests/data/inputs/research_question.prompt"
 output_file_path = "../tests/data/outputs/test_report1.txt"
