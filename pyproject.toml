@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "ol-ai-services"
+version = "0.1.0"
+description = "OntoLedgy's package for artifical intelligence services based for LLM management."
+authors = ["Mesbah Khan <khanm@ontoledgy.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pypdf2 = "^3.0.1"
+agent = "^0.1.3"
+bclearer-interop-services = "^0.3.4"
+bclearer_core = "0.1.2"
+bclearer-orchestration-services = "0.2.2"
+datasets = "^3.6.0"
+docx = "^0.2.4"
+faiss-cpu = "1.11.0"
+dynaconf = "^3.2.11"
+gpt-researcher = "^0.13.3"
+kafka-python-ng= "2.2.3"
+langchain = "^0.3.25"
+langchain-community = "^0.3.24"
+langchain-core = "^0.3.61"
+langchain-experimental = "^0.3.4"
+langchain-openai = "^0.3.18"
+langchain-text-splitters = "^0.3.8"
+langgraph = "^0.4.5"
+langgraph-sdk = "^0.1.70"
+llama-index = "^0.12.37"
+matplotlib = "^3.10.3"
+networkx = "^3.4.2"
+numpy = "^2.2.6"
+openai = "^1.81.0"
+pandas = "^2.2.3"
+pdfplumber = "^0.11.6"
+pydantic = "^2.11.4"
+pypdf = "^5.5.0"
+pytest = "^8.3.5"
+seaborn = "^0.13.2"
+sentence-transformers = "^4.1.0"
+services = "^0.1.1"
+source = "^1.2.0"
+tiktoken = "^0.9.0"
+tqdm = "^4.67.1"
+transformers = "^4.52.3"
+typing-extensions = "^4.13.2"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

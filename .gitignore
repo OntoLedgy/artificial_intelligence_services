@@ -1,6 +1,6 @@
 .idea
-/source/tests/configurations/
-/source/tests/data/outputs/
+/ol_ai_services/tests/configurations/
+/ol_ai_services/tests/data/outputs/
 *.pyc
 
 __pycache__
