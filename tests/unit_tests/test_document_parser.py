@@ -1,7 +1,7 @@
 import pytest
 import os
 
-from text_extraction.document_lexical_structure_extractor import DocumentParser, print_document_structure
+from text_extraction.document_lexical_structure_extractor import DocumentParser
 
 
 class TestDocumentParsing():
@@ -21,4 +21,4 @@ class TestDocumentParsing():
         doc_structure = parser.parse(
                 r"D:\S\python\artificial_intelligence_services\tests\data\inputs\pdf\accounting\Blums_Conceptualizing-resources.pdf",
                 )
-        print_document_structure(doc_structure)
+        doc_structure.print_document_structure()

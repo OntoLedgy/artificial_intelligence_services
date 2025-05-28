@@ -31,6 +31,52 @@ class Section:
 class Document:
     def __init__(self):
         self.sections: List[Section] = []
+    
+    
+    def print_document_structure(
+            self) -> None:
+        """
+        Recursively print the hierarchy of the Document:
+        Sections (with levels) -> Paragraphs -> Sentences -> Words.
+        """
+        
+        
+        def _print_section(
+                section: Section,
+                indent: int):
+            indent_str = "    " * indent
+            print(
+                f"{indent_str}- Section (Level {section.level}): {section.title}")
+            # Print paragraphs
+            for idx_p, para in enumerate(
+                    section.paragraphs,
+                    1):
+                print(
+                    f"{indent_str}    - Paragraph {idx_p}: {para.text}")
+                # Print sentences
+                for idx_s, sent in enumerate(
+                        para.sentences,
+                        1):
+                    print(
+                        f"{indent_str}        - Sentence {idx_s}: {sent.text}")
+                    # Print words
+                    words_str = ", ".join(
+                            word.text for word in sent.words)
+                    print(
+                        f"{indent_str}            - Words: [{words_str}]")
+            # Recurse into subsections
+            for subsection in section.subsections:
+                _print_section(
+                    subsection,
+                    indent + 1)
+        
+        
+        print(
+            "Document Structure:")
+        for sec in self.sections:
+            _print_section(
+                sec,
+                0)
 
 class DocumentParser:
     def __init__(self, nlp_model: str = "en_core_web_sm"):
@@ -124,30 +170,7 @@ class DocumentParser:
         return document
 
 
-def print_document_structure(document: Document) -> None:
-    """
-    Recursively print the hierarchy of the Document:
-    Sections (with levels) -> Paragraphs -> Sentences -> Words.
-    """
-    def _print_section(section: Section, indent: int):
-        indent_str = "    " * indent
-        print(f"{indent_str}- Section (Level {section.level}): {section.title}")
-        # Print paragraphs
-        for idx_p, para in enumerate(section.paragraphs, 1):
-            print(f"{indent_str}    - Paragraph {idx_p}: {para.text}")
-            # Print sentences
-            for idx_s, sent in enumerate(para.sentences, 1):
-                print(f"{indent_str}        - Sentence {idx_s}: {sent.text}")
-                # Print words
-                words_str = ", ".join(word.text for word in sent.words)
-                print(f"{indent_str}            - Words: [{words_str}]")
-        # Recurse into subsections
-        for subsection in section.subsections:
-            _print_section(subsection, indent + 1)
 
-    print("Document Structure:")
-    for sec in document.sections:
-        _print_section(sec, 0)
 
 # Example:
 # parser = DocumentParser()
