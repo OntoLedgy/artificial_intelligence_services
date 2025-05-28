@@ -1,9 +1,8 @@
 #https://www.marktechpost.com/2024/12/03/meet-megaparse-an-open-source-ai-tool-for-parsing-various-types-of-documents-for-llm-ingestion/
-from megaparse.core.megaparse import MegaParse
+from megaparse import MegaParse
 from langchain_openai import ChatOpenAI
-from megaparse.core.parser.unstructured_parser import UnstructuredParser
-import os
 
+import os
 
 def parse_document(
         document_path,
@@ -14,12 +13,13 @@ def parse_document(
             api_key=os.getenv("OPENAI_API_KEY"))
     
     # Set up the parser
-    parser = UnstructuredParser(model=model)
-    megaparse = MegaParse(parser)
-    
+
+    document_parser = MegaParse()
+    document_parser.unstructured_parser.model = model
     # Load and process the document
-    response = megaparse.load(document_path)
+    response = document_parser.load(document_path)
+    print("document parsed, final output -----\n")
     print(response)
     
-    # Save the processed content to a markdown file
-    megaparse.save(parsed_document_path)
+    
+

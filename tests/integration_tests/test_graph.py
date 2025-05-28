@@ -1,6 +1,6 @@
 import pytest
 
-from agent import graph
+from ol_ai_services.agents.langgraph.langgraph_server.src.agent import graph
 
 pytestmark = pytest.mark.anyio
 
