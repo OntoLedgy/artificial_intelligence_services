@@ -1,6 +1,7 @@
 .idea
 /tests/configurations/
 /tests/data/outputs/
+/tests/data/logs
 *.pyc
 
 __pycache__
