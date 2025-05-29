@@ -2,6 +2,7 @@
 /tests/configurations/
 /tests/data/outputs/
 /tests/data/logs
+/environments
 *.pyc
 
 __pycache__
