@@ -9,7 +9,7 @@ from typing import Dict, \
 
 from langchain_openai import ChatOpenAI
 
-from agents.coding.prompt_templates.claude_coding import prompt
+from agents.coding.prompt_templates.coding_prompt_template import prompt
 from agents.coding.tools.python_repl_tool import PythonREPLTool
 from agents.coding.tools.results_validator import ResultValidator
 from langchain.tools import Tool
@@ -33,9 +33,7 @@ validation_tool = Tool(
 
 
 class AdvancedCodeAgent:
-    def __init__(self, llm_api_key=None):
-        if llm_api_key:
-            os.environ["ANTHROPIC_API_KEY"] = llm_api_key
+    def __init__(self):
 
         self.llm = ChatOpenAI(
             model=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O_MINI,
