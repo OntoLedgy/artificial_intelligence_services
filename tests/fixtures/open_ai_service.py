@@ -11,6 +11,9 @@ def openai_client(
         section_name="open_ai_configuration", key="api_key"
     )
 
+    # ensure ChatOpenAI picks up the key via environment
+    import os
+    os.environ['OPENAI_API_KEY'] = api_key
     openai_client = OpenAiClients(api_key=api_key)
 
     return openai_client
