@@ -1,5 +1,7 @@
 from typing import Dict, Any, List
+from langchain.tools import Tool
 
+from agents.coding.tools.python_repl_tool import python_repl
 from ol_ai_services.agents.coding.tools.python_repl_tool import PythonREPLTool
 
 class ResultValidator:
@@ -178,3 +180,10 @@ print(f"Success rate: {{validation_results['success_rate']:.1%}}")
 test_results
 """
         return self.python_repl.run(validation_code)
+
+validator = ResultValidator(python_repl)
+validation_tool = Tool(
+    name="result_validator",
+    description="Validate the results of previous computations with specific test cases and expected properties.",
+    func=lambda query: validator.validate_mathematical_result(query, {})
+)

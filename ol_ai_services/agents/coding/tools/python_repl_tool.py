@@ -4,7 +4,7 @@ import re
 import json
 import textwrap
 from typing import Dict, Any, List
-
+from langchain.tools import Tool
 
 class PythonREPLTool:
     def __init__(self):
@@ -88,3 +88,13 @@ class PythonREPLTool:
 
     def clear_history(self):
         self.execution_history = []
+
+
+python_repl = PythonREPLTool()
+
+
+python_tool = Tool(
+    name="python_repl",
+    description="Execute Python code and return both the code and its output. Maintains state between executions.",
+    func=python_repl.run
+)
