@@ -1,7 +1,7 @@
 import pytest
 
-from llms.clients.langchain_open_ai_clients import LangChainOpenAiClients
-from llms.clients.open_ai_clients import OpenAiClients
+from ol_ai_services.llms.clients.langchain_open_ai_clients import LangChainOpenAiClients
+from ol_ai_services.llms.clients.open_ai_clients import OpenAiClients
 
 
 @pytest.fixture(autouse=True)

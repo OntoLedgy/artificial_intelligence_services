@@ -1,8 +1,11 @@
 import re
 
 from langchain_core.messages import AIMessage
+from llama_index.program.openai import OpenAIPydanticProgram
 
+from graph_rag.domain_models.entities import Entities
 from graph_rag.models.knolwedge_graph_states import KGState
+from prompts.graph_rag.general_graph_rag_prompts import prompt_template_entities
 
 
 def entity_extractor(
@@ -33,3 +36,18 @@ def entity_extractor(
     
     return state
 
+
+
+# Entity extraction helper function for testing
+def extract_entities(llm, query_str):
+    try:
+        entity_extraction = OpenAIPydanticProgram.from_defaults(
+            output_cls=Entities,
+            prompt_template_str=prompt_template_entities,
+            llm=llm
+        )
+        extracted_entities = entity_extraction(query_str=query_str)
+        return extracted_entities.entities if hasattr(extracted_entities, 'entities') else []
+    except Exception as e:
+        print(f"Error extracting entities: {str(e)}")
+        return []

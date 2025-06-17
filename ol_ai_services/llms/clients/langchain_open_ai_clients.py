@@ -1,4 +1,4 @@
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,

@@ -3,7 +3,7 @@ import openai
 from configurations.boro_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
-from llms.llm_clients import AbstractOpenAiClient
+from ol_ai_services.llms.llm_clients import AbstractOpenAiClient
 
 
 class OpenAiClients(AbstractOpenAiClient):

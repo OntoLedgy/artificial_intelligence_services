@@ -49,3 +49,4 @@ ipython
 python-docx~=1.1.2
 spacy~=3.8.7
 unstructured~=0.17.2
+unstructured[pdf]
