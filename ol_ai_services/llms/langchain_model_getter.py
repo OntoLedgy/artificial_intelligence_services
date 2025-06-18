@@ -7,7 +7,8 @@ from langchain_community.cache import InMemoryCache
 from langchain_openai import ChatOpenAI
 from langchain_community.llms import Ollama
 
-from .client_factory import LlmClientFactory, LlmClientType
+from model_management.model_types import ModelTypes
+from ol_ai_services.llms.client_factory import LlmClientFactory, LlmClientType
 from configurations.ol_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.ol_configurations.nf_ollama_configurations import NfOllamaConfigurations
 
@@ -29,6 +30,8 @@ def get_langchain_llm_model(
         model_name: str = None,
         temperature: float = None,
         base_url: str = None) -> BaseLLM:
+    # Debug print for troubleshooting
+    print(f"DEBUG: get_langchain_llm_model called with client_type={client_type}, model_name={model_name}")
     """
     Get a LangChain LLM model of the specified type with the given parameters.
     
@@ -66,33 +69,44 @@ def get_langchain_llm_model(
             )
             return langchain_model
             
-    elif client_type in [LlmClientType.OLLAMA, LlmClientType.LANGCHAIN_OLLAMA]:
+    # Compare by name instead of by object equality since we might have different versions of the enum
+    print(f"DEBUG: client_type name: {client_type.name if hasattr(client_type, 'name') else str(client_type)}")
+    
+    # Check if the client type name is OLLAMA or LANGCHAIN_OLLAMA
+    if (hasattr(client_type, 'name') and client_type.name in ['OLLAMA', 'LANGCHAIN_OLLAMA']) or \
+       str(client_type) in ['LlmClientType.OLLAMA', 'LlmClientType.LANGCHAIN_OLLAMA']:
         # For Ollama client types
-        if model_name:
-            kwargs['model'] = model_name
-        if temperature is not None:
-            kwargs['temperature'] = temperature
-        if base_url:
-            kwargs['base_url'] = base_url
+        print(f"DEBUG: Matched Ollama client type: {client_type}")
+        if not model_name:
+            model_name = NfOllamaConfigurations.OLLAMA_MODEL
+        if temperature is None:
+            temperature = NfOllamaConfigurations.OLLAMA_TEMPERATURE
+        if not base_url:
+            base_url = NfOllamaConfigurations.OLLAMA_BASE_URL
+        
+        # Set parameters for Ollama
+        kwargs['model'] = model_name
+        kwargs['temperature'] = temperature
+        kwargs['base_url'] = base_url
+           
+        # Both OLLAMA and LANGCHAIN_OLLAMA types use the same Langchain Ollama client
+        # Create the Ollama model directly
+        print(f"DEBUG: Creating Ollama model with model={model_name}, temperature={temperature}, base_url={base_url}")
+        langchain_model = Ollama(
+            base_url=base_url,
+            model=model_name,
+            temperature=temperature,
+            num_ctx=4096,
+            top_k=NfOllamaConfigurations.OLLAMA_TOP_K,
+            top_p=NfOllamaConfigurations.OLLAMA_TOP_P,
+            repeat_penalty=NfOllamaConfigurations.OLLAMA_REPEAT_PENALTY,
+            num_predict=NfOllamaConfigurations.OLLAMA_MAX_TOKENS
+        )
+        return langchain_model
             
-        # Get the LangChain Ollama client
-        if client_type == LlmClientType.LANGCHAIN_OLLAMA:
-            client = LlmClientFactory.create_client(LlmClientType.LANGCHAIN_OLLAMA, **kwargs)
-            
-            # Create an Ollama model
-            langchain_model = Ollama(
-                base_url=client.base_url,
-                model=client.model,
-                temperature=client.temperature,
-                num_ctx=4096,
-                top_k=NfOllamaConfigurations.OLLAMA_TOP_K,
-                top_p=NfOllamaConfigurations.OLLAMA_TOP_P,
-                repeat_penalty=NfOllamaConfigurations.OLLAMA_REPEAT_PENALTY,
-                num_predict=NfOllamaConfigurations.OLLAMA_MAX_TOKENS
-            )
-            return langchain_model
-            
+    print(f"DEBUG: No client type matched! client_type={client_type}")
     raise ValueError(f"Unsupported client type for LangChain model: {client_type}")
+    
 
 
 # For backward compatibility
@@ -100,7 +114,7 @@ def get_langchain_llm_model(
 def get_langchain_open_ai_model(
         api_key: str = NfOpenAiConfigurations.OPEN_AI_API_KEY,
         temperature: float = NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
-        model_name: str = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O) -> BaseChatModel:
+        model_name: str = ModelTypes.OPEN_AI_MODEL_NAME_GPT_4O) -> BaseChatModel:
     """
     Get a LangChain OpenAI Chat model with the given parameters.
     This function is maintained for backward compatibility.

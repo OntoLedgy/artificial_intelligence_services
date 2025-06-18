@@ -19,6 +19,29 @@ def orchestrate_retrieve_knowledge_graph_from_text_file(
         temperature: float = NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
         client_type: LlmClientType = LlmClientType.LANGCHAIN_OPENAI) \
         -> DiGraph:
+    """
+    Orchestrate the process of extracting a knowledge graph from a text file.
+    
+    This function coordinates the end-to-end process of converting a text file into a knowledge graph:
+    1. Extracts text from the provided file (currently supports PDF).
+    2. Creates a graph transformer using the specified LLM.
+    3. Uses the transformer to extract graph documents from the text.
+    4. Converts the graph documents into a NetworkX directed graph.
+    
+    Args:
+        text_file_path: Path to the text file (currently supports PDF format)
+        model_name: The name of the language model to use (default: GPT-3.5-Turbo)
+        temperature: The temperature parameter for the LLM (default: Graph RAG specific temperature)
+        client_type: The type of LLM client to use, allowing selection between different providers 
+                    such as OpenAI or Ollama (default: LangChain OpenAI)
+    
+    Returns:
+        A NetworkX DiGraph representing the knowledge graph extracted from the text file
+        
+    Note:
+        Currently only PDF text extraction is fully implemented.
+    """
+    
     
     # TODO: maybe use the Texts class created in the huggingface restructuring branch? - DONE
     texts = \

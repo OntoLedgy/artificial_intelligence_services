@@ -1,7 +1,7 @@
 from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_function_wrapper_latest import (
     run_and_log_function,
 )
-from configurations.boro_configurations.nf_general_configurations import (
+from configurations.ol_configurations.nf_general_configurations import (
     NfGeneralConfigurations,
 )
 from graph_rag.extractors.extract_graph_documents_from_dataset import extract_knowledge_graph_from_dataset

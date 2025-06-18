@@ -5,7 +5,7 @@ from langchain.schema import StrOutputParser
 from configurations.ol_configurations.nf_ollama_configurations import (
     NfOllamaConfigurations,
 )
-from ..clients.ollama_clients import OllamaClient
+from ol_ai_services.llms.clients.ollama_clients import OllamaClient
 
 
 class LangChainOllamaClients:

@@ -15,9 +15,12 @@ class LlmClientType(Enum):
     """
     Enum defining the types of LLM clients available.
     """
+    #Native clients
     OPENAI = auto()
-    LANGCHAIN_OPENAI = auto()
     OLLAMA = auto()
+    
+    #Langchain clients
+    LANGCHAIN_OPENAI = auto()
     LANGCHAIN_OLLAMA = auto()
 
 

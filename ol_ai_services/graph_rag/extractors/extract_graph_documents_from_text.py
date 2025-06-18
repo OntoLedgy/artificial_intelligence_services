@@ -20,6 +20,30 @@ def extract_graph_documents_from_text(
         temperature: float = NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
         client_type: LlmClientType = LlmClientType.LANGCHAIN_OPENAI) \
         -> List[GraphDocument]:
+    """
+    Extract graph documents from a text by chunking it and processing each chunk with an LLM-based graph transformer.
+    
+    This function takes a text input, chunks it into manageable pieces, and then uses an LLM to extract
+    entities and relationships, converting them into GraphDocument objects.
+    
+    Args:
+        text: The source text to extract graph documents from
+        model_name: The name of the language model to use for extraction (default: GPT-3.5-Turbo)
+        chunk_size: The size of text chunks to process separately (default: from NfGeneralConfigurations)
+        temperature: The temperature parameter for the LLM, controlling randomness in generation 
+                    (default: Graph RAG specific temperature from NfOpenAiConfigurations)
+        client_type: The type of LLM client to use, allowing selection between different providers like 
+                    OpenAI and Ollama (default: LangChain OpenAI)
+    
+    Returns:
+        A list of GraphDocument objects representing the entities and relationships extracted from the text
+    
+    Example:
+        >>> text = "Alice works for Acme Corp. Bob is the CEO of Acme Corp."
+        >>> graph_docs = extract_graph_documents_from_text(text)
+        >>> # This would extract entities like "Alice", "Bob", "Acme Corp" and relationships like "works for", "CEO of".
+    """
+    
     
     llm_graph_transformer : LLMGraphTransformer= \
         get_llm_graph_transformer(

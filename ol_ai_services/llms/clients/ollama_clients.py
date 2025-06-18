@@ -3,7 +3,7 @@ import json
 import logging
 import time
 from typing import Dict, Any, Optional, List, Union, Callable
-from ...llms.llm_clients import AbstractLlmClient
+from ol_ai_services.llms.llm_clients import AbstractLlmClient
 from configurations.ol_configurations.nf_ollama_configurations import NfOllamaConfigurations
 
 
