@@ -19,7 +19,6 @@ def open_ai_configuration_file_absolute_path(configurations_folder_absolute_path
 
 @pytest.fixture(scope="session")
 def open_ai_configuration(open_ai_configuration_file_absolute_path):
-
     
     configuration_manager = Configurations(
             open_ai_configuration_file_absolute_path)
