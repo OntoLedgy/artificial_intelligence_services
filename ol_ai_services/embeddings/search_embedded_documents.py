@@ -11,7 +11,7 @@ from openai import RateLimitError
 from configurations.boro_configurations.nf_general_configurations import (
     NfGeneralConfigurations,
 )
-from configurations.boro_configurations.nf_open_ai_configurations import (
+from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 from configurations.constants import UTF_8_ENCODING

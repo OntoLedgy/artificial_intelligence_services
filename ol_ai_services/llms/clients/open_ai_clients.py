@@ -1,8 +1,9 @@
 import openai
 
-from configurations.boro_configurations.nf_open_ai_configurations import (
+from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
+from model_management.model_types import ModelTypes
 from ol_ai_services.llms.llm_clients import AbstractOpenAiClient
 
 
@@ -10,7 +11,7 @@ class OpenAiClients(AbstractOpenAiClient):
     def __init__(
         self,
         api_key,
-        model=NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
+        model=ModelTypes.OPEN_AI_MODEL_NAME_GPT_4O,
         temperature=NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
     ):
         super().__init__(

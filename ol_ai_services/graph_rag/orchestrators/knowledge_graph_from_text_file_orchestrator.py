@@ -3,7 +3,7 @@ import os.path
 from networkx.classes import DiGraph
 
 from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_function_wrapper_latest import run_and_log_function
-from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+from configurations.ol_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.constants import PDF_FILE_EXTENSION
 from graph_rag.structure_transformers.graph_transformer_getter import get_llm_graph_transformer
 from text_extraction.pdf_document_extractor import extract_text_from_pdf

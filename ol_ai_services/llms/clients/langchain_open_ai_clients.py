@@ -1,8 +1,9 @@
 from langchain_openai import ChatOpenAI
 
-from configurations.boro_configurations.nf_open_ai_configurations import (
+from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
     )
+from model_management.model_types import ModelTypes
 
 
 class LangChainOpenAiClients:
@@ -10,7 +11,7 @@ class LangChainOpenAiClients:
     def __init__(
             self,
             api_key,
-            model = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_4O,
+            model = ModelTypes.OPEN_AI_MODEL_NAME_GPT_4O,
             temperature = NfOpenAiConfigurations.OPEN_AI_TEMPERATURE,
             ):
         self.api_key = api_key

@@ -6,7 +6,7 @@ set_llm_cache(
         InMemoryCache())
 from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_function_wrapper_latest import run_and_log_function
 
-from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+from configurations.ol_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from llms.chat_open_ai_session_getter import get_langchain_open_ai_model
 
 

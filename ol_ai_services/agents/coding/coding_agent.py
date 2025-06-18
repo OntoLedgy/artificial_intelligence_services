@@ -4,7 +4,7 @@ from agents.coding.tools.python_repl_tool import python_repl
 from agents.coding.tools.python_repl_tool import python_tool
 from agents.coding.tools.results_validator import validation_tool
 from agents.coding.tools.results_validator import validator
-from configurations.boro_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
+from configurations.ol_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 
 from langgraph.prebuilt import create_react_agent
 from langchain.schema import HumanMessage

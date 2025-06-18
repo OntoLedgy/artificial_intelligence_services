@@ -1,6 +1,6 @@
 import pytest
 import os
-from llms.model_types import ModelTypes
+from model_management.model_types import ModelTypes
 from text_extraction.pdf_folder_extractor import extract_text_from_pdfs_in_folder
 from tokenisation.tokeniser_factories import TokeniserFactory
 from tokenisation.tokeniser_types import TokeniserTypes

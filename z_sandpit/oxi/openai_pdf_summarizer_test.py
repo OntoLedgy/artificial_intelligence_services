@@ -1,4 +1,4 @@
-from configurations.boro_configurations.nf_open_ai_configurations import (
+from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 from source.b_code.services.summarisation.pdf_summariser import PDFSummarizer

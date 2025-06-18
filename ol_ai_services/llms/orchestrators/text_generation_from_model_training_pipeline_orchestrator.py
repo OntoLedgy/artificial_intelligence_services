@@ -1,6 +1,6 @@
 from transformers import AutoModelForCausalLM
 from fine_tuning.model_fine_tuner import fine_tune_model
-from configurations.boro_configurations.nf_open_ai_configurations import (
+from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 from llms.text_generators import generate_text_using_model

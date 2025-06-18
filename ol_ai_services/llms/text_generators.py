@@ -1,16 +1,19 @@
+from transformers import pipeline
+
 from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_function_wrapper_latest import (
     run_and_log_function,
 )
-from transformers import pipeline
 
-from configurations.boro_configurations.nf_general_configurations import (
+from configurations.ol_configurations.nf_general_configurations import (
     NfGeneralConfigurations,
 )
 
 
 @run_and_log_function()
 def generate_text_using_pipeline(
-    model, tokenizer, input_text="In this study, we explore the effects of"
+    model,
+    tokenizer,
+    input_text="what is your name?"
 ) -> str:
     # Create a text generation pipeline with the fine-tuned model
     generator = pipeline(

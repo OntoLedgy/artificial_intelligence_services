@@ -7,7 +7,7 @@ from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_func
 from transformers import AutoTokenizer
 import tiktoken
 
-from configurations.boro_configurations.nf_open_ai_configurations import (
+from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
 
