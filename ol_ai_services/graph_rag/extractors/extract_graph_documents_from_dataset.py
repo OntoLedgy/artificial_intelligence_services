@@ -3,7 +3,7 @@ from tqdm import tqdm
 from langchain.globals import get_llm_cache
 from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_function_wrapper_latest import run_and_log_function
 
-from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
+from configurations.ol_configurations.nf_general_configurations import NfGeneralConfigurations
 from graph_rag.extractors.extract_graph_documents_from_text import extract_graph_documents_from_text
 
 

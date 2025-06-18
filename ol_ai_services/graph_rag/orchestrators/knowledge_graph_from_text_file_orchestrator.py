@@ -6,6 +6,7 @@ from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_func
 from configurations.ol_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from configurations.constants import PDF_FILE_EXTENSION
 from graph_rag.structure_transformers.graph_transformer_getter import get_llm_graph_transformer
+from ol_ai_services.llms.client_factory import LlmClientType
 from text_extraction.pdf_document_extractor import extract_text_from_pdf
 from graph_rag.extractors.extract_graph_documents_from_dataset import extract_graph_documents_from_text
 from data_export.networkx_digraph_from_graph_documents_getter import get_networkx_digraph_from_graph_documents
@@ -15,7 +16,8 @@ from data_export.networkx_digraph_from_graph_documents_getter import get_network
 def orchestrate_retrieve_knowledge_graph_from_text_file(
         text_file_path: str,
         model_name:str =NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,
-        temperature: float = NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE) \
+        temperature: float = NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
+        client_type: LlmClientType = LlmClientType.LANGCHAIN_OPENAI) \
         -> DiGraph:
     
     # TODO: maybe use the Texts class created in the huggingface restructuring branch? - DONE
@@ -26,12 +28,15 @@ def orchestrate_retrieve_knowledge_graph_from_text_file(
     llm_graph_transformer = \
         get_llm_graph_transformer(
             model_name=model_name,
-            temperature=temperature)
+            temperature=temperature,
+            client_type=client_type)
     
     graph_documents = \
         extract_graph_documents_from_text(
             text=texts,
-            #llm_graph_transformer=llm_graph_transformer
+            model_name=model_name,
+            temperature=temperature,
+            client_type=client_type
                 )
     
     graph_document_digraph = \

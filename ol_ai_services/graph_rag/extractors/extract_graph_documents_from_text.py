@@ -3,25 +3,29 @@ from langchain_community.graphs.graph_document import GraphDocument
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from bclearer_orchestration_services.reporting_service.wrappers.run_and_log_function_wrapper_latest import run_and_log_function
 from langchain_core.documents import Document
-from configurations.boro_configurations.nf_general_configurations import NfGeneralConfigurations
+from configurations.ol_configurations.nf_general_configurations import NfGeneralConfigurations
 from configurations.ol_configurations.nf_open_ai_configurations import NfOpenAiConfigurations
 from chunking.objects.chunked_texts import ChunkedTexts
 from chunking.objects.texts import Texts
 from graph_rag.structure_transformers.graph_transformer_getter import get_llm_graph_transformer
+from model_management.model_types import ModelTypes
+from ol_ai_services.llms.client_factory import LlmClientType
 
 
 @run_and_log_function()
 def extract_graph_documents_from_text(
         text: str,
-        model_name: str = NfOpenAiConfigurations.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,
+        model_name: str = ModelTypes.OPEN_AI_MODEL_NAME_GPT_3_5_TURBO,
         chunk_size: int = NfGeneralConfigurations.DEFAULT_DATA_CHUNK_SIZE_FOR_TRAINING,
-        temperature: float = NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE) \
+        temperature: float = NfOpenAiConfigurations.DEFAULT_GRAPH_RAG_ORCHESTRATOR_OPEN_AI_TEMPERATURE,
+        client_type: LlmClientType = LlmClientType.LANGCHAIN_OPENAI) \
         -> List[GraphDocument]:
     
     llm_graph_transformer : LLMGraphTransformer= \
         get_llm_graph_transformer(
                 model_name=model_name,
-                temperature=temperature)
+                temperature=temperature,
+                client_type=client_type)
     
     texts = Texts(
             source_texts=[text])

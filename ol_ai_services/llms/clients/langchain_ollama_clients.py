@@ -5,6 +5,7 @@ from langchain.schema import StrOutputParser
 from configurations.ol_configurations.nf_ollama_configurations import (
     NfOllamaConfigurations,
 )
+from ..clients.ollama_clients import OllamaClient
 
 
 class LangChainOllamaClients:
@@ -17,7 +18,8 @@ class LangChainOllamaClients:
             temperature=NfOllamaConfigurations.OLLAMA_TEMPERATURE,
             base_url=NfOllamaConfigurations.OLLAMA_BASE_URL,
             ):
-        self.model = model
+        # Use the OllamaClient's normalize method to handle the model name
+        self.model = OllamaClient._normalize_model_name(None, model)
         self.temperature = temperature
         self.base_url = base_url
         
@@ -69,7 +71,10 @@ class LangChainOllamaClients:
         Args:
             model: The model name to use with Ollama
         """
-        self.model = model
+        # Normalize the model name
+        normalized_model = OllamaClient._normalize_model_name(None, model)
+        self.model = normalized_model
+        
         # Recreate the client with the updated model
         self.client = Ollama(
             base_url=self.base_url,

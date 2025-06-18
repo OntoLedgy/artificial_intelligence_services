@@ -16,9 +16,26 @@ class OllamaClient(AbstractLlmClient):
             model: str = NfOllamaConfigurations.OLLAMA_MODEL,
             temperature: float = NfOllamaConfigurations.OLLAMA_TEMPERATURE,
             base_url: str = NfOllamaConfigurations.OLLAMA_BASE_URL):
-        super().__init__(model, temperature)
+        # Normalize model name by adding ":latest" if no tag is specified
+        normalized_model = self._normalize_model_name(model)
+        
+        super().__init__(normalized_model, temperature)
         self.base_url = base_url
         self.logger = logging.getLogger(__name__)
+    
+    def _normalize_model_name(self, model_name: str) -> str:
+        """
+        Normalize Ollama model name by adding ":latest" if no tag is specified.
+        
+        Args:
+            model_name: Original model name
+            
+        Returns:
+            Normalized model name with tag
+        """
+        if ":" not in model_name:
+            return f"{model_name}:latest"
+        return model_name
 
     def is_model_available(self, model_name: str) -> bool:
         """
@@ -30,10 +47,27 @@ class OllamaClient(AbstractLlmClient):
         Returns:
             True if the model is available, False otherwise
         """
+        # Normalize the model name
+        normalized_name = self._normalize_model_name(model_name)
+        
+        # Get available models
         available_models = self.get_available_models()
-        return model_name in available_models
+        
+        # Check exact match
+        if normalized_name in available_models:
+            return True
+            
+        # Check for model without version tag (some Ollama versions list models differently)
+        base_name = normalized_name.split(":")[0]
+        for model in available_models:
+            if model == base_name or model.startswith(f"{base_name}:"):
+                return True
+                
+        return False
     
     def download_model(self, model_name: str, progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> bool:
+        # Normalize the model name
+        model_name = self._normalize_model_name(model_name)
         """
         Download a model to the Ollama server if it's not already available.
         
@@ -184,11 +218,14 @@ class OllamaClient(AbstractLlmClient):
             model: The model name to use with Ollama
             auto_download: If True, automatically download the model if not available
         """
-        if model != self.model:
-            if auto_download and not self.is_model_available(model):
-                self.logger.info(f"Model {model} not found, downloading...")
-                self.download_model(model)
-            self.model = model
+        # Normalize the model name
+        normalized_model = self._normalize_model_name(model)
+        
+        if normalized_model != self.model:
+            if auto_download and not self.is_model_available(normalized_model):
+                self.logger.info(f"Model {normalized_model} not found, downloading...")
+                self.download_model(normalized_model)
+            self.model = normalized_model
     
     def set_temperature(self, temperature):
         """
