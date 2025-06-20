@@ -3,7 +3,7 @@ import openai
 from configurations.ol_configurations.nf_open_ai_configurations import (
     NfOpenAiConfigurations,
 )
-from model_management.model_types import ModelTypes
+from ol_ai_services.model_management.model_types import ModelTypes
 from ol_ai_services.llms.llm_clients import AbstractOpenAiClient
 
 
