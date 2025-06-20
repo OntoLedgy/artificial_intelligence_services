@@ -1,10 +1,10 @@
 import os
 import pytest
-import asyncio
+import json
 from unittest.mock import patch, MagicMock
 
 from ol_ai_services.llms.clients.open_ai_clients import OpenAiClients
-from ol_ai_services.tools.database.postgresql_tool import (
+from ol_ai_services.tools.database.postgresql_tool_bclearer import (
     PostgreSQLQueryInput,
     PostgreSQLSchemaInspectionInput
 )

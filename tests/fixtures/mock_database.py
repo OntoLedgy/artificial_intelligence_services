@@ -21,7 +21,8 @@ class SQLitePostgreSQLAdapter:
     def __init__(self):
         # Create a temporary SQLite database
         self.db_file = tempfile.NamedTemporaryFile(delete=False).name
-        self.conn = sqlite3.connect(self.db_file)
+        # Use check_same_thread=False to allow SQLite to be used in multiple threads
+        self.conn = sqlite3.connect(self.db_file, check_same_thread=False)
         self.setup_test_database()
         
     def setup_test_database(self):
@@ -69,12 +70,59 @@ class SQLitePostgreSQLAdapter:
             
             self.conn.commit()
     
+    def fetch_results(self, query, params=None):
+        """Execute a query and return a pandas DataFrame of results."""
+        import pandas as pd
+        import logging
+        
+        try:
+            # Convert params if needed
+            if params and not isinstance(params, (list, tuple)):
+                params = [params]
+                
+            # Execute the query and return results as a DataFrame
+            return pd.read_sql_query(query, self.conn, params=params)
+        except Exception as e:
+            logging.error(f"Error in fetch_results: {str(e)}")
+            raise
+    
+    def execute_query(self, query, params=None):
+        """Execute a non-SELECT query."""
+        import logging
+        
+        try:
+            # Convert params if needed
+            if params and not isinstance(params, (list, tuple)):
+                params = [params]
+                
+            # Execute the query
+            cursor = self.conn.cursor()
+            cursor.execute(query, params or [])
+            self.conn.commit()
+            cursor.close()
+            return True
+        except Exception as e:
+            logging.error(f"Error in execute_query: {str(e)}")
+            raise
+        
+    def connect(self):
+        """Connect to the database - no-op for SQLite as we're already connected."""
+        pass
+        
+    def disconnect(self):
+        """Disconnect from the database - no-op for SQLite in testing context."""
+        pass
+    
     def close(self):
         """Close the database connection and remove the temporary file."""
-        if self.conn:
-            self.conn.close()
-        if os.path.exists(self.db_file):
-            os.unlink(self.db_file)
+        try:
+            if self.conn:
+                self.conn.close()
+            if os.path.exists(self.db_file):
+                os.unlink(self.db_file)
+        except Exception as e:
+            import logging
+            logging.error(f"Error closing SQLite adapter: {str(e)}")
     
     def get_connection_config(self) -> Dict[str, Any]:
         """Return a connection configuration that points to this SQLite database."""
@@ -101,9 +149,27 @@ def integration_postgresql_tool(monkeypatch):
     # This will be set by tests
     sqlite_adapter = None
     
+    # Return a mock facade object that mimics the PostgresqlFacade
+    class MockFacade:
+        def __init__(self, adapter):
+            self.adapter = adapter
+            self.conn = adapter.conn
+            
+        def fetch_results(self, query, params=None):
+            return self.adapter.fetch_results(query, params)
+            
+        def execute_query(self, query, params=None):
+            return self.adapter.execute_query(query, params)
+            
+        def connect(self):
+            self.adapter.connect()
+            
+        def disconnect(self):
+            self.adapter.disconnect()
+    
     # Mock the connection to use SQLite instead
     async def mock_connect(self):
-        self._facade = sqlite_adapter
+        self._facade = MockFacade(sqlite_adapter)
     
     async def mock_disconnect(self):
         pass
@@ -135,36 +201,57 @@ def integration_schema_tool(monkeypatch):
     async def mock_run(self, input_data):
         # For table listing
         if input_data.table_name is None:
-            cursor = self.postgresql_tool._facade.conn.cursor()
-            cursor.execute(
-                "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
-            )
-            tables = [row[0] for row in cursor.fetchall()]
-            
-            return PostgreSQLSchemaInspectionOutput(
-                success=True,
-                tables=tables,
-                columns=None
-            )
+            try:
+                # Use the adapter's connection through the facade
+                cursor = self.postgresql_tool._facade.conn.cursor()
+                cursor.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
+                )
+                tables = [row[0] for row in cursor.fetchall()]
+                
+                return PostgreSQLSchemaInspectionOutput(
+                    success=True,
+                    tables=tables,
+                    columns=None
+                )
+            except Exception as e:
+                import logging
+                logging.error(f"Error in schema inspection: {str(e)}")
+                return PostgreSQLSchemaInspectionOutput(
+                    success=False,
+                    error_message=f"Schema inspection error: {str(e)}",
+                    tables=None,
+                    columns=None
+                )
         # For column inspection
         else:
-            cursor = self.postgresql_tool._facade.conn.cursor()
-            cursor.execute(f"PRAGMA table_info({input_data.table_name})")
-            columns = []
-            for row in cursor.fetchall():
-                columns.append({
-                    "column_name": row[1],
-                    "data_type": row[2],
-                    "character_maximum_length": None,
-                    "column_default": row[4] if row[4] != "NULL" else None,
-                    "is_nullable": "NO" if row[3] else "YES"
-                })
-            
-            return PostgreSQLSchemaInspectionOutput(
-                success=True,
-                tables=None,
-                columns=columns
-            )
+            try:
+                cursor = self.postgresql_tool._facade.conn.cursor()
+                cursor.execute(f"PRAGMA table_info({input_data.table_name})")
+                columns = []
+                for row in cursor.fetchall():
+                    columns.append({
+                        "column_name": row[1],
+                        "data_type": row[2],
+                        "character_maximum_length": None,
+                        "column_default": row[4] if row[4] != "NULL" else None,
+                        "is_nullable": "NO" if row[3] else "YES"
+                    })
+                
+                return PostgreSQLSchemaInspectionOutput(
+                    success=True,
+                    tables=None,
+                    columns=columns
+                )
+            except Exception as e:
+                import logging
+                logging.error(f"Error in column inspection: {str(e)}")
+                return PostgreSQLSchemaInspectionOutput(
+                    success=False,
+                    error_message=f"Column inspection error: {str(e)}",
+                    tables=None,
+                    columns=None
+                )
     
     # Return a factory function that accepts the tool
     def _create_tool(postgresql_tool):
