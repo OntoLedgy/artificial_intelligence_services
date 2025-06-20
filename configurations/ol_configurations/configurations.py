@@ -41,7 +41,7 @@ class Configurations:
                     )  # Store the validated config
             
             print(
-                    f"{model_class.__name__} Configuration Validated and Loaded: {model_instance}"
+                    f"{model_class.__name__} Configuration Validated and Loaded"
                     )
         
         except ValidationError as e:
